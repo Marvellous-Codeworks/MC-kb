@@ -99,8 +99,6 @@ If **Enable context menu** is on in [Settings → General](./settings#enable-con
 | **Toggle pause suspension** | Equivalent to the popup's Pause/Unpause action, available as a direct one-click toggle |
 | **Suspend all tabs in this group** | *Added in 9.0.3.* Suspends every tab sharing the right-clicked tab's group. Available both in the page context menu and by right-clicking a tab in the tab strip; no-op on an ungrouped tab |
 | **Unsuspend all tabs in this group** | *Added in 9.0.3.* Unsuspends every tab sharing the right-clicked tab's group. Same availability and no-op behavior as above |
-| **Suspend all tabs not in a group** | *Added in 9.0.3.* Suspends every tab in the current window that isn't in any tab group. Available both in the page context menu and by right-clicking a tab in the tab strip |
-| **Unsuspend all tabs not in a group** | *Added in 9.0.3.* Unsuspends every tab in the current window that isn't in any tab group. Same availability as above |
 
 ![Right-click context menu on a tab, showing the TMS submenu](./img/quick-actions-popup/05-context-menu.webp)
 
