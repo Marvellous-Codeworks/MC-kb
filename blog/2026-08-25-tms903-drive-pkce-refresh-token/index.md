@@ -55,6 +55,6 @@ This closes the gap the original "known, accepted limitation" note left open, cl
 
 If you're on Chrome, none of this affects you, `chrome.identity.getAuthToken()` already works there and this fallback never activates. If you're on Brave or Vivaldi and use Drive backup, this closes the gap that made 9.0.2's fix incomplete: one connection, one long-lived token, no more silent disconnects a couple of backups in.
 
-:::warning
-This work is in progress at the time of writing, tracked in [pull request #440](https://github.com/gioxx/MarvellousSuspender/pull/440) (the PKCE fallback itself) and [pull request #476](https://github.com/gioxx/MarvellousSuspender/pull/476) (moving the token exchange through `tms-oauth-proxy`) on GitHub. Both ship in TMS 9.0.3. Do not side-load a development build yourself, it shares the same extension ID as the Chrome Web Store version and would overwrite your production install. Wait for the official release.
+:::info
+Both pieces of this work are merged ([pull request #440](https://github.com/gioxx/MarvellousSuspender/pull/440) for the PKCE fallback, [pull request #476](https://github.com/gioxx/MarvellousSuspender/pull/476) for the `tms-oauth-proxy` move) and included in **TMS 9.0.3**, submitted for Chrome Web Store review. See the [9.0.3 release post](/blog/tms-release-9-0-3) for the full picture and current status.
 :::

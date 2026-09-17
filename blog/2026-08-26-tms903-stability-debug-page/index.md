@@ -117,6 +117,6 @@ None of this changes what TMS does for a normal user with `captureLogs` off, whi
 
 If you are running a build with `captureLogs` on to help track down an issue and still see something behaving oddly, please [open an issue on GitHub](https://github.com/gioxx/MarvellousSuspender/issues) with a downloaded debug report attached. That is exactly the workflow that made this whole investigation possible in the first place.
 
-:::warning
-The first round of fixes described above is merged (see [#472](https://github.com/gioxx/MarvellousSuspender/pull/472) on GitHub). The deeper investigation and the actual fix for the crash, the IndexedDB migration and everything found while hardening it, is tracked in [#473](https://github.com/gioxx/MarvellousSuspender/pull/473), still in progress at the time of writing. Neither has shipped yet, both land in TMS 9.0.3. Do not side-load a development build yourself, it shares the same extension ID as the Chrome Web Store version and would overwrite your production install. Wait for the official release.
+:::info
+Both rounds of fixes described above are merged ([#472](https://github.com/gioxx/MarvellousSuspender/pull/472) and [#473](https://github.com/gioxx/MarvellousSuspender/pull/473) on GitHub) and included in **TMS 9.0.3**, submitted for Chrome Web Store review. See the [9.0.3 release post](/blog/tms-release-9-0-3) for the full picture and current status.
 :::
