@@ -1,13 +1,13 @@
 ---
 slug: tms-release-9-0-3
 title: "The Marvellous Suspender 9.0.3 - battery-aware suspend, tab-group actions, favicon and Drive fixes"
-description: "9.0.3 ships a battery-power auto-suspend timeout, tab-group and app-window suspend controls, a real fix for suspended-tab favicons on Brave/Vivaldi/Dia, and a proper Drive backup fix for Brave and Vivaldi. Submitted for Chrome Web Store review today."
+description: "9.0.3 ships a battery-power auto-suspend timeout, tab-group and app-window suspend controls, a real fix for suspended-tab favicons on Brave/Vivaldi/Dia, and a proper Drive backup fix for Brave and Vivaldi. Live now on the Chrome Web Store."
 date: 2026-09-17T13:03:00+02:00
 authors: [gioxx]
 tags: [release, tms]
 ---
 
-TMS 9.0.3 is done and submitted for Chrome Web Store review as of today. Two of the fixes in it were significant enough to get their own deep-dive posts while they were still in progress, so this one pulls everything together in one place, plus the smaller things that didn't get their own writeup.
+TMS 9.0.3 is [live on the Chrome Web Store](https://chromewebstore.google.com/detail/the-marvellous-suspender/noogafoofpebimajpfpamcfhoaifemoa) as of today. Two of the fixes in it were significant enough to get their own deep-dive posts while they were still in progress, so this one pulls everything together in one place, plus the smaller things that didn't get their own writeup.
 
 {/* truncate */}
 

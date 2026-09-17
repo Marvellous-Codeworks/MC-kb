@@ -118,5 +118,5 @@ None of this changes what TMS does for a normal user with `captureLogs` off, whi
 If you are running a build with `captureLogs` on to help track down an issue and still see something behaving oddly, please [open an issue on GitHub](https://github.com/gioxx/MarvellousSuspender/issues) with a downloaded debug report attached. That is exactly the workflow that made this whole investigation possible in the first place.
 
 :::info
-Both rounds of fixes described above are merged ([#472](https://github.com/gioxx/MarvellousSuspender/pull/472) and [#473](https://github.com/gioxx/MarvellousSuspender/pull/473) on GitHub) and included in **TMS 9.0.3**, submitted for Chrome Web Store review. See the [9.0.3 release post](/blog/tms-release-9-0-3) for the full picture and current status.
+Both rounds of fixes described above are merged ([#472](https://github.com/gioxx/MarvellousSuspender/pull/472) and [#473](https://github.com/gioxx/MarvellousSuspender/pull/473) on GitHub) and included in **TMS 9.0.3**, live on the Chrome Web Store. See the [9.0.3 release post](/blog/tms-release-9-0-3) for the full picture.
 :::
