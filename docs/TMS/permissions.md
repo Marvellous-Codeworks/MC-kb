@@ -59,6 +59,10 @@ Allows TMS to run scripts in the context of web pages. Used to:
 
 `tabGroups` grants access to Chrome's Tab Groups API. Used to save and restore tab group assignments (name, color, collapsed state) when exporting/importing sessions, restoring backups, or upgrading the extension.
 
+#### Offscreen
+
+`navigator.getBattery()` isn't available inside a Manifest V3 service worker, which has no `window`/DOM. `offscreen` lets TMS create a hidden, DOM-capable offscreen document purely to read the device's charging state, which it reports back to the service worker for the "never suspend while charging" and battery-specific-timeout options. The document renders nothing, is created only once per browser session (self-healing if it ever goes missing), and is never used for anything else.
+
 #### Host permissions
 
 `http://*/*` and `https://*/*` are required by the `scripting` permission, Chrome enforces that host permissions must be declared for any page where content scripts will run.
@@ -87,13 +91,14 @@ Declared in `manifest.json` under `oauth2.scopes`, this is not a Chrome permissi
 
 ## What changed in 9.x
 
-TMS 9 introduces optional multi-device session backup (see [Backup & Sync](./pages/backup-sync) for full details). This is the only functional area in 9.x that requests new permissions over 8.x:
+TMS 9 introduces optional multi-device session backup (see [Backup & Sync](./pages/backup-sync) for full details), the main source of new permissions over 8.x. 9.0.3 separately adds one more, required permission for the battery-aware auto-suspend timeout:
 
 | Permission / scope | Added for |
 |---|---|
 | `downloads` | Writing and rotating local backup files in `tms-backups/` |
 | `identity` | Authenticating with Google Drive (OAuth token only, no password access) |
 | `drive.appdata` (OAuth scope) | Storing backup files in a private, hidden Drive folder |
+| `offscreen` (9.0.3) | Reading charging state for the [battery-specific auto-suspend timeout](./pages/settings#suspend-tabs-on-battery-power-after) and "never suspend while charging" |
 
 :::info[Since 9.0.1: on-demand instead of upfront]
 In 9.0.0, `downloads` and `identity` were declared as regular (required) permissions, so Chrome asked for both at install/update time even if you never used backup, triggering the "extension disabled, needs new permissions" prompt for everyone. Starting with **9.0.1**, both are declared as `optional_permissions` instead: Chrome only prompts for `downloads` the moment you toggle **Enable automatic backup** on, and only prompts for `identity` when you click **Connect** to link a Google account. If you never turn either feature on, TMS never requests them, and nothing shows up in your permissions list for them at all.
