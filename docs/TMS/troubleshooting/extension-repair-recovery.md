@@ -1,5 +1,5 @@
 ---
-sidebar_position: 2
+sidebar_position: 1
 title: "Chrome/Edge extension corruption and repair"
 sidebar_label: "Extension corruption & repair"
 description: What to do if Chrome or Edge flags TMS as corrupted and offers to repair it, and how to recover session data if that reset your local storage.

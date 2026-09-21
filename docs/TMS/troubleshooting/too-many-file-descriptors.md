@@ -1,5 +1,5 @@
 ---
-sidebar_position: 4
+sidebar_position: 2
 title: "Chrome crashes on Linux with many tabs (file descriptor limit)"
 sidebar_label: "File descriptor limit (Linux)"
 description: Why keeping hundreds of tabs open with TMS can hit Linux's default 1024 file-descriptor limit, and how to raise it.
