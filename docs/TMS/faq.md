@@ -121,7 +121,7 @@ Submit pull requests or bug reports on [GitHub](https://github.com/gioxx/Marvell
 
 ### What should I include in a bug report?
 
-For anything related to broken favicons or Tab Groups, run a scan on [Tab Health](./pages/tab-health) and use **Copy report** to paste the results directly into your issue. For anything else, open the [Diagnostic page](./pages/diagnostic-page), enable **captureLogs**, reproduce the problem, then use **Copy report** or **Download report**, this bundles your TMS version, browser details and recent logs into one shareable block.
+For anything related to broken favicons or Tab Groups, run a scan on [Tab Health](./pages/tab-health) and use **Copy report** to paste the results directly into your issue. For anything else, open the [Diagnostic page](./pages/diagnostic-page), enable **captureLogs**, reproduce the problem, then use **Copy report** or **Download report**, this bundles your TMS version, browser details and recent logs into one shareable block. This captureLogs report can include tab titles/URLs, so upload it to [logdrop](https://logdrop.marvellouscode.works) instead of pasting it into the issue, only the maintainer can read it, and it expires on its own.
 
 ### How can I translate TMS into my language?
 

@@ -68,6 +68,10 @@ Each log entry shows its level, source, message and time. *Since 9.0.3*, the tim
 
 Use **Copy report** or **Download report** when filing a [GitHub issue](https://github.com/gioxx/MarvellousSuspender/issues), it gives maintainers a self-contained, shareable diagnostic without needing you to open DevTools yourself.
 
+:::caution
+This report can include tab titles, URLs and other data from your open tabs. Don't paste it directly into a public GitHub issue, upload it to [logdrop](https://logdrop.marvellouscode.works) instead and share the link it gives you. Only the maintainer can read it, and the upload expires on its own.
+:::
+
 ---
 
 ## Tab profiler

@@ -46,7 +46,7 @@ If the fix is timing- or condition-dependent (a backup reconnecting after some h
 
 ## If something looks off
 
-Open the [Diagnostic page](../pages/diagnostic-page), enable **captureLogs**, reproduce the issue, then use **Copy report** or **Download report** and paste the result into the GitHub issue thread. This bundles your TMS version, browser details, and recent logs into one shareable block, far more useful to a maintainer than a description alone.
+Open the [Diagnostic page](../pages/diagnostic-page), enable **captureLogs**, reproduce the issue, then use **Copy report** or **Download report**. This bundles your TMS version, browser details, and recent logs into one shareable block, far more useful to a maintainer than a description alone. It can also include tab titles/URLs, so upload it to [logdrop](https://logdrop.marvellouscode.works) instead of pasting it into the issue thread, only the maintainer can read it, and it expires on its own.
 
 ## Going back to the Store version afterward
 
