@@ -4,7 +4,7 @@ title: "Introducing logdrop: a private way to share debug reports"
 description: "logdrop is a small, self-hosted, PrivateBin-style drop-off for TMS diagnostic reports: no account to upload, auth-gated reads, auto-expiring. Use it instead of pasting a captureLogs report into a public GitHub issue."
 date: 2026-09-24T15:30:00+02:00
 authors: [gioxx]
-tags: [announcement, tms]
+tags: [announcement, tms, logdrop]
 ---
 
 Diagnosing a tricky TMS bug often means asking for a `captureLogs`/`debug.html` report from the [Diagnostic page](/docs/TMS/pages/diagnostic-page). Those reports are genuinely useful, they bundle your TMS version, browser details, and recent logs into one shareable block, but they're also a dump of real browser state: open tab titles and URLs, timestamps, sometimes local file paths. Pasting that directly into a GitHub issue makes it **public and permanent**, sitting in a thread that has nothing to do with the data itself.
