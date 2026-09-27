@@ -1,5 +1,5 @@
 ---
-sidebar_position: 5
+sidebar_position: 4
 title: "FAQ"
 description: Frequently Asked Questions about The Marvellous Suspender.
 hide_title: true

@@ -1,5 +1,5 @@
 ---
-sidebar_position: 2
+sidebar_position: 3
 title: "Install from source"
 description: How to install or build The Marvellous Suspender from source code.
 id: tms-install-from-source

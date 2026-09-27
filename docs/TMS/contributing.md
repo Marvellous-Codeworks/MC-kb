@@ -1,5 +1,5 @@
 ---
-sidebar_position: 4
+sidebar_position: 2
 title: "Contributing"
 description: How to contribute to The Marvellous Suspender, and the project's policy on AI-assisted pull requests.
 id: tms-contributing

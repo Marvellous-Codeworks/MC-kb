@@ -1,5 +1,5 @@
 ---
-sidebar_position: 3
+sidebar_position: 1
 title: "Permissions"
 description: What permissions The Marvellous Suspender requests and why each one is needed.
 tags:
