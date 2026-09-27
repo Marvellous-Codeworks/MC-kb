@@ -1,0 +1,6 @@
+Contact: https://github.com/gioxx/MarvellousSuspender/security/advisories/new
+Contact: mailto:gioxx@marvellouscode.works
+Expires: 2027-09-27T00:00:00.000Z
+Preferred-Languages: en, it
+Policy: https://github.com/gioxx/MarvellousSuspender/blob/master/SECURITY.md
+Canonical: https://kb.marvellouscode.works/.well-known/security.txt
