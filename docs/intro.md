@@ -32,7 +32,7 @@ As the driving forces behind the two projects, [Gioxx](/blog/authors/gioxx) and 
 ## Contributing 🙌
 The Great-_er_ Tab Discarder, The Marvellous Suspender and, in general, every Marvellous Codeworks project is an open source project. All projects, as well as the documentation and all related tools, are available on GitHub.
 
-All our projects are open to code contributions, including feature requests, bug reports, and pull requests.
+All our projects are open to code contributions, including feature requests, bug reports, and pull requests. For TMS specifically, see the [Contributing](./TMS/tms-contributing) page for the rules a pull request has to meet, how to report a vulnerability privately, and the project's policy on AI-assisted contributions.
 
 ## License 🤝
 
