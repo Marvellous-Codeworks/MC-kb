@@ -271,12 +271,12 @@ const config = {
                 to: '/docs/logdrop/overview',
               },
               {
-                label: 'Self-hosting',
-                to: '/docs/logdrop/self-hosting',
-              },
-              {
                 label: 'FAQ',
                 to: '/docs/logdrop/faq',
+              },
+              {
+                label: 'Self-hosting',
+                to: '/docs/logdrop/self-hosting',
               },
               {
                 label: 'Open an issue',
