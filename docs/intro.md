@@ -27,7 +27,7 @@ import XIcon from '@site/src/components/XIcon';
 
 Even today, despite its best efforts and numerous targeted improvements, Google Chrome is still unable to make efficient use of a PC’s RAM when multiple tabs are open at the same time. The Marvellous Suspender (TMS) and The Great-_er_ Tab Discarder (TGD) address this very issue, attempting to __patch things up__ and thus curb the voracious appetite of Google’s browser.
 
-TMS and TGD remain the two flagship projects, but Marvellous Codeworks has grown beyond them: **[logdrop](https://logdrop.marvellouscode.works)**, a self-hosted, PrivateBin-style drop-off for sharing diagnostic reports and other plain text privately, is one such tool, built to support TMS's own diagnostics but usable on its own.
+TMS and TGD remain the two flagship projects, but Marvellous Codeworks has grown beyond them: **[logdrop](https://logdrop.marvellouscode.works)**, a self-hosted, PrivateBin-style drop-off for sharing diagnostic reports and other plain text privately, is one such tool, built to support TMS's own diagnostics but usable on its own (see the [logdrop documentation](./logdrop/overview)).
 
 As the driving forces behind these projects, [Gioxx](/blog/authors/gioxx) and [Rob](/blog/authors/rkodey) work behind the scenes to keep them moving forward, relying on the cooperation and trust of the users.
 
