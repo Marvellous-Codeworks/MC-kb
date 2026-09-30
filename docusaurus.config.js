@@ -286,7 +286,7 @@ const config = {
           },
         ],
         // copyright: `Copyright © ${new Date().getFullYear()} The Marvellous Suspender.`,
-        copyright: `<div style="padding-top: 18px;padding-bottom: 9px; text-align: right; font-size: 0.8em;">
+        copyright: `<div style="padding-top: 8px; text-align: right; font-size: 0.7rem;">
         <p>© ${new Date().getFullYear()} Marvellous Codeworks</p>
         <p>All trademarks mentioned are the property of their respective owners. Third-party trademarks, product names, trade names, corporate names and companies mentioned may be trademarks of their respective owners or registered trademarks of other companies and have been used for explanatory purposes only and for the benefit of the owner, without any intent to infringe existing copyright.</p>
         </div>`

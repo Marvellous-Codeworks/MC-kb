@@ -123,6 +123,31 @@
   border-top: 1px solid rgba(255, 255, 255, 0.08);
 }
 
+/* Compact footer: smaller text and tighter spacing. */
+.footer {
+  --ifm-footer-padding-vertical: 1.75rem;
+}
+
+.footer__title {
+  font-size: 0.8rem;
+  margin-bottom: 0.4rem;
+}
+
+.footer__link-item {
+  font-size: 0.8rem;
+  line-height: 1.4;
+}
+
+.footer__item {
+  line-height: 1.5;
+  margin: 0;
+  padding-block: 0.1rem;
+}
+
+.footer__copyright p {
+  margin-bottom: 0.4rem;
+}
+
 /* Hide external-link icons in footer links only. */
 .footer .footer__link-item svg[class*='iconExternalLink'] {
   display: none;
