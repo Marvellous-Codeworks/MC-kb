@@ -50,17 +50,15 @@ TMS is free, has no ads and collects no data: settings, sessions and screenshots
 
 ## TMS or TGD?
 
-Marvellous Codeworks also maintains **[The Great-er Tab Discarder](../TGD/overview)** (TGD). Both free memory from idle tabs, in different ways:
+Marvellous Codeworks also maintains **[The Great-er Tab Discarder](../TGD/overview)** (TGD). The two share the same goal and free a similar amount of memory; TGD can be thought of as a lighter take on the same idea, while TMS adds session, backup and repair tools on top.
+
+Both can suspend *and* discard tabs, they just start from a different default:
 
 | | TMS | TGD |
 |---|---|---|
-| Main technique | **Suspends**: replaces the tab with its own suspended page | **Discards**: uses the browser's native discard, the tab looks unchanged |
-| Memory freed | High (a small page stays loaded; can also discard after suspending) | Highest (the tab is fully unloaded) |
-| Tab appearance | Suspended page with title, favicon, optional screenshot | Normal tab that reloads when you click it (optional suspend mode) |
-| Extras | Session manager, backups, Google Drive sync, Tab Health, diagnostics | Minimal and lightweight, no access to page content |
-| Stores | Chrome Web Store | Chrome Web Store, Microsoft Edge Add-ons |
-
-Pick **TMS** if you want to see which tabs are suspended, keep previews, and have session recovery and backups built in. Pick **TGD** if you want the lightest possible extension that relies on the browser's own mechanism.
+| By default | **Suspends**: replaces idle tabs with its own suspended page (title, favicon, optional screenshot) | **Discards**: uses the browser's native discard, the tab looks unchanged and reloads when you click it |
+| Also available | **Discard after suspending**: the suspended page itself is discarded too | **Suspend mode**: replaces idle tabs with its own suspended page (title prefix, dimmed favicon) |
+| Features | Suspension rules and lists, screenshots, session manager with restore points, backups and Google Drive sync, Tab Health repairs, diagnostics | Discard/suspend rules and whitelist, startup protection, tab migration, settings sync, profiler |
 
 ---
 

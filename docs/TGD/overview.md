@@ -52,17 +52,15 @@ TGD contains no analytics or tracking and doesn't inject scripts into web pages,
 
 ## TGD or TMS?
 
-Marvellous Codeworks also maintains **[The Marvellous Suspender](../TMS/overview)** (TMS). Both free memory from idle tabs, in different ways:
+Marvellous Codeworks also maintains **[The Marvellous Suspender](../TMS/overview)** (TMS). The two share the same goal and free a similar amount of memory; TGD can be thought of as a lighter take on the same idea, while TMS adds session, backup and repair tools on top.
+
+Both can discard *and* suspend tabs, they just start from a different default:
 
 | | TGD | TMS |
 |---|---|---|
-| Main technique | **Discards**: uses the browser's native discard, the tab looks unchanged | **Suspends**: replaces the tab with its own suspended page |
-| Memory freed | Highest (the tab is fully unloaded) | High (a small page stays loaded; can also discard after suspending) |
-| Tab appearance | Normal tab that reloads when you click it (optional suspend mode) | Suspended page with title, favicon, optional screenshot |
-| Extras | Minimal and lightweight, no access to page content | Session manager, backups, Google Drive sync, Tab Health, diagnostics |
-| Stores | Chrome Web Store, Microsoft Edge Add-ons | Chrome Web Store |
-
-Pick **TGD** if you want the lightest possible extension that relies on the browser's own mechanism. Pick **TMS** if you want to see which tabs are suspended, keep previews, and have session recovery and backups built in.
+| By default | **Discards**: uses the browser's native discard, the tab looks unchanged and reloads when you click it | **Suspends**: replaces idle tabs with its own suspended page (title, favicon, optional screenshot) |
+| Also available | **Suspend mode**: replaces idle tabs with its own suspended page (title prefix, dimmed favicon) | **Discard after suspending**: the suspended page itself is discarded too |
+| Features | Discard/suspend rules and whitelist, startup protection, tab migration, settings sync, profiler | Suspension rules and lists, screenshots, session manager with restore points, backups and Google Drive sync, Tab Health repairs, diagnostics |
 
 ---
 
