@@ -100,10 +100,37 @@ const config = {
             position: 'left',
           },
           {
-            type: 'docSidebar',
-            sidebarId: 'mainSidebar',
-            position: 'left',
+            // Clicking "Docs" lands on the Welcome page; hovering lists each
+            // project's Overview. The activeBaseRegex on the dropdown keeps
+            // "Docs" highlighted on every docs page, the ones on the items
+            // highlight the current project's section.
+            type: 'dropdown',
             label: 'Docs',
+            to: '/docs/intro',
+            activeBaseRegex: '^/docs/',
+            position: 'left',
+            items: [
+              {
+                label: 'Welcome',
+                to: '/docs/intro',
+                activeBaseRegex: '^/docs/intro',
+              },
+              {
+                label: 'The Great-er Tab Discarder',
+                to: '/docs/TGD/overview',
+                activeBaseRegex: '^/docs/TGD/',
+              },
+              {
+                label: 'The Marvellous Suspender',
+                to: '/docs/TMS/overview',
+                activeBaseRegex: '^/docs/TMS/',
+              },
+              {
+                label: 'logdrop',
+                to: '/docs/logdrop/overview',
+                activeBaseRegex: '^/docs/logdrop/',
+              },
+            ],
           },
           { to: '/blog', label: "What's New", position: 'left' },
           {
@@ -190,6 +217,10 @@ const config = {
                 href: 'https://www.marvellouscode.works/tgd',
               },
               {
+                label: 'Overview',
+                to: '/docs/TGD/overview',
+              },
+              {
                 label: 'FAQ',
                 href: '/docs/TGD/faq',
               },
@@ -211,6 +242,10 @@ const config = {
                 href: 'https://www.marvellouscode.works/tms',
               },
               {
+                label: 'Overview',
+                to: '/docs/TMS/overview',
+              },
+              {
                 label: 'FAQ',
                 href: '/docs/TMS/faq',
               },
@@ -221,6 +256,31 @@ const config = {
               {
                 label: 'Open an issue',
                 href: 'https://github.com/gioxx/MarvellousSuspender/issues/new',
+              },
+            ],
+          },
+          {
+            title: 'logdrop',
+            items: [
+              {
+                label: 'About logdrop',
+                href: 'https://www.marvellouscode.works/logdrop',
+              },
+              {
+                label: 'Overview',
+                to: '/docs/logdrop/overview',
+              },
+              {
+                label: 'Self-hosting',
+                to: '/docs/logdrop/self-hosting',
+              },
+              {
+                label: 'FAQ',
+                to: '/docs/logdrop/faq',
+              },
+              {
+                label: 'Open an issue',
+                href: 'https://github.com/Marvellous-Codeworks/logdrop/issues/new',
               },
             ],
           },
