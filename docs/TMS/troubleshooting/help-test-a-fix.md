@@ -13,7 +13,7 @@ tags:
 
 # Helping test a fix before it ships
 
-Sometimes, while a bug is being investigated, a maintainer attaches a test build (a `.zip`) directly to the GitHub issue and asks people affected by it to try it before the fix ships in a real release. This page covers that workflow in general, see [issue #437](https://github.com/gioxx/MarvellousSuspender/issues/437) for a real example of how one of these threads plays out end to end.
+Sometimes, while a bug is being investigated, a maintainer shares a test build (a `.zip`), attached directly to the GitHub issue or published as a GitHub pre-release linked from it, and asks people affected by it to try it before the fix ships in a real release. This page covers that workflow in general, see [issue #437](https://github.com/gioxx/MarvellousSuspender/issues/437) for a real example of how one of these threads plays out end to end.
 
 Testing is entirely optional and always welcome, more real-world runs on a fix before it ships means fewer surprises for everyone once it does.
 
@@ -28,14 +28,14 @@ Testing is entirely optional and always welcome, more real-world runs on a fix b
 
 ## Installing the test build
 
-1. Download the `.zip` the maintainer attached to the issue and extract it.
+1. Download the `.zip` the maintainer linked on the issue and extract it to a folder you will keep: the browser keeps loading the extension from there, so don't delete or move it while testing.
 2. In Chrome (or Brave/Vivaldi/Edge), go to `chrome://extensions/` and enable **Developer mode**.
-3. Click **Load unpacked extension…** and browse to the extracted folder's `src` directory.
+3. Click **Load unpacked extension…** and select the folder that contains `manifest.json`. In current test builds that's the extracted folder itself; older ones had it inside a `src` subfolder.
 
 This replaces your current installation. See [Install from source](../tms-install-from-source) for more detail on this general mechanic if anything looks unfamiliar.
 
 :::note
-Test builds usually keep the same version number as the last real release, a test build isn't a new release on its own, just that fix layered on top for testing purposes. That's expected, not a sign something didn't install.
+Check the version shown on the extension's card in `chrome://extensions/`. Test builds carry a label naming the issue they are for, for example `9.1.0-test.523`, so you (and the maintainer reading your report) can tell them apart from a Store release. Older test builds kept the last release's version number instead. Either way, a test build isn't a new release on its own, just the fix layered on top for testing purposes.
 :::
 
 ## What to test
@@ -51,6 +51,10 @@ Open the [Diagnostic page](../pages/diagnostic-page), enable **captureLogs**, re
 ## Going back to the Store version afterward
 
 Once the fix has shipped for real (or if you'd rather stop testing), remove the local build from `chrome://extensions/` and install the Chrome Web Store version again.
+
+:::warning
+Removing an extension makes its suspended tabs disappear permanently. Right before removing the local build, export your current session again (Session Manager → export) or unsuspend all tabs, so you can bring them back after reinstalling.
+:::
 
 - If you have Drive backup or settings sync enabled, sign back in and your data restores from there.
 - Otherwise, import the session file you exported before installing (Session Manager → import), or restore from a local backup file if [automatic backup](../pages/backup-sync#automatic-session-backup) was on.
