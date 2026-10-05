@@ -13,7 +13,7 @@ tags:
 
 ### Who can read what I upload?
 
-Only the maintainers of the instance you uploaded to, whose emails are on its allow-list. If the operator enabled the [Agent API](./agent-api), their own AI agent can read it too, but without your IP address, country or browser details. Nobody else, even with the link.
+Only the maintainers of the instance you uploaded to, whose emails are on its allow-list. Maintainers can also let their own AI agent read it through the [Agent API](./agent-api), but without your IP address, country or browser details. Nobody else, even with the link.
 
 ### Is it safe to post the link in a public GitHub issue?
 
@@ -47,9 +47,21 @@ The instance operator adds your email to `ADMIN_EMAILS`. Then [sign in](./admin-
 
 An AI agent read that upload through the [Agent API](./agent-api) at least once. The [log view](./log-view#activity) shows how many times and when last.
 
-### I set `AGENT_API_TOKEN` but the dashboard doesn't show "AI agent access enabled."
+### How do I give my AI agent access?
 
-The variable isn't reaching that deployment. On Vercel, check it's enabled for the right environment (Production and/or Preview) and redeploy. See [Self-hosting](./self-hosting#environment-variables).
+In the dashboard, under **Signed in as**, open **AI agent access → Manage your token** and click **Generate token**. Copy the token into your agent's configuration right away: it's shown only once. See [Agent API](./agent-api#personal-agent-tokens).
+
+### I lost my agent token, can I see it again?
+
+No. logdrop stores only a hash of it. **Regenerate** it from the dashboard and update your agent; the old token stops working.
+
+### Do I still need `AGENT_API_TOKEN`?
+
+No. Since logdrop 1.3.0 every admin generates a personal token from the dashboard. `AGENT_API_TOKEN` is deprecated and only kept so existing agents don't break: move them to personal tokens, then delete the variable from every Vercel environment and redeploy.
+
+### I removed `AGENT_API_TOKEN` but the dashboard still says "AI agent access enabled."
+
+That's expected if you have a personal agent token: the line reflects your own token too. If the deprecation note below the buttons is still there, the deployment predates the change: redeploy.
 
 ### An expired upload is still in the dashboard, why?
 

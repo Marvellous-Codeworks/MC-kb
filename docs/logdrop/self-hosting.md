@@ -45,7 +45,7 @@ Cloudflare dashboard → **Turnstile** → **Add widget**:
 3. Copy the **Site Key** (→ `VITE_TURNSTILE_SITE_KEY`, public) and the **Secret Key** (→ `TURNSTILE_SECRET_KEY`, private).
 
 ### 5. Generate the app secrets
-`TOKEN_SECRET`, `CRON_SECRET` and, if you want the [Agent API](./agent-api), `AGENT_API_TOKEN` are random strings you generate yourself, one per variable:
+`TOKEN_SECRET` and `CRON_SECRET` are random strings you generate yourself, one per variable:
 
 ```bash
 openssl rand -base64 32
@@ -80,12 +80,12 @@ A generic *"Upload failed"* almost always means a missing environment variable o
 | `VITE_TURNSTILE_SITE_KEY` | Yes | Turnstile site key (public, shipped to the browser). |
 | `TURNSTILE_SECRET_KEY` | Yes | Turnstile secret key (server-side only). |
 | `CRON_SECRET` | Yes | Secret Vercel sends to the daily cleanup job. |
-| `AGENT_API_TOKEN` | No | Enables the [Agent API](./agent-api) and the *AI agent access enabled.* line on the dashboard. |
+| `AGENT_API_TOKEN` | No | **Deprecated.** Legacy instance-wide token for the [Agent API](./agent-api). Not needed: since 1.3.0 each admin generates a personal token from the dashboard. Keep it only while existing agents still use it. |
 | `BLOB_READ_WRITE_TOKEN` | Auto | Provisioned by connecting the Blob store (step 2). |
 | `EDGE_CONFIG` | Auto | Provisioned by connecting the Edge Config store (step 3). |
 
 :::warning[Enable variables for each Vercel environment]
-Vercel scopes every variable to **Production**, **Preview** and/or **Development**. A variable enabled only for Production doesn't exist on Preview deployments: for example, `AGENT_API_TOKEN` set only for Production means Preview deployments don't show the agent line and answer the Agent API with `500`. Tick every environment you need, then redeploy.
+Vercel scopes every variable to **Production**, **Preview** and/or **Development**. A variable enabled only for Production doesn't exist on Preview deployments: for example, `RESEND_API_KEY` set only for Production means Preview deployments can't send magic-link emails. Tick every environment you need, then redeploy.
 :::
 
 ---

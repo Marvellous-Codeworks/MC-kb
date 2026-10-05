@@ -1,7 +1,7 @@
 ---
 sidebar_position: 4
 title: "Admin dashboard"
-description: Complete reference for logdrop's admin dashboard - upload list, badges, filters, bulk actions and the AI agent access indicator.
+description: Complete reference for logdrop's admin dashboard - upload list, badges, filters, bulk actions and your personal AI agent token.
 tags:
   - logdrop
   - admin
@@ -19,7 +19,20 @@ The dashboard (`/admin`) lists every upload still stored on the instance, newest
 ## Header
 
 - **Signed in as** shows the admin email of the current session.
-- **AI agent access enabled.** appears right below, with a robot icon, only when the instance has `AGENT_API_TOKEN` configured. It tells you that an AI agent holding that token can read uploads through the [Agent API](./agent-api). The token itself is never shown. If the line is missing although you set the variable, see [Self-hosting](./self-hosting#environment-variables): the variable must be enabled for that Vercel environment, followed by a redeploy.
+- **AI agent access** appears right below, with a robot icon. It reads *AI agent access enabled.* when you have a personal agent token (or the instance still has the deprecated `AGENT_API_TOKEN` set), and *AI agent access not set up.* otherwise. Click **Manage your token** to show or hide the controls described in [AI agent access](#ai-agent-access).
+
+---
+
+## AI agent access
+
+From logdrop **1.3.0**, each admin manages their own token for the [Agent API](./agent-api) here, with no environment variable or redeploy:
+
+- **Generate token** (when you don't have one) creates it and shows it **once**, in a dialog with a **Copy token** button. Copy it before clicking **Done**: it can't be shown again.
+- Once you have a token, the block shows it masked (`ld_agent_…a1b2`), with when it was created and when an agent last used it (*never used* until the first read).
+- **Regenerate** replaces it after a confirmation; the old token stops working immediately.
+- **Revoke** deletes it after a confirmation; agents using it get `401` from then on.
+
+You only ever see and manage **your own** token. If the deprecated instance-wide `AGENT_API_TOKEN` is still set, a note below the buttons says so: see [Legacy instance-wide token](./agent-api#legacy-instance-wide-token-agent_api_token) for how to migrate.
 
 ---
 

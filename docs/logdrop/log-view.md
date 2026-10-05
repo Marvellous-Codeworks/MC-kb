@@ -26,12 +26,12 @@ Below it, a single line shows when the upload was **created**, when it **expires
 Right under the details, logdrop shows what has happened to the upload so far:
 
 - **Analyzed by `<admin email>` on `<date>`**, with a green checkmark, once a maintainer marked it as analyzed (here or in bulk from the dashboard). Hidden while the upload isn't analyzed.
-- **Read by AI agent N time(s) · last `<date>`**, with a robot icon, once an AI agent read it through the [Agent API](./agent-api). Every successful agent read increments the count.
+- **Read by AI agent N time(s) · last `<date>` by `<admin email>`**, with a robot icon, once an AI agent read it through the [Agent API](./agent-api). Every successful agent read increments the count; *by* names the admin whose token performed the latest read (*the instance token* for the deprecated `AGENT_API_TOKEN`).
 
 If neither has happened, the block isn't shown at all.
 
 :::note[Uploads from before 1.2.0]
-Who/when and agent reads are recorded starting with logdrop **1.2.0**. Uploads analyzed with an earlier version just show **Analyzed**, without author and date.
+Who/when and agent reads are recorded starting with logdrop **1.2.0**, and whose token read it starting with **1.3.0**. Uploads analyzed with an earlier version just show **Analyzed**, without author and date, and agent reads before 1.3.0 show no *by*.
 :::
 
 ---
