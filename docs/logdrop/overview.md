@@ -27,7 +27,7 @@ Marvellous Codeworks runs an instance at **[logdrop.marvellouscode.works](https:
 4. **Maintainers triage it** from the [admin dashboard](./admin-dashboard) and the [log view](./log-view): read, copy, download, mark as analyzed, delete.
 5. **It expires on its own.** A daily cleanup job deletes every upload older than the retention window (7 days by default).
 
-Optionally, an AI agent run by the maintainer can read uploads through the [Agent API](./agent-api), using a secret token instead of an admin session.
+Optionally, an AI agent run by a maintainer can read uploads through the [Agent API](./agent-api), using that maintainer's personal agent token instead of an admin session.
 
 ---
 
@@ -37,7 +37,7 @@ Optionally, an AI agent run by the maintainer can read uploads through the [Agen
 |---|---|---|
 | Anyone | Yes, no account, after a Turnstile check | No |
 | Allow-listed maintainers (`ADMIN_EMAILS`) | Yes | Yes, after signing in via magic link |
-| An AI agent holding `AGENT_API_TOKEN` (optional) | No | Yes, content and non-sensitive metadata only |
+| An AI agent holding a maintainer's agent token (optional) | No | Yes, content and non-sensitive metadata only |
 
 A few details worth knowing:
 
