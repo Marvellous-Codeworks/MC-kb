@@ -1,7 +1,7 @@
 ---
 sidebar_position: 7
 title: "Self-hosting"
-description: Deploy your own logdrop instance on Vercel - storage, Turnstile, secrets, environment variables, domain, kill-switch and cleanup job.
+description: Deploy your own logdrop instance on Vercel - one-click button, storage, Turnstile, secrets, environment variables, domain, kill-switch and cleanup job.
 tags:
   - logdrop
   - self-hosting
@@ -19,6 +19,27 @@ logdrop is designed to be deployed by anyone who wants the same *"reporters uplo
 - A [Cloudflare](https://dash.cloudflare.com) account, for the Turnstile widget.
 - A (sub)domain you control, e.g. `logdrop.your-domain.example`.
 - A fork or clone of [Marvellous-Codeworks/logdrop](https://github.com/Marvellous-Codeworks/logdrop).
+
+---
+
+## Deploy with one click
+
+[![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/clone?repository-url=https%3A%2F%2Fgithub.com%2FMarvellous-Codeworks%2Flogdrop&project-name=logdrop&repository-name=logdrop&env=TOKEN_SECRET%2CADMIN_EMAILS%2CRESEND_API_KEY%2CMAIL_FROM%2CSITE_URL%2CVITE_TURNSTILE_SITE_KEY%2CTURNSTILE_SECRET_KEY%2CCRON_SECRET%2CRETENTION_DAYS%2CMAX_UPLOAD_BYTES&envDefaults=%7B%22RETENTION_DAYS%22%3A%227%22%2C%22MAX_UPLOAD_BYTES%22%3A%224194304%22%7D&envDescription=Admin%20allow-list%2C%20Resend%20mail%2C%20Cloudflare%20Turnstile%20keys%20and%20two%20secrets%20you%20generate%20yourself.%20See%20the%20README%20for%20each%20value.&envLink=https%3A%2F%2Fgithub.com%2FMarvellous-Codeworks%2Flogdrop%236-set-every-environment-variable&stores=%5B%7B%22type%22%3A%22blob%22%2C%22access%22%3A%22public%22%7D%5D)
+
+The button runs the Vercel import for you:
+
+- forks the repository into your Git account and creates the Vercel project;
+- creates and connects a **public** Blob store (`BLOB_READ_WRITE_TOKEN`), so you can skip [step 2](#2-create-and-connect-a-vercel-blob-store);
+- asks for every [environment variable](#environment-variables) in one form, with `RETENTION_DAYS` and `MAX_UPLOAD_BYTES` pre-filled.
+
+Prepare these before you click, because the form asks for them: the Turnstile keys ([step 4](#4-create-a-cloudflare-turnstile-widget)), your Resend API key and sender, `TOKEN_SECRET` and `CRON_SECRET` ([step 5](#5-generate-the-app-secrets)), and `SITE_URL`. No domain yet? Use the `*.vercel.app` address of the project and change it later.
+
+The button can't do everything. Still manual:
+
+- the optional Edge Config store for the [upload kill-switch](#upload-kill-switch) ([step 3](#3-create-and-connect-an-edge-config-store));
+- your domain, on Vercel and on the Turnstile widget ([step 7](#7-point-your-domain-at-the-deployment)).
+
+After changing a variable or connecting a store, redeploy: changes only apply to new deployments.
 
 ---
 
@@ -86,6 +107,8 @@ A generic *"Upload failed"* almost always means a missing environment variable o
 
 :::warning[Enable variables for each Vercel environment]
 Vercel scopes every variable to **Production**, **Preview** and/or **Development**. A variable enabled only for Production doesn't exist on Preview deployments: for example, `RESEND_API_KEY` set only for Production means Preview deployments can't send magic-link emails. Tick every environment you need, then redeploy.
+
+Magic links are built from `SITE_URL`, so to sign in on a Preview deployment set `SITE_URL` in the **Preview** environment to that preview's address (for example the branch alias); otherwise the links it sends point at production.
 :::
 
 ---
