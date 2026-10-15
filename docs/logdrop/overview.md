@@ -55,8 +55,8 @@ A few details worth knowing:
 | Retention window | 7 days | `RETENTION_DAYS` |
 | Max upload size | 4 MB | `MAX_UPLOAD_BYTES` (keep it under Vercel's ~4.5 MB request limit) |
 | Label length | 200 characters (longer labels are truncated) | - |
-| Magic link validity | 15 minutes | - |
-| Admin session | 7 days | - |
+| Magic link validity | 15 minutes, single use | - |
+| Admin session | 8 hours, one browser, one session per admin | - |
 | Cleanup job | daily, 03:00 UTC | `vercel.json` |
 
 ---

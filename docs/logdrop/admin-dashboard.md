@@ -19,6 +19,7 @@ The dashboard (`/admin`) lists every upload still stored on the instance, newest
 ## Header
 
 - **Signed in as** shows the admin email of the current session.
+- **Sign out**, at the top right next to the theme toggle, ends the session. See [Signing out](./admin-login.md#signing-out).
 - **AI agent access** appears right below, with a robot icon. It reads *AI agent access enabled.* when you have a personal agent token (or the instance still has the deprecated `AGENT_API_TOKEN` set), and *AI agent access not set up.* otherwise. Click **Manage your token** to show or hide the controls described in [AI agent access](#ai-agent-access).
 
 ---

@@ -91,7 +91,7 @@ A generic *"Upload failed"* almost always means a missing environment variable o
 
 | Variable | Required | Description |
 |---|---|---|
-| `TOKEN_SECRET` | Yes | Signing secret for magic-link and session tokens (step 5). Changing it signs everyone out. |
+| `TOKEN_SECRET` | Yes | Signing secret for the admin session cookie (step 5). Changing it signs everyone out. |
 | `ADMIN_EMAILS` | Yes | Comma-separated list of admin emails, case-insensitive. Removing an address revokes its access immediately. |
 | `RESEND_API_KEY` | Yes | Resend API key for magic-link emails. |
 | `MAIL_FROM` | Yes | Sender, e.g. `logdrop <noreply@your-domain.example>`, on a domain verified in Resend. |
@@ -121,7 +121,7 @@ If Edge Config can't be reached, uploads stay **enabled**: the switch is a safet
 
 ## Cleanup job
 
-`vercel.json` schedules `/api/cron/cleanup` every day at **03:00 UTC**. It deletes every upload whose expiry time has passed, authenticated by `CRON_SECRET`. Between an upload's expiry and the next run, it may still appear in the admin dashboard, but the Agent API already treats it as gone.
+`vercel.json` schedules `/api/cron/cleanup` every day at **03:00 UTC**. It deletes every upload whose expiry time has passed, plus expired login links and sessions, authenticated by `CRON_SECRET`. Between an upload's expiry and the next run, it may still appear in the admin dashboard, but the Agent API already treats it as gone.
 
 ---
 
@@ -138,4 +138,4 @@ Add `localhost` to the Turnstile widget's domains to test uploads locally.
 
 ## Updating
 
-Pull the latest changes from [upstream](https://github.com/Marvellous-Codeworks/logdrop) into your fork and let Vercel redeploy. Stored uploads don't need migrations: metadata fields added by newer versions are filled with defaults when older uploads are read. Check the [release notes](https://github.com/Marvellous-Codeworks/logdrop/releases) for new optional variables.
+Pull the latest changes from [upstream](https://github.com/Marvellous-Codeworks/logdrop) into your fork and let Vercel redeploy. Stored uploads don't need migrations: metadata fields added by newer versions are filled with defaults when older uploads are read. Check the [release notes](https://github.com/Marvellous-Codeworks/logdrop/releases) for new optional variables. Upgrading to 1.4.0 signs every admin out once, because older sessions are no longer accepted.

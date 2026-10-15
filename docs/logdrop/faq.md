@@ -43,6 +43,14 @@ No. PrivateBin encrypts in the browser and keeps the key in the link; logdrop in
 
 The instance operator adds your email to `ADMIN_EMAILS`. Then [sign in](./admin-login.md) with a magic link, no password.
 
+### My login link says it expired or was already used, but I just got it
+
+A link works once, and only the most recent one you requested. Check that you clicked the newest email, and that you didn't already open it in another browser. If your mail system scans links in advance, that's fine: opening the link only shows a **Sign in** button, and the link is used when you press it. Otherwise request a new link. See [Admin sign-in](./admin-login.md#login-links).
+
+### Why was I signed out?
+
+A session lasts at most 8 hours and belongs to one browser. You're also signed out when you sign in from another browser or device, since each admin has one session at a time. See [Sessions](./admin-login.md#sessions).
+
 ### What does the robot icon mean?
 
 An AI agent read that upload through the [Agent API](./agent-api.md) at least once. The [log view](./log-view.md#activity) shows how many times and when last.
