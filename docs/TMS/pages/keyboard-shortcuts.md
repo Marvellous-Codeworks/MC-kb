@@ -37,7 +37,7 @@ TMS ships with one pre-assigned shortcut. All other commands have no default key
 | Unsuspend all windows | - | Unsuspend all tabs across every open window |
 | Open Session Manager | - | Open the Session Management page directly |
 
-TMS also has its own read-only copy of this list on the **Keyboard shortcuts** page in the sidebar, with a **Change shortcuts** button that jumps straight to `chrome://extensions/shortcuts`. Labels follow your [language setting](./settings#language), shown here in Italian:
+TMS also has its own read-only copy of this list on the **Keyboard shortcuts** page in the sidebar, with a **Change shortcuts** button that jumps straight to `chrome://extensions/shortcuts`. Labels follow your [language setting](./settings.md#language), shown here in Italian:
 
 ![The Keyboard shortcuts page, shown here with the language set to Italian](./img/keyboard-shortcuts/01-shortcuts-list.webp)
 

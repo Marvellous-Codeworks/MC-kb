@@ -12,10 +12,10 @@ tags:
 
 # Diagnostic page
 
-Open the Diagnostic page from the **Debugging** link at the bottom of [About & Support](./about-support) (`debug.html`). It is not linked from the main sidebar, it's an advanced/support-oriented page, most useful when reporting a bug.
+Open the Diagnostic page from the **Debugging** link at the bottom of [About & Support](./about-support.md) (`debug.html`). It is not linked from the main sidebar, it's an advanced/support-oriented page, most useful when reporting a bug.
 
 :::tip
-For everyday tab issues (broken favicons, Tab Groups after a restart), try [Tab Health](./tab-health) first, it has one-click fixes. Use the Diagnostic page when you need raw logs or lower-level state to attach to a bug report.
+For everyday tab issues (broken favicons, Tab Groups after a restart), try [Tab Health](./tab-health.md) first, it has one-click fixes. Use the Diagnostic page when you need raw logs or lower-level state to attach to a bug report.
 :::
 
 ---
@@ -37,16 +37,16 @@ Click **run claim** to re-assign any suspended tabs that currently point at a *d
 *Repair action added in 9.0.2.* **clear cache** wipes every cached favicon, rebuilt from Chrome's own cache the next time each tab is suspended. **repair favicons now** is more targeted: it re-checks currently open suspended tabs on demand without wiping the whole cache, useful right after a crash/session restore or on installs from before 9.0.2's startup-sentinel fallback.
 
 ### changelog modal
-Click **reset "seen" flag** to clear the "already shown" marker for the ["What's new" modal](./settings), so opening Settings shows it again without needing to bump the manifest version, useful for re-testing it on an unpacked/dev install.
+Click **reset "seen" flag** to clear the "already shown" marker for the ["What's new" modal](./settings.md), so opening Settings shows it again without needing to bump the manifest version, useful for re-testing it on an unpacked/dev install.
 
 ### news feed
-Shows the last fetch time, unread/total article count, next scheduled alarm, and this device's randomized daily refresh time slot for [News](./news-feed). **force refresh** bypasses the 24-hour cache and fetches immediately, only visible on unpacked/developer builds, not on the Chrome Web Store release.
+Shows the last fetch time, unread/total article count, next scheduled alarm, and this device's randomized daily refresh time slot for [News](./news-feed.md). **force refresh** bypasses the 24-hour cache and fetches immediately, only visible on unpacked/developer builds, not on the Chrome Web Store release.
 
 ### power source
-*Added in 9.0.3.* Shows whether TMS currently sees the device as running on AC power or on battery, live-updating on a charge-state change, the same signal driving the [battery-aware timeout](./settings#suspend-tabs-on-battery-power-after) and the "never suspend while charging" option. Useful for confirming what the extension actually detects without guessing from behavior alone.
+*Added in 9.0.3.* Shows whether TMS currently sees the device as running on AC power or on battery, live-updating on a charge-state change, the same signal driving the [battery-aware timeout](./settings.md#suspend-tabs-on-battery-power-after) and the "never suspend while charging" option. Useful for confirming what the extension actually detects without guessing from behavior alone.
 
 ### backup device identity
-Shows this browser installation's backup device ID and friendly name (see [Backup & Sync](./backup-sync#automatic-session-backup)), useful for identifying which device a given cloud backup file belongs to. The ID is shown in monospace and can be selected/copied in one click for support purposes.
+Shows this browser installation's backup device ID and friendly name (see [Backup & Sync](./backup-sync.md#automatic-session-backup)), useful for identifying which device a given cloud backup file belongs to. The ID is shown in monospace and can be selected/copied in one click for support purposes.
 
 ---
 
@@ -76,6 +76,6 @@ This report can include tab titles, URLs and other data from your open tabs. Don
 
 ## Tab profiler
 
-A live table of every currently open tab TMS is tracking, refreshed continuously: window ID, tab ID, tab index, tab group, title, remaining time before auto-suspend (MM:SS), and current status. Useful for confirming *why* a specific tab isn't being suspended when you expect it to be, cross-reference the status column against [Settings → Suspend](./settings#suspend) and the [popup's status descriptions](./quick-actions-popup#status-line).
+A live table of every currently open tab TMS is tracking, refreshed continuously: window ID, tab ID, tab index, tab group, title, remaining time before auto-suspend (MM:SS), and current status. Useful for confirming *why* a specific tab isn't being suspended when you expect it to be, cross-reference the status column against [Settings → Suspend](./settings.md#suspend) and the [popup's status descriptions](./quick-actions-popup.md#status-line).
 
 ![Tab profiler table listing every open tab with its window/tab ID, group, title and status](./img/diagnostic-page/03-tab-profiler.webp)

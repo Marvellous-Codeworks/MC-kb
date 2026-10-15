@@ -69,10 +69,10 @@ Chrome and Brave have had bugs (see [TMS issue #369](https://github.com/gioxx/Ma
 
 Tab Health's **Repair grouped tab(s)** action fixes both cases on demand:
 - For the Chrome/Edge case, the broken tab still carries its suspended URL internally, so TMS simply recreates it in place, in the same group.
-- For the Brave case (where the URL is genuinely lost), TMS searches your recent [session history](./session-management#recent-sessions) for a matching tab, by comparing window order and tab position, and recovers the original suspended URL from there. If no match is found for a given tab, it is reported as **not recovered** so you know to check it manually; matched tabs are still recreated in the correct group.
+- For the Brave case (where the URL is genuinely lost), TMS searches your recent [session history](./session-management.md#recent-sessions) for a matching tab, by comparing window order and tab position, and recovers the original suspended URL from there. If no match is found for a given tab, it is reported as **not recovered** so you know to check it manually; matched tabs are still recreated in the correct group.
 
 :::note
-For related background on lost/disappearing tabs in general (not specific to Tab Groups), see [Recovering lost tabs](../troubleshooting/tgs-recover-lost-tabs).
+For related background on lost/disappearing tabs in general (not specific to Tab Groups), see [Recovering lost tabs](../troubleshooting/tgs-recover-lost-tabs.md).
 :::
 
 ---
@@ -83,4 +83,4 @@ After a scan, a **Copy report** button appears. It copies your TMS version numbe
 
 ![The "Copy results" button and its GitHub issue hint](./img/tab-health/03-copy-report.webp)
 
-For deeper diagnostics (error logs, tab profiler, Service Worker state), see the [Diagnostic page](./diagnostic-page).
+For deeper diagnostics (error logs, tab profiler, Service Worker state), see the [Diagnostic page](./diagnostic-page.md).

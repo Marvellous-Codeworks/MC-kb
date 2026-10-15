@@ -10,7 +10,7 @@ tags:
 
 # Admin dashboard
 
-The dashboard (`/admin`) lists every upload still stored on the instance, newest first. It's only reachable after [signing in](./admin-login).
+The dashboard (`/admin`) lists every upload still stored on the instance, newest first. It's only reachable after [signing in](./admin-login.md).
 
 ![Admin dashboard: signed-in line, AI agent access indicator, filter and toolbar, and the upload table with analyzed and robot badges](./img/admin-dashboard/01-dashboard.webp)
 
@@ -25,14 +25,14 @@ The dashboard (`/admin`) lists every upload still stored on the instance, newest
 
 ## AI agent access
 
-From logdrop **1.3.0**, each admin manages their own token for the [Agent API](./agent-api) here, with no environment variable or redeploy:
+From logdrop **1.3.0**, each admin manages their own token for the [Agent API](./agent-api.md) here, with no environment variable or redeploy:
 
 - **Generate token** (when you don't have one) creates it and shows it **once**, in a dialog with a **Copy token** button. Copy it before clicking **Done**: it can't be shown again.
 - Once you have a token, the block shows it masked (`ld_agent_…a1b2`), with when it was created and when an agent last used it (*never used* until the first read).
 - **Regenerate** replaces it after a confirmation; the old token stops working immediately.
 - **Revoke** deletes it after a confirmation; agents using it get `401` from then on.
 
-You only ever see and manage **your own** token. If the deprecated instance-wide `AGENT_API_TOKEN` is still set, a note below the buttons says so: see [Legacy instance-wide token](./agent-api#legacy-instance-wide-token-agent_api_token) for how to migrate.
+You only ever see and manage **your own** token. If the deprecated instance-wide `AGENT_API_TOKEN` is still set, a note below the buttons says so: see [Legacy instance-wide token](./agent-api.md#legacy-instance-wide-token-agent_api_token) for how to migrate.
 
 ---
 
@@ -41,7 +41,7 @@ You only ever see and manage **your own** token. If the deprecated instance-wide
 | Column | Content |
 |---|---|
 | Checkbox | Selects the row for [bulk actions](#bulk-actions). The header checkbox selects every *visible* row. |
-| Slug | The upload's ID, linking to its [log view](./log-view). Badges appear above it, see below. |
+| Slug | The upload's ID, linking to its [log view](./log-view.md). Badges appear above it, see below. |
 | Created / Expires | Upload time and scheduled expiry, shown in your browser's locale and timezone. |
 | Bytes | Size of the uploaded text. |
 | Country | Uploader's country code, from Vercel's edge headers (may be empty). |
@@ -53,8 +53,8 @@ You only ever see and manage **your own** token. If the deprecated instance-wide
 
 | Badge | Meaning |
 |---|---|
-| Green checkmark | The upload was **marked as analyzed** by a maintainer. Who did it, and when, is shown in the [log view](./log-view#activity). |
-| Blue robot | An **AI agent has read** the upload through the [Agent API](./agent-api) at least once. How many times, and when last, is shown in the [log view](./log-view#activity). |
+| Green checkmark | The upload was **marked as analyzed** by a maintainer. Who did it, and when, is shown in the [log view](./log-view.md#activity). |
+| Blue robot | An **AI agent has read** the upload through the [Agent API](./agent-api.md) at least once. How many times, and when last, is shown in the [log view](./log-view.md#activity). |
 
 Both badges can appear on the same row.
 
@@ -75,7 +75,7 @@ The cleanup job runs once a day (03:00 UTC), so an upload can stay listed for up
 
 Select one or more rows and the toolbar buttons enable, each showing how many rows it will act on:
 
-- **Mark as analyzed (N)** marks every selected upload as analyzed in one click, with no confirmation, and records you as the one who did it. The checkmark badge appears on each row, and the rows are deselected once done. To *unmark*, open the single upload's [log view](./log-view).
+- **Mark as analyzed (N)** marks every selected upload as analyzed in one click, with no confirmation, and records you as the one who did it. The checkmark badge appears on each row, and the rows are deselected once done. To *unmark*, open the single upload's [log view](./log-view.md).
 - **Copy links (N)** copies the selected uploads' links to the clipboard, one per line, e.g. to paste into an issue or a note.
 - **Delete selected (N)** deletes every selected upload, after an on-screen confirmation (*"Delete N upload(s)? This can't be undone."*).
 

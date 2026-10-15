@@ -13,7 +13,7 @@ tags:
 
 ### Who can read what I upload?
 
-Only the maintainers of the instance you uploaded to, whose emails are on its allow-list. Maintainers can also let their own AI agent read it through the [Agent API](./agent-api), but without your IP address, country or browser details. Nobody else, even with the link.
+Only the maintainers of the instance you uploaded to, whose emails are on its allow-list. Maintainers can also let their own AI agent read it through the [Agent API](./agent-api.md), but without your IP address, country or browser details. Nobody else, even with the link.
 
 ### Is it safe to post the link in a public GitHub issue?
 
@@ -29,7 +29,7 @@ No. Uploading needs no account, only a Cloudflare Turnstile check, which is usua
 
 ### Why was my file rejected?
 
-logdrop accepts plain text only, up to 4 MB by default. Binary files (zip, PDF, images) and text with control characters are rejected. See [Uploading a log](./uploading#troubleshooting) for each error message.
+logdrop accepts plain text only, up to 4 MB by default. Binary files (zip, PDF, images) and text with control characters are rejected. See [Uploading a log](./uploading.md#troubleshooting) for each error message.
 
 ### Is my upload encrypted like on PrivateBin?
 
@@ -41,15 +41,15 @@ No. PrivateBin encrypts in the browser and keeps the key in the link; logdrop in
 
 ### How do I get admin access?
 
-The instance operator adds your email to `ADMIN_EMAILS`. Then [sign in](./admin-login) with a magic link, no password.
+The instance operator adds your email to `ADMIN_EMAILS`. Then [sign in](./admin-login.md) with a magic link, no password.
 
 ### What does the robot icon mean?
 
-An AI agent read that upload through the [Agent API](./agent-api) at least once. The [log view](./log-view#activity) shows how many times and when last.
+An AI agent read that upload through the [Agent API](./agent-api.md) at least once. The [log view](./log-view.md#activity) shows how many times and when last.
 
 ### How do I give my AI agent access?
 
-In the dashboard, under **Signed in as**, open **AI agent access → Manage your token** and click **Generate token**. Copy the token into your agent's configuration right away: it's shown only once. See [Agent API](./agent-api#personal-agent-tokens).
+In the dashboard, under **Signed in as**, open **AI agent access → Manage your token** and click **Generate token**. Copy the token into your agent's configuration right away: it's shown only once. See [Agent API](./agent-api.md#personal-agent-tokens).
 
 ### I lost my agent token, can I see it again?
 
@@ -73,7 +73,7 @@ No. Deleting removes the content and its metadata from storage immediately.
 
 ### Can I use the Marvellous Codeworks instance for my own project?
 
-The instance at [logdrop.marvellouscode.works](https://logdrop.marvellouscode.works) is kept for TMS users. For your own project, [deploy your own instance](./self-hosting), logdrop is open source.
+The instance at [logdrop.marvellouscode.works](https://logdrop.marvellouscode.works) is kept for TMS users. For your own project, [deploy your own instance](./self-hosting.md), logdrop is open source.
 
 ### How do I report a bug or suggest a feature?
 

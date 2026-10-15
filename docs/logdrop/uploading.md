@@ -63,5 +63,5 @@ The link only works for the instance's maintainers: anyone else who opens it is 
 | *Verification failed* | Turnstile rejected the token, often because it expired. Reload the page and retry. |
 | *Invalid upload size* | The text is empty or larger than the instance's limit (4 MB by default). Trim the log or split it into several uploads. |
 | *Only plain text is accepted* | The content isn't valid UTF-8 text, or contains control characters. Upload the raw text log, not a zip, PDF or screenshot. |
-| *Uploads are temporarily disabled* | The operator switched uploads off (see [kill-switch](./self-hosting#upload-kill-switch)). Try again later. |
+| *Uploads are temporarily disabled* | The operator switched uploads off (see [kill-switch](./self-hosting.md#upload-kill-switch)). Try again later. |
 | *Upload failed* | Anything else, usually a server-side problem. Try again later, and if it persists, report it on [GitHub](https://github.com/Marvellous-Codeworks/logdrop/issues). |

@@ -11,23 +11,23 @@ tags:
 
 [logdrop](https://github.com/Marvellous-Codeworks/logdrop) is a small, self-hostable, [PrivateBin](https://github.com/PrivateBin/PrivateBin)-style drop-off for plain text: diagnostic reports, logs, configs, snippets. Anyone can upload, no account needed. Only an allow-listed set of maintainers can ever read an upload back, and every upload deletes itself after a retention window.
 
-It was built so that [TMS](../TMS/pages/diagnostic-page) users could share a captureLogs report (which can contain tab titles and URLs) without pasting it into a public GitHub issue, but nothing in it is TMS-specific.
+It was built so that [TMS](../TMS/pages/diagnostic-page.md) users could share a captureLogs report (which can contain tab titles and URLs) without pasting it into a public GitHub issue, but nothing in it is TMS-specific.
 
 :::info[Official instance]
-Marvellous Codeworks runs an instance at **[logdrop.marvellouscode.works](https://logdrop.marvellouscode.works)**, kept available for TMS users. It isn't a shared public service for unrelated projects: if you want the same flow for your own project, [deploy your own instance](./self-hosting).
+Marvellous Codeworks runs an instance at **[logdrop.marvellouscode.works](https://logdrop.marvellouscode.works)**, kept available for TMS users. It isn't a shared public service for unrelated projects: if you want the same flow for your own project, [deploy your own instance](./self-hosting.md).
 :::
 
 ---
 
 ## How it works
 
-1. **Someone uploads text.** They paste it (or pick a `.txt` file) on the home page, optionally add a label and a GitHub issue link, pass a Cloudflare Turnstile check and click **Upload**. See [Uploading a log](./uploading).
+1. **Someone uploads text.** They paste it (or pick a `.txt` file) on the home page, optionally add a label and a GitHub issue link, pass a Cloudflare Turnstile check and click **Upload**. See [Uploading a log](./uploading.md).
 2. **They get a link** like `https://logdrop.example/r/<slug>` and share it wherever they need to, for example in a GitHub issue.
-3. **Only a maintainer can open it.** Opening the link without an admin session redirects to the [sign-in page](./admin-login). Maintainers sign in with a magic link sent to an allow-listed email address.
-4. **Maintainers triage it** from the [admin dashboard](./admin-dashboard) and the [log view](./log-view): read, copy, download, mark as analyzed, delete.
+3. **Only a maintainer can open it.** Opening the link without an admin session redirects to the [sign-in page](./admin-login.md). Maintainers sign in with a magic link sent to an allow-listed email address.
+4. **Maintainers triage it** from the [admin dashboard](./admin-dashboard.md) and the [log view](./log-view.md): read, copy, download, mark as analyzed, delete.
 5. **It expires on its own.** A daily cleanup job deletes every upload older than the retention window (7 days by default).
 
-Optionally, an AI agent run by a maintainer can read uploads through the [Agent API](./agent-api), using that maintainer's personal agent token instead of an admin session.
+Optionally, an AI agent run by a maintainer can read uploads through the [Agent API](./agent-api.md), using that maintainer's personal agent token instead of an admin session.
 
 ---
 

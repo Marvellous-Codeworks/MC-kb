@@ -101,7 +101,7 @@ A generic *"Upload failed"* almost always means a missing environment variable o
 | `VITE_TURNSTILE_SITE_KEY` | Yes | Turnstile site key (public, shipped to the browser). |
 | `TURNSTILE_SECRET_KEY` | Yes | Turnstile secret key (server-side only). |
 | `CRON_SECRET` | Yes | Secret Vercel sends to the daily cleanup job. |
-| `AGENT_API_TOKEN` | No | **Deprecated.** Legacy instance-wide token for the [Agent API](./agent-api). Not needed: since 1.3.0 each admin generates a personal token from the dashboard. Keep it only while existing agents still use it. |
+| `AGENT_API_TOKEN` | No | **Deprecated.** Legacy instance-wide token for the [Agent API](./agent-api.md). Not needed: since 1.3.0 each admin generates a personal token from the dashboard. Keep it only while existing agents still use it. |
 | `BLOB_READ_WRITE_TOKEN` | Auto | Provisioned by connecting the Blob store (step 2). |
 | `EDGE_CONFIG` | Auto | Provisioned by connecting the Edge Config store (step 3). |
 

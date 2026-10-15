@@ -25,9 +25,9 @@ Install it from the **[Chrome Web Store](https://chromewebstore.google.com/detai
 
 Because TGD relies on the browser's own mechanism, it adds practically no overhead and never needs to read or inject anything into the pages you visit.
 
-If you'd rather *see* which tabs are unloaded, switch the automatic mode to **Suspend**: TGD then replaces idle tabs with a lightweight suspended page, with an optional title prefix and dimmed favicon. See [Discard vs Suspend](./faq#what-is-the-difference-between-discarding-and-suspending-a-tab).
+If you'd rather *see* which tabs are unloaded, switch the automatic mode to **Suspend**: TGD then replaces idle tabs with a lightweight suspended page, with an optional title prefix and dimmed favicon. See [Discard vs Suspend](./faq.md#what-is-the-difference-between-discarding-and-suspending-a-tab).
 
-Tabs that are still in use are left alone: the active tab, and optionally pinned tabs, tabs playing audio and sites on your whitelist. You can also discard or suspend tabs by hand from the popup, the right-click menu or [keyboard shortcuts](./keyboard-shortcuts), including every tab in a window at once.
+Tabs that are still in use are left alone: the active tab, and optionally pinned tabs, tabs playing audio and sites on your whitelist. You can also discard or suspend tabs by hand from the popup, the right-click menu or [keyboard shortcuts](./keyboard-shortcuts.md), including every tab in a window at once.
 
 ---
 
@@ -35,24 +35,24 @@ Tabs that are still in use are left alone: the active tab, and optionally pinned
 
 | Area | What you get | Read more |
 |---|---|---|
-| Automatic mode | Discard (default) or Suspend, inactivity timeout from never to 3 days | [Settings → General](./settings#general-settings) |
-| Exceptions | Pinned tabs, tabs playing audio, whitelist with plain text or regular expressions, online-only and battery-only modes | [Settings](./settings) |
-| Browser startup | *Prevent reloading all tabs*: keep every tab unloaded after a restart instead of reloading them all at once | [Settings → Browser Startup](./settings#browser-startup) |
-| Manual actions | Popup, right-click menu, shortcuts to discard/suspend the current tab, or discard/reload whole windows | [Keyboard shortcuts](./keyboard-shortcuts) |
-| Migration | Bring over suspended tabs from TMS, The Great Suspender, Tab Suspender and Tiny Suspender | [Migrating tabs](./tab-migration) |
-| Sync | Settings synced through your Google account (Chrome sync) | [Settings → Other](./settings#other) |
+| Automatic mode | Discard (default) or Suspend, inactivity timeout from never to 3 days | [Settings → General](./settings.md#general-settings) |
+| Exceptions | Pinned tabs, tabs playing audio, whitelist with plain text or regular expressions, online-only and battery-only modes | [Settings](./settings.md) |
+| Browser startup | *Prevent reloading all tabs*: keep every tab unloaded after a restart instead of reloading them all at once | [Settings → Browser Startup](./settings.md#browser-startup) |
+| Manual actions | Popup, right-click menu, shortcuts to discard/suspend the current tab, or discard/reload whole windows | [Keyboard shortcuts](./keyboard-shortcuts.md) |
+| Migration | Bring over suspended tabs from TMS, The Great Suspender, Tab Suspender and Tiny Suspender | [Migrating tabs](./tab-migration.md) |
+| Sync | Settings synced through your Google account (Chrome sync) | [Settings → Other](./settings.md#other) |
 
 ---
 
 ## Privacy at a glance
 
-TGD contains no analytics or tracking and doesn't inject scripts into web pages, so it doesn't need access to your websites. Settings and the whitelist are stored in your browser profile; the optional settings sync uses Chrome's own sync, nothing passes through a Marvellous Codeworks server. See [Permissions](./permissions) for each permission and why it's needed.
+TGD contains no analytics or tracking and doesn't inject scripts into web pages, so it doesn't need access to your websites. Settings and the whitelist are stored in your browser profile; the optional settings sync uses Chrome's own sync, nothing passes through a Marvellous Codeworks server. See [Permissions](./permissions.md) for each permission and why it's needed.
 
 ---
 
 ## TGD or TMS?
 
-Marvellous Codeworks also maintains **[The Marvellous Suspender](../TMS/overview)** (TMS). The two share the same goal and free a similar amount of memory; TGD can be thought of as a lighter take on the same idea, while TMS adds session, backup and repair tools on top.
+Marvellous Codeworks also maintains **[The Marvellous Suspender](../TMS/overview.md)** (TMS). The two share the same goal and free a similar amount of memory; TGD can be thought of as a lighter take on the same idea, while TMS adds session, backup and repair tools on top.
 
 Both can discard *and* suspend tabs, they just start from a different default:
 
@@ -66,9 +66,9 @@ Both can discard *and* suspend tabs, they just start from a different default:
 
 ## Where to go next
 
-- New to TGD: read the [Settings reference](./settings) and set your timeout and whitelist.
-- Coming from another suspender whose tabs you don't want to lose: [Migrating tabs from other extensions](./tab-migration).
-- Questions: the [FAQ](./faq); ideas and help: [GitHub Discussions](https://github.com/rkodey/the-great-er-discarder-er/discussions).
+- New to TGD: read the [Settings reference](./settings.md) and set your timeout and whitelist.
+- Coming from another suspender whose tabs you don't want to lose: [Migrating tabs from other extensions](./tab-migration.md).
+- Questions: the [FAQ](./faq.md); ideas and help: [GitHub Discussions](https://github.com/rkodey/the-great-er-discarder-er/discussions).
 - Bugs and contributions: [GitHub](https://github.com/rkodey/the-great-er-discarder-er).
 
 TGD is released under the [GNU GPL v2](https://github.com/rkodey/the-great-er-discarder-er/blob/main/LICENSE).

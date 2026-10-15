@@ -39,19 +39,19 @@ Two separate storage areas are involved, both LevelDB-backed but different APIs,
 
 | Data | Storage API | Path (Chrome, adjust for Edge) |
 |---|---|---|
-| Sessions (recent + saved), same `tgs` database used by [Session management](../pages/session-management) | IndexedDB | `<profile>\IndexedDB\chrome-extension_<id>_0.indexeddb.leveldb\` |
+| Sessions (recent + saved), same `tgs` database used by [Session management](../pages/session-management.md) | IndexedDB | `<profile>\IndexedDB\chrome-extension_<id>_0.indexeddb.leveldb\` |
 | Settings, never-suspend whitelist | `chrome.storage.local` | `<profile>\Local Extension Settings\<id>\` |
 
 "Recent sessions" and "saved sessions" are **not** in different locations, they're two object stores inside the same IndexedDB database, so one folder covers both.
 
-If you'd already set up [automatic backup](../pages/backup-sync) (local or Google Drive) before the corruption hit, recovery is simple: just restore from your latest backup file via **Backup & Sync → Restore from backup**. The rest of this page is for when no such backup exists and you need to recover from raw browser profile data.
+If you'd already set up [automatic backup](../pages/backup-sync.md) (local or Google Drive) before the corruption hit, recovery is simple: just restore from your latest backup file via **Backup & Sync → Restore from backup**. The rest of this page is for when no such backup exists and you need to recover from raw browser profile data.
 
 ---
 
 ## Recovery steps
 
 ### 1. Check if anything is still there
-Open **Session management** (from the popup, or right-click the icon → Options → Session management) and check **Recent sessions**. Also check if a [Recovery screen](../pages/system-pages#recovery-screen) appeared after the update, it looks for your last session automatically. If both are empty, local storage really was reset.
+Open **Session management** (from the popup, or right-click the icon → Options → Session management) and check **Recent sessions**. Also check if a [Recovery screen](../pages/system-pages.md#recovery-screen) appeared after the update, it looks for your last session automatically. If both are empty, local storage really was reset.
 
 ### 2. Compare extension IDs
 Go to `chrome://extensions` (or `edge://extensions`), enable Developer mode, and note the current ID. Compare it to the folder name in any backup you have of the profile, `chrome-extension_<ID>_0.indexeddb.leveldb`. Matching IDs confirm any old data you find is still valid for the currently-running install, just not attached to it anymore.
@@ -80,13 +80,13 @@ There is no way for TMS to read from an arbitrary folder path you point it at, e
 
 ## Avoiding this in the future
 
-Turn on [automatic backup](../pages/backup-sync) (local or Google Drive). It exists specifically to reduce how often anyone needs the manual recovery process above. TMS also nudges you to enable it if it's been off for a while, see [Backup activation nudge](../pages/backup-sync#backup-activation-nudge).
+Turn on [automatic backup](../pages/backup-sync.md) (local or Google Drive). It exists specifically to reduce how often anyone needs the manual recovery process above. TMS also nudges you to enable it if it's been off for a while, see [Backup activation nudge](../pages/backup-sync.md#backup-activation-nudge).
 
 ---
 
 ## Related
 
-- [Backup & Sync](../pages/backup-sync): set this up so raw-file recovery is never needed again
-- [Session management](../pages/session-management): where recovered sessions are imported and reopened
-- [Recovering lost tabs (TGS archive)](./tgs-recover-lost-tabs): the older recovery guide, for tabs lost when the extension itself is removed or disabled rather than corrupted/repaired
-- [System & recovery pages](../pages/system-pages#recovery-screen): the in-extension recovery screen shown after a browser restart or crash
+- [Backup & Sync](../pages/backup-sync.md): set this up so raw-file recovery is never needed again
+- [Session management](../pages/session-management.md): where recovered sessions are imported and reopened
+- [Recovering lost tabs (TGS archive)](./tgs-recover-lost-tabs.md): the older recovery guide, for tabs lost when the extension itself is removed or disabled rather than corrupted/repaired
+- [System & recovery pages](../pages/system-pages.md#recovery-screen): the in-extension recovery screen shown after a browser restart or crash

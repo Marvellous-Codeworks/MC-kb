@@ -43,7 +43,7 @@ When a tab is unsuspended, TMS removes the suspended-page URL from the browser h
 
 #### Alarms
 
-Manifest V3 extensions cannot use `setTimeout` reliably across service worker restarts. `alarms` provides the scheduling mechanism that TMS uses to check for tabs that have exceeded their configured inactivity timeout, to run the [automatic backup schedule](./pages/backup-sync), and to periodically refresh the [News](./pages/news-feed) feed.
+Manifest V3 extensions cannot use `setTimeout` reliably across service worker restarts. `alarms` provides the scheduling mechanism that TMS uses to check for tabs that have exceeded their configured inactivity timeout, to run the [automatic backup schedule](./pages/backup-sync.md), and to periodically refresh the [News](./pages/news-feed.md) feed.
 
 #### Favicon
 
@@ -73,11 +73,11 @@ These are declared as `optional_permissions` and are **not** requested at instal
 
 #### Downloads
 
-Used by the [Backup & Sync](./pages/backup-sync) feature to save session backup files (`tms-session-*.json`) to a `tms-backups/` subfolder inside your Downloads folder when the backup destination is set to **Local**, and to track/rotate those files so old backups are cleaned up automatically. TMS never reads the contents of your Downloads folder beyond the files it wrote itself. Chrome only asks you to grant this the moment you toggle **Enable automatic backup** on, not at install or update time. If you never enable local backup, TMS never requests it.
+Used by the [Backup & Sync](./pages/backup-sync.md) feature to save session backup files (`tms-session-*.json`) to a `tms-backups/` subfolder inside your Downloads folder when the backup destination is set to **Local**, and to track/rotate those files so old backups are cleaned up automatically. TMS never reads the contents of your Downloads folder beyond the files it wrote itself. Chrome only asks you to grant this the moment you toggle **Enable automatic backup** on, not at install or update time. If you never enable local backup, TMS never requests it.
 
 #### Identity
 
-Used exclusively by the optional [Google Drive backup destination](./pages/backup-sync#google-drive). It lets TMS obtain an OAuth token via `chrome.identity.getAuthToken()` to authenticate with your Google account. TMS never sees your Google password, the token exchange is handled entirely by Chrome. Chrome only asks you to grant this when you click **Connect** to link a Google account, not at install or update time.
+Used exclusively by the optional [Google Drive backup destination](./pages/backup-sync.md#google-drive). It lets TMS obtain an OAuth token via `chrome.identity.getAuthToken()` to authenticate with your Google account. TMS never sees your Google password, the token exchange is handled entirely by Chrome. Chrome only asks you to grant this when you click **Connect** to link a Google account, not at install or update time.
 
 #### File URLs access
 
@@ -91,21 +91,21 @@ Declared in `manifest.json` under `oauth2.scopes`, this is not a Chrome permissi
 
 ## What changed in 9.x
 
-TMS 9 introduces optional multi-device session backup (see [Backup & Sync](./pages/backup-sync) for full details), the main source of new permissions over 8.x. 9.0.3 separately adds one more, required permission for the battery-aware auto-suspend timeout:
+TMS 9 introduces optional multi-device session backup (see [Backup & Sync](./pages/backup-sync.md) for full details), the main source of new permissions over 8.x. 9.0.3 separately adds one more, required permission for the battery-aware auto-suspend timeout:
 
 | Permission / scope | Added for |
 |---|---|
 | `downloads` | Writing and rotating local backup files in `tms-backups/` |
 | `identity` | Authenticating with Google Drive (OAuth token only, no password access) |
 | `drive.appdata` (OAuth scope) | Storing backup files in a private, hidden Drive folder |
-| `offscreen` (9.0.3) | Reading charging state for the [battery-specific auto-suspend timeout](./pages/settings#suspend-tabs-on-battery-power-after) and "never suspend while charging" |
+| `offscreen` (9.0.3) | Reading charging state for the [battery-specific auto-suspend timeout](./pages/settings.md#suspend-tabs-on-battery-power-after) and "never suspend while charging" |
 
 :::info[Since 9.0.1: on-demand instead of upfront]
 In 9.0.0, `downloads` and `identity` were declared as regular (required) permissions, so Chrome asked for both at install/update time even if you never used backup, triggering the "extension disabled, needs new permissions" prompt for everyone. Starting with **9.0.1**, both are declared as `optional_permissions` instead: Chrome only prompts for `downloads` the moment you toggle **Enable automatic backup** on, and only prompts for `identity` when you click **Connect** to link a Google account. If you never turn either feature on, TMS never requests them, and nothing shows up in your permissions list for them at all.
 
 If you already had backup enabled under 9.0.0 (and had therefore already granted these), updating to 9.0.1 does not revoke them or prompt you again, Chrome carries over permissions you already granted when a manifest moves them from required to optional.
 
-9.0.1 also adds a one-time in-app notice (shown on the Settings and Backup & Sync pages) explaining this change with a link back to this page, a persistent reminder on the Backup & Sync page pointing here as well, and an opt-out for the daily [News feed](./pages/news-feed#disabling-the-news-feed) background request, previously always-on with no toggle.
+9.0.1 also adds a one-time in-app notice (shown on the Settings and Backup & Sync pages) explaining this change with a link back to this page, a persistent reminder on the Backup & Sync page pointing here as well, and an opt-out for the daily [News feed](./pages/news-feed.md#disabling-the-news-feed) background request, previously always-on with no toggle.
 :::
 
 ---
@@ -135,6 +135,6 @@ TMS 7.x (Manifest V2) used a different permission model:
 
 TMS does not collect, transmit, or sell any user data. All storage (settings, session data, favicon cache) is local to your browser profile. The optional Settings Sync feature uses Chrome's built-in sync mechanism and is subject to Google's privacy policy, nothing passes through Marvellous Codeworks servers.
 
-The optional [Google Drive backup destination](./pages/backup-sync#google-drive) uploads your session backups directly from your browser to the hidden `appDataFolder` in your own Google Drive, using the narrow `drive.appdata` OAuth scope. Backup files never pass through any Marvellous Codeworks server, the only two parties involved are your browser and Google's Drive API. You can revoke access at any time from the **Backup & Sync** page or from your [Google Account permissions](https://myaccount.google.com/permissions).
+The optional [Google Drive backup destination](./pages/backup-sync.md#google-drive) uploads your session backups directly from your browser to the hidden `appDataFolder` in your own Google Drive, using the narrow `drive.appdata` OAuth scope. Backup files never pass through any Marvellous Codeworks server, the only two parties involved are your browser and Google's Drive API. You can revoke access at any time from the **Backup & Sync** page or from your [Google Account permissions](https://myaccount.google.com/permissions).
 
 The source code is [publicly available on GitHub](https://github.com/gioxx/MarvellousSuspender) for independent review.

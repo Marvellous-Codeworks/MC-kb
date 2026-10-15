@@ -13,7 +13,7 @@ tags:
 
 Installing TMS from source is useful when you want to test a pre-release build, contribute to development, or load the extension in a browser that cannot access the Chrome Web Store.
 
-If you're here because a maintainer attached a test build to a GitHub issue and asked you to try it, see [Helping test a fix before it ships](./troubleshooting/help-test-a-fix) instead, it covers that specific workflow (safety net, what to test, going back to the Store version afterward).
+If you're here because a maintainer attached a test build to a GitHub issue and asked you to try it, see [Helping test a fix before it ships](./troubleshooting/help-test-a-fix.md) instead, it covers that specific workflow (safety net, what to test, going back to the Store version afterward).
 
 > Requires **Google Chrome 110 or later** (Manifest V3).
 

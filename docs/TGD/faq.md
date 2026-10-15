@@ -25,7 +25,7 @@ The primary distribution channels are the **Chrome Web Store** and **Microsoft E
 
 ### Is TGD free? Does it collect my data?
 
-TGD is completely free and contains no analytics or tracking. Everything stays local to your browser profile. See [Permissions](./permissions) for a full breakdown.
+TGD is completely free and contains no analytics or tracking. Everything stays local to your browser profile. See [Permissions](./permissions.md) for a full breakdown.
 
 ### What is the difference between Discarding and Suspending a tab?
 
@@ -71,11 +71,11 @@ From the extension popup, or via keyboard shortcuts:
 - `Ctrl+Shift+D`: Discard the active tab
 - `Ctrl+Shift+S`: Suspend the active tab
 
-See [Keyboard shortcuts](./keyboard-shortcuts) for the full list and instructions on reassigning them.
+See [Keyboard shortcuts](./keyboard-shortcuts.md) for the full list and instructions on reassigning them.
 
 ### Can I migrate my suspended tabs from The Marvellous Suspender or The Great Suspender?
 
-**Yes.** TGD supports migrating suspended tabs from several extensions. Open **Options → Migrate Tabs** for the full list and instructions. See [Migrating tabs from other extensions](./tab-migration).
+**Yes.** TGD supports migrating suspended tabs from several extensions. Open **Options → Migrate Tabs** for the full list and instructions. See [Migrating tabs from other extensions](./tab-migration.md).
 
 ---
 
@@ -91,7 +91,7 @@ To read the favicon of each tab so it can be displayed on the suspended page, an
 
 ### Does TGD need access to all my websites?
 
-No. Unlike TMS, TGD does not inject content scripts into web pages and therefore does not require broad host permissions. See [Permissions](./permissions) for the full breakdown.
+No. Unlike TMS, TGD does not inject content scripts into web pages and therefore does not require broad host permissions. See [Permissions](./permissions.md) for the full breakdown.
 
 ---
 

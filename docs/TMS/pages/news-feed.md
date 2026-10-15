@@ -28,7 +28,7 @@ TMS periodically fetches the RSS feed at `kb.marvellouscode.works/blog/rss.xml` 
 
 The feed is cached locally (`chrome.storage.local`) for up to 24 hours and refreshed automatically once a day by a background alarm, at a time that's randomized once per installation (to avoid every user's browser hitting the blog's server at the same minute). Opening the News page also triggers an immediate refresh if the cache is stale.
 
-No fetch happens more often than the cache allows, there is no way to "poll" the feed faster from the UI. If you need to force an immediate check (e.g. right after publishing verified you're testing), see the [Diagnostic page](./diagnostic-page#news-feed).
+No fetch happens more often than the cache allows, there is no way to "poll" the feed faster from the UI. If you need to force an immediate check (e.g. right after publishing verified you're testing), see the [Diagnostic page](./diagnostic-page.md#news-feed).
 
 ---
 
@@ -48,10 +48,10 @@ No fetch happens more often than the cache allows, there is no way to "poll" the
 
 ## Disabling the news feed
 
-*Added in 9.0.1.* If you'd rather not have TMS make this background request at all, turn off **Enable news feed** in [Settings → General](./settings#enable-news-feed). Enabled by default. Disabling it immediately clears the scheduled refresh alarm, stops all fetches, and hides the **News** entry from the left sidebar on every page. Re-enabling it restores the sidebar entry and resumes fetching on the normal schedule, the feed picks up new articles on the next check since disabling doesn't affect what counts as "unread."
+*Added in 9.0.1.* If you'd rather not have TMS make this background request at all, turn off **Enable news feed** in [Settings → General](./settings.md#enable-news-feed). Enabled by default. Disabling it immediately clears the scheduled refresh alarm, stops all fetches, and hides the **News** entry from the left sidebar on every page. Re-enabling it restores the sidebar entry and resumes fetching on the normal schedule, the feed picks up new articles on the next check since disabling doesn't affect what counts as "unread."
 
 ---
 
 ## Related
 
-- [Diagnostic page](./diagnostic-page#news-feed): shows the last fetch time, unread count, next scheduled run and this device's randomized refresh time slot; also offers a manual force-refresh (unpacked/developer builds only)
+- [Diagnostic page](./diagnostic-page.md#news-feed): shows the last fetch time, unread count, next scheduled run and this device's randomized refresh time slot; also offers a manual force-refresh (unpacked/developer builds only)

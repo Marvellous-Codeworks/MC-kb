@@ -10,7 +10,7 @@ This page preserves the content of [deanoemcke/thegreatsuspender#526](https://gi
 :::
 
 :::tip[Different scenario?]
-If the browser flagged TMS itself as "corrupted" and offered to repair it, and your sessions/settings vanished afterwards even though the extension is still installed, see [Chrome/Edge extension corruption & repair](./extension-repair-recovery) instead, that's a different failure mode from the one covered on this page.
+If the browser flagged TMS itself as "corrupted" and offered to repair it, and your sessions/settings vanished afterwards even though the extension is still installed, see [Chrome/Edge extension corruption & repair](./extension-repair-recovery.md) instead, that's a different failure mode from the one covered on this page.
 :::
 
 ## Overview

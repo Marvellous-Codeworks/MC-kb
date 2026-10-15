@@ -9,7 +9,7 @@ tags:
 
 # Log view
 
-Every upload has its own page at `/r/<slug>`, the same link the uploader shared. It opens only for a signed-in maintainer; anyone else is redirected to the [sign-in page](./admin-login), and a maintainer who signs in from there comes straight back to this upload.
+Every upload has its own page at `/r/<slug>`, the same link the uploader shared. It opens only for a signed-in maintainer; anyone else is redirected to the [sign-in page](./admin-login.md), and a maintainer who signs in from there comes straight back to this upload.
 
 ![Log view: back button, upload details with issue chip, activity lines, the log content with a Copy button, and the Download, Unmark as analyzed and Delete buttons](./img/log-view/01-log-view.webp)
 
@@ -17,7 +17,7 @@ Every upload has its own page at `/r/<slug>`, the same link the uploader shared.
 
 ## Details
 
-The back-arrow button at the top returns to a freshly loaded [dashboard](./admin-dashboard).
+The back-arrow button at the top returns to a freshly loaded [dashboard](./admin-dashboard.md).
 
 Below it, a single line shows when the upload was **created**, when it **expires**, its **label** (if any) and the linked **GitHub issue** chip (if any). Times are shown in your browser's locale and timezone.
 
@@ -26,7 +26,7 @@ Below it, a single line shows when the upload was **created**, when it **expires
 Right under the details, logdrop shows what has happened to the upload so far:
 
 - **Analyzed by `<admin email>` on `<date>`**, with a green checkmark, once a maintainer marked it as analyzed (here or in bulk from the dashboard). Hidden while the upload isn't analyzed.
-- **Read by AI agent N time(s) · last `<date>` by `<admin email>`**, with a robot icon, once an AI agent read it through the [Agent API](./agent-api). Every successful agent read increments the count; *by* names the admin whose token performed the latest read (*the instance token* for the deprecated `AGENT_API_TOKEN`).
+- **Read by AI agent N time(s) · last `<date>` by `<admin email>`**, with a robot icon, once an AI agent read it through the [Agent API](./agent-api.md). Every successful agent read increments the count; *by* names the admin whose token performed the latest read (*the instance token* for the deprecated `AGENT_API_TOKEN`).
 
 If neither has happened, the block isn't shown at all.
 

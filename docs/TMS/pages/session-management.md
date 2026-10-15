@@ -22,7 +22,7 @@ The page is organized into four sections, each reachable from the in-page naviga
 ![Session Management page in dark theme](./img/session-management/01-overview-dark.webp)
 
 :::note
-This page is TMS's built-in, always-on session history, it works even if you never touch the automatic [Backup & Sync](./backup-sync) feature. Think of Session Management as "what TMS already remembers about your tabs" and Backup & Sync as "an extra copy saved outside the browser."
+This page is TMS's built-in, always-on session history, it works even if you never touch the automatic [Backup & Sync](./backup-sync.md) feature. Think of Session Management as "what TMS already remembers about your tabs" and Backup & Sync as "an extra copy saved outside the browser."
 :::
 
 ---
@@ -72,7 +72,7 @@ Automatic restore points that TMS creates on its own, most recent first. Use the
 
 Each entry behaves exactly like a current session (expand, Reload, Resuspend, Export, Save, Delete), the only difference is *how* it was created.
 
-See also: [Recovering lost tabs](../troubleshooting/tgs-recover-lost-tabs) for a deeper recovery walkthrough, including how to search `chrome://history` if a tab isn't in any recorded session.
+See also: [Recovering lost tabs](../troubleshooting/tgs-recover-lost-tabs.md) for a deeper recovery walkthrough, including how to search `chrome://history` if a tab isn't in any recorded session.
 
 ---
 
@@ -83,7 +83,7 @@ Sessions you have explicitly saved by name, kept until you delete them. Use this
 ### Import a session file
 Click **Import session** to load a `.json` file previously exported from TMS (or from The Great Suspender). You will be prompted for a name; if a saved session with that name already exists, TMS asks whether to overwrite it. TMS also accepts a legacy plain-text format, one URL per line, blank lines separating windows.
 
-Files produced by the [Backup & Sync](./backup-sync) restore flow are also imported here automatically and show up as regular saved sessions.
+Files produced by the [Backup & Sync](./backup-sync.md) restore flow are also imported here automatically and show up as regular saved sessions.
 
 ### Export
 Same per-session/per-window export as in Current and Recent sessions, producing a `tms-session-YYYY-MM-DD.json` file you can back up or move to another machine via **Import**.
@@ -97,5 +97,5 @@ At the bottom of the page, the **Migrate** section detects other tab-suspender e
 Click **Migrate tabs** to rewrite every matching suspended tab's URL so it points at TMS instead, the tabs are converted in place, without needing to unsuspend and resuspend them individually. The extension ID field also accepts a 32-character ID typed in manually if the automatic detection doesn't find your case.
 
 :::tip
-This is the primary path for a clean switch from The Great Suspender: pointing your existing suspended tabs at TMS avoids losing them the moment you disable/remove the old extension. See also: [What happened to The Great Suspender?](../faq#what-happened-to-the-great-suspender)
+This is the primary path for a clean switch from The Great Suspender: pointing your existing suspended tabs at TMS avoids losing them the moment you disable/remove the old extension. See also: [What happened to The Great Suspender?](../faq.md#what-happened-to-the-great-suspender)
 :::

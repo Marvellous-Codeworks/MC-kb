@@ -12,7 +12,7 @@ tags:
 
 logdrop exposes a read-only endpoint so an **AI agent** (or any other operator-side automation) can fetch an upload given the plain link a user shared, without an admin login session. Typical use: a user posts a logdrop link in a GitHub issue, and your agent reads the log to help triage it.
 
-Every admin authenticates their agent with a **personal agent token**, generated from the [admin dashboard](./admin-dashboard#ai-agent-access). No environment variable or redeploy is needed.
+Every admin authenticates their agent with a **personal agent token**, generated from the [admin dashboard](./admin-dashboard.md#ai-agent-access). No environment variable or redeploy is needed.
 
 :::warning[Keep the token private]
 An agent token grants read access to **every** upload on the instance. Store it only in your own agent/automation configuration. Never share it with uploaders, never put it in a link, never commit it to a repository. If it leaks, regenerate or revoke it from the dashboard.
@@ -35,7 +35,7 @@ How tokens behave:
 - **One token per admin**, belonging to whoever generated it. Each admin manages only their own.
 - **Stored only as a hash** (SHA-256) in the instance's Blob store. Neither the operator nor a leak of the store can recover a usable token.
 - **Tied to the allow-list.** A token stops working as soon as its owner is removed from `ADMIN_EMAILS`, without any other step.
-- **Reads are attributed** to the token's owner in the [log view](./log-view#activity).
+- **Reads are attributed** to the token's owner in the [log view](./log-view.md#activity).
 
 Tokens start with `ld_agent_`, followed by 43 random characters.
 
@@ -47,7 +47,7 @@ Before 1.3.0, agent access used a single secret shared by every admin, set as th
 - revoking it means changing the variable for everyone and redeploying;
 - removing an admin from `ADMIN_EMAILS` doesn't stop an agent holding it.
 
-When it's set, the dashboard flags it as deprecated. To migrate: have each admin generate a personal token, switch your agents to it, then delete `AGENT_API_TOKEN` from every Vercel environment and redeploy. See [Self-hosting](./self-hosting#environment-variables).
+When it's set, the dashboard flags it as deprecated. To migrate: have each admin generate a personal token, switch your agents to it, then delete `AGENT_API_TOKEN` from every Vercel environment and redeploy. See [Self-hosting](./self-hosting.md#environment-variables).
 
 ---
 
@@ -120,8 +120,8 @@ These fields are stored but **never** returned to an agent:
 
 Every successful read (`200`) is recorded on the upload: the read count goes up by one, the last-access time is updated and the read is attributed to the token's owner. The token's own *last used* time, shown in the dashboard, is updated too. Maintainers see this as:
 
-- a **robot badge** next to the slug in the [dashboard](./admin-dashboard#badges);
-- **Read by AI agent N time(s) · last `<date>` by `<admin>`** in the [log view](./log-view#activity).
+- a **robot badge** next to the slug in the [dashboard](./admin-dashboard.md#badges);
+- **Read by AI agent N time(s) · last `<date>` by `<admin>`** in the [log view](./log-view.md#activity).
 
 Failed requests (`401`, `404`) are not recorded. Recording is best-effort: if the metadata write fails, the agent still gets its response, and two reads landing at the very same moment may be counted as one.
 

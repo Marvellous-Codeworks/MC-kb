@@ -13,7 +13,7 @@ tags:
 
 Open the TMS settings page from the extension popup or by navigating to `chrome://extensions/` → TMS → **Details** → **Extension options**.
 
-This page (`options.html`) covers general behavior, automatic suspension and the suspended-tab page. Automatic backups and session restore now live on their own dedicated pages, see [Backup & Sync](./backup-sync) and [Session Management](./session-management).
+This page (`options.html`) covers general behavior, automatic suspension and the suspended-tab page. Automatic backups and session restore now live on their own dedicated pages, see [Backup & Sync](./backup-sync.md) and [Session Management](./session-management.md).
 
 ![Settings page, showing the General, Automatic tab suspension and Suspended tabs sections](./img/settings/01-overview.webp)
 
@@ -46,11 +46,11 @@ Adds TMS commands to the browser's right-click context menu on tabs. Disabled in
 Syncs your TMS configuration via your Google account using Chrome's sync storage. Useful if you use Chrome on multiple computers.
 
 :::note
-Sync has a storage size limit. If your never-suspend list is very large, sync may not work reliably. In that case, use [Backup & Sync](./backup-sync#settings-backup) instead, it can save your full settings file to a local file or to Google Drive, with no size restriction.
+Sync has a storage size limit. If your never-suspend list is very large, sync may not work reliably. In that case, use [Backup & Sync](./backup-sync.md#settings-backup) instead, it can save your full settings file to a local file or to Google Drive, with no size restriction.
 :::
 
 ### Enable news feed
-*Added in 9.0.1.* Enabled by default. Controls whether TMS periodically checks `marvellouscode.works` for TMS-related posts and shows them on the [News](./news-feed) page. Disable this to stop the background request entirely, no fetches happen and the **News** entry disappears from the sidebar on every page until you turn it back on.
+*Added in 9.0.1.* Enabled by default. Controls whether TMS periodically checks `marvellouscode.works` for TMS-related posts and shows them on the [News](./news-feed.md) page. Disable this to stop the background request entirely, no fetches happen and the **News** entry disappears from the sidebar on every page until you turn it back on.
 
 ### Use the classic The Great Suspender artwork
 *Added in 9.0.2.* Disabled by default. Swaps TMS's current robot mascot/icon set back to the original The Great Suspender artwork app-wide: toolbar icon, suspended-tab favicon fallback, and every extension page's images and favicon. Illustrations with no legacy equivalent keep using the new artwork.

@@ -21,7 +21,7 @@ logdrop has no passwords. Maintainers sign in with a **magic link** emailed to a
 1. Open `/admin` (or the **Admin** link in the top bar). You can also just open any upload link: without a session you're redirected to the sign-in page, and brought back to that upload afterwards.
 2. Enter your email and click **Send login link**.
 3. Open the email *"Your logdrop admin login link"* (with the logdrop logo and an *Admin sign-in* title) and click **Log in to logdrop** within **15 minutes**. If the button doesn't work, the same link is printed in plain text below it.
-4. You land on the [admin dashboard](./admin-dashboard) (or the upload you were trying to open), signed in.
+4. You land on the [admin dashboard](./admin-dashboard.md) (or the upload you were trying to open), signed in.
 
 :::info[Same answer for everyone]
 After you submit, the page always says *"If that email is registered, a login link is on its way"*, whether or not the address is on the allow-list. This is deliberate: the sign-in form can't be used to find out which addresses are admins. If no email arrives, double-check the address and your spam folder, then ask the instance operator whether you're on `ADMIN_EMAILS`.
