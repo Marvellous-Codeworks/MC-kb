@@ -76,6 +76,14 @@ const config = {
     ({
       // Replace with your project's social card
       image: 'img/MarvellousCodeworks_Logo.png',
+      algolia: {
+        appId: '4NJGWH6IH2',
+        apiKey: '276dccca1ca9a4cdab5fe8e4785f4612',
+        indexName: 'MarvellousCrawler',
+        contextualSearch: true,
+        searchPagePath: 'search',
+        insights: true,
+      },
       colorMode: {
         defaultMode: 'light',
         disableSwitch: false,
