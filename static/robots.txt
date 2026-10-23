@@ -1,6 +1,6 @@
 User-agent: *
 Allow: /
 
-# Algolia-Crawler-Verif: 2152E93E071549EB
+# Algolia-Crawler-Verif: 8914BDB91CA02435
 
 Sitemap: https://kb.marvellouscode.works/sitemap.xml
