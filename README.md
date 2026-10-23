@@ -63,6 +63,13 @@ Every push to `main` runs [`.github/workflows/deploy.yml`](.github/workflows/dep
 
 Search is provided by Algolia DocSearch, comments on blog posts by [Waline](https://waline.js.org/).
 
+## License
+
+- **Documentation** (the Markdown content and screenshots of `docs/`, `projects/`, `*_versioned_docs/` and `blog/`): [Creative Commons Attribution 4.0 International](LICENSE-docs) (CC BY 4.0). You can reuse and adapt it, also commercially, as long as you credit the source with a link to [kb.marvellouscode.works](https://kb.marvellouscode.works).
+- **Code** (site source and scripts): [MIT](LICENSE).
+- **Code excerpts from the projects** keep the license of the project they come from: [GPL-2.0](https://github.com/gioxx/MarvellousSuspender/blob/master/LICENSE) for The Marvellous Suspender and [The Great-er Tab Discarder](https://github.com/rkodey/the-great-er-discarder-er/blob/main/LICENSE), [AGPL-3.0](https://github.com/Marvellous-Codeworks/logdrop/blob/main/LICENSE) for logdrop. The projects themselves are not covered by this repository's licenses.
+- **Names and logos** (Marvellous Codeworks, TMS, TGD, logdrop, `static/img/MarvellousCodeworks_Logo.png`, the `suspendy-guy` artwork): not covered by either license, all rights reserved. Third-party icons and images keep their own licenses.
+
 ## Feedback
 
 Found a mistake or have a suggestion? [Open an issue](https://github.com/Marvellous-Codeworks/MC-kb/issues/new/choose).

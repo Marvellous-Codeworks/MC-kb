@@ -84,6 +84,10 @@ This applies to both The Marvellous Suspender and The Great-_er_ Tab Discarder. 
 | <CheckIcon /> Distribution   |             | <InfoIcon /> Disclose source |
 | <CheckIcon /> Private use    |             | <InfoIcon /> Same license |
 
+### This documentation
+
+This knowledge base is licensed separately from the projects it describes. The documentation (text and screenshots) is licensed under [CC BY 4.0](https://creativecommons.org/licenses/by/4.0/): you can reuse and adapt it, also commercially, as long as you credit [kb.marvellouscode.works](https://kb.marvellouscode.works). The code of this site is released under the [MIT license](https://github.com/Marvellous-Codeworks/MC-kb/blob/main/LICENSE). Code excerpts taken from a project's source keep that project's license (GPL-2.0 for TMS and TGD, AGPL-3.0 for logdrop). The Marvellous Codeworks, TMS, TGD and logdrop names and logos are not covered by either license: please do not reuse them.
+
 ## Something missing? 🕵️‍♀️
 
 If you encounter any issues with the documentation or have suggestions on how to improve it, please report the issue using the appropriate extension’s repository (for example: if the issue relates to TMS documentation, use The Marvellous Suspender’s repository, and so on).
