@@ -16,8 +16,44 @@ tags:
 import CheckIcon from '@site/src/components/CheckIcon';
 import InfoIcon from '@site/src/components/InfoIcon';
 import XIcon from '@site/src/components/XIcon';
+import Link from '@docusaurus/Link';
 
 # Marvellous Codeworks
+
+## Quick links 🚀
+
+<div className="row">
+  <div className="col col--4 margin-bottom--md">
+    <div className="card">
+      <div className="card__header"><h3>The Marvellous Suspender</h3></div>
+      <div className="card__body"><p>Suspends inactive tabs and keeps sessions, backups and repair tools at hand.</p></div>
+      <div className="card__footer">
+        <Link className="button button--primary button--sm" to="/docs/TMS/overview">Documentation</Link>{' '}
+        <Link className="button button--secondary button--sm" to="/docs/TMS/next/overview">Next (preview)</Link>
+      </div>
+    </div>
+  </div>
+  <div className="col col--4 margin-bottom--md">
+    <div className="card">
+      <div className="card__header"><h3>The Great-er Tab Discarder</h3></div>
+      <div className="card__body"><p>A lighter take on the same idea, built on Chrome's native tab discarding.</p></div>
+      <div className="card__footer">
+        <Link className="button button--primary button--sm" to="/docs/TGD/overview">Documentation</Link>{' '}
+        <Link className="button button--secondary button--sm" to="/docs/TGD/next/overview">Next (preview)</Link>
+      </div>
+    </div>
+  </div>
+  <div className="col col--4 margin-bottom--md">
+    <div className="card">
+      <div className="card__header"><h3>logdrop</h3></div>
+      <div className="card__body"><p>A self-hosted drop-off for sharing diagnostic reports privately.</p></div>
+      <div className="card__footer">
+        <Link className="button button--primary button--sm" to="/docs/logdrop/overview">Documentation</Link>{' '}
+        <Link className="button button--secondary button--sm" to="/docs/logdrop/next/overview">Next (preview)</Link>
+      </div>
+    </div>
+  </div>
+</div>
 
 ## Who We Are 🧙‍♂️
 

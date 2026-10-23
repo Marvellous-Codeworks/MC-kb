@@ -50,7 +50,7 @@ const config = {
       /** @type {import('@docusaurus/preset-classic').Options} */
       ({
         docs: {
-          sidebarPath: './sidebars.js',
+          sidebarPath: false, // Welcome page only: the projects have their own sidebars
           routeBasePath: 'docs',
         },
         blog: {
