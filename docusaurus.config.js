@@ -5,6 +5,10 @@
 // See: https://docusaurus.io/docs/api/docusaurus-config
 
 import {themes as prismThemes} from 'prism-react-renderer';
+import path from 'node:path';
+
+// Folder under projects/ = route segment under /docs; plugin id is the lowercase name.
+const projects = ['TGD', 'TMS', 'logdrop'];
 
 // This runs in Node.js - Don't use client-side code here (browser APIs, JSX...)
 
@@ -69,6 +73,22 @@ const config = {
         },
       }),
     ],
+  ],
+
+  plugins: [
+    // One versioned instance per project: last version = released, current = next (in preview)
+    ...projects.map((name) => [
+      '@docusaurus/plugin-content-docs',
+      {
+        id: name.toLowerCase(),
+        path: path.resolve(`./projects/${name}`),
+        routeBasePath: `docs/${name}`,
+        sidebarPath: path.resolve('./sidebarsProjects.js'),
+        versions: {
+          current: { label: 'Next' },
+        },
+      },
+    ]),
   ],
 
   themeConfig:
@@ -161,6 +181,12 @@ const config = {
             value: '<span class="navbar-separator" aria-hidden="true"></span>',
             position: 'left',
           },
+          // Shown only inside the matching project (see src/theme/NavbarItem/DocsVersionDropdownNavbarItem.js)
+          ...projects.map((name) => ({
+            type: 'docsVersionDropdown',
+            docsPluginId: name.toLowerCase(),
+            position: 'right',
+          })),
           {
             href: 'pathname:///blog/rss.xml',
             position: 'right',
