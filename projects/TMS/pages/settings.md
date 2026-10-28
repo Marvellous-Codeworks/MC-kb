@@ -13,7 +13,7 @@ tags:
 
 Open the TMS settings page from the extension popup or by navigating to `chrome://extensions/` → TMS → **Details** → **Extension options**.
 
-This page (`options.html`) covers general behavior, automatic suspension and the suspended-tab page. Automatic backups and session restore now live on their own dedicated pages, see [Backup & Sync](./backup-sync.md) and [Session Management](./session-management.md).
+This page (`options.html`) covers general behavior, automatic suspension and the suspended-tab page. Automatic backups and session restore live on their own dedicated pages, see [Backup & Sync](./backup-sync.md) and [Session Management](./session-management.md).
 
 ![Settings page, showing the General, Automatic tab suspension and Suspended tabs sections](./img/settings/01-overview.webp)
 
@@ -50,10 +50,10 @@ Sync has a storage size limit. If your never-suspend list is very large, sync ma
 :::
 
 ### Enable news feed
-*Added in 9.0.1.* Enabled by default. Controls whether TMS periodically checks `marvellouscode.works` for TMS-related posts and shows them on the [News](./news-feed.md) page. Disable this to stop the background request entirely, no fetches happen and the **News** entry disappears from the sidebar on every page until you turn it back on.
+Enabled by default. Controls whether TMS periodically checks `marvellouscode.works` for TMS-related posts and shows them on the [News](./news-feed.md) page. Disable this to stop the background request entirely, no fetches happen and the **News** entry disappears from the sidebar on every page until you turn it back on.
 
 ### Use the classic The Great Suspender artwork
-*Added in 9.0.2.* Disabled by default. Swaps TMS's current robot mascot/icon set back to the original The Great Suspender artwork app-wide: toolbar icon, suspended-tab favicon fallback, and every extension page's images and favicon. Illustrations with no legacy equivalent keep using the new artwork.
+Disabled by default. Swaps TMS's current robot mascot/icon set back to the original The Great Suspender artwork app-wide: toolbar icon, suspended-tab favicon fallback, and every extension page's images and favicon. Illustrations with no legacy equivalent keep using the new artwork.
 
 ---
 
@@ -67,13 +67,13 @@ Each **Never suspend…** option has a help icon that says what can still overri
 How long a tab must be inactive before TMS suspends it. Options range from 20 seconds to 2 weeks. Set to **Never** to disable automatic suspension.
 
 ### Suspend tabs on battery power after
-*Added in 9.0.3.* Defaults to **Same as when plugged in** (no override). Lets you suspend tabs more aggressively while running on battery than your normal AC timeout, without changing that AC timeout. Only takes effect while the device is actually unplugged; ignored while charging.
+Defaults to **Same as when plugged in** (no override). Lets you suspend tabs more aggressively while running on battery than your normal AC timeout, without changing that AC timeout. Only takes effect while the device is actually unplugged; ignored while charging.
 
 ### Never suspend pinned tabs
 Pinned tabs are excluded from automatic suspension.
 
 ### Never suspend tabs opened in app windows
-*Added in 9.0.3.* Enabled by default. Covers both a page opened via Chrome's **Create Shortcut → Open as window** (or the browser menu's **Install page as App**) and an installed PWA (**Install `<site>`** from the address bar), each opening in its own dedicated window rather than a normal tab. Deliberately does not extend to ordinary popup windows a site opens itself. A manual "suspend this tab now" still works regardless, only automatic suspension respects this setting.
+Enabled by default. Covers both a page opened via Chrome's **Create Shortcut → Open as window** (or the browser menu's **Install page as App**) and an installed PWA (**Install `<site>`** from the address bar), each opening in its own dedicated window rather than a normal tab. Deliberately does not extend to ordinary popup windows a site opens itself. A manual "suspend this tab now" still works regardless, only automatic suspension respects this setting.
 
 ### Never suspend tabs in a tab group
 Disabled by default. Keeps every tab that belongs to a tab group from being suspended automatically or by the bulk suspend actions; **Suspend all tabs in this group** does nothing while this is on. A tab you drag out of its group becomes eligible again and its inactivity timer starts over. To protect only some groups, use the [tab group list](#never-suspend-tabs-in-the-following-tab-groups) instead.
@@ -100,7 +100,7 @@ When TMS is updated or reloaded, it automatically takes ownership of any already
 When Chrome is about to discard a tab due to memory pressure, TMS intercepts the action and suspends the tab instead (preserving the URL on a TMS page). Discarded tabs are harder to recover than suspended ones.
 
 ### Never-suspend list
-A list of URL patterns that TMS will never suspend automatically, labeled on the page as "Never suspend tabs with URLs from the following list". Referred to as the **allowlist** throughout the UI since 9.0.2 (this was a copy-only rename, the storage key and internal code are unchanged). One pattern per line. Supports:
+A list of URL patterns that TMS will never suspend automatically, labeled on the page as "Never suspend tabs with URLs from the following list". Referred to as the **allowlist** throughout the UI. One pattern per line. Supports:
 - Full URLs: `https://mail.google.com`
 - Domain patterns: `google.com` (matches all pages on that domain)
 - Regular expressions: `/^https:.*google\.com/`
@@ -108,7 +108,7 @@ A list of URL patterns that TMS will never suspend automatically, labeled on the
 Use the test link below the text area to check whether a given URL would be matched, and **Wake matching tabs now** to immediately unsuspend any currently-suspended tab in the window that matches an entry you just added.
 
 ### Always suspend list
-*Added in 9.0.2.* A second list, right next to the allowlist, labeled "Always suspend tabs with URLs from the following list". Tabs matching it always suspend after the normal timeout, bypassing the **Never suspend…** options (pinned, audio, unsaved forms, app windows, tab groups) that would otherwise keep them open indefinitely, except the [active tab one](#suspend), useful for something like a background Twitch or YouTube tab left playing audio that you still want suspended on schedule. Manual per-tab pauses and global protections (offline, charging, "never suspend") are still respected, this only overrides the passive automatic ones.
+A second list, right next to the allowlist, labeled "Always suspend tabs with URLs from the following list". Tabs matching it always suspend after the normal timeout, bypassing the **Never suspend…** options (pinned, audio, unsaved forms, app windows, tab groups) that would otherwise keep them open indefinitely, except the [active tab one](#suspend), useful for something like a background Twitch or YouTube tab left playing audio that you still want suspended on schedule. Manual per-tab pauses and global protections (offline, charging, "never suspend") are still respected, this only overrides the passive automatic ones.
 
 Same matching rules as the allowlist above (plain text or `/regex/`). Comes with its own **Suspend matching tabs now** button, mirroring the allowlist's wake button, to immediately suspend any open tab that matches an entry you just added instead of waiting for the normal timeout.
 
@@ -131,13 +131,13 @@ Enabled by default. Appends the original page URL to the browser tab's underlyin
 Saves your current playback timestamp before suspending a YouTube tab and resumes from there on unsuspend, instead of restarting the video from the beginning.
 
 ### Always reopen suspended tabs scrolled to the top
-*Added in 9.0.3.* Disabled by default. Skips restoring the saved scroll position on unsuspend, the tab always reopens at the top of the page instead. Applies to both automatic and manual suspension, and overrides any `#section` link anchor in the URL.
+Disabled by default. Skips restoring the saved scroll position on unsuspend, the tab always reopens at the top of the page instead. Applies to both automatic and manual suspension, and overrides any `#section` link anchor in the URL.
 
 ### Automatically unsuspend tab when it is viewed
 When you switch to a suspended tab, TMS immediately starts loading it without requiring you to click. Convenient if you switch tabs frequently and want seamless restoration.
 
 ### Reload also unsuspends tabs in the background (not just the active tab)
-*Added in 9.0.3.* Disabled by default. Normally, reloading a suspended tab only counts as an explicit "unsuspend" request when that tab is the one currently focused. Enable this to also recognize a reload on a suspended tab you're not currently looking at (e.g. via a multi-tab selection, or right-click → Reload on an inactive tab) as an unsuspend request.
+Disabled by default. Normally, reloading a suspended tab only counts as an explicit "unsuspend" request when that tab is the one currently focused. Enable this to also recognize a reload on a suspended tab you're not currently looking at (e.g. via a multi-tab selection, or right-click → Reload on an inactive tab) as an unsuspend request.
 
 ### Apply your browser's built-in memory-saving when suspending
 After TMS suspends a tab (converting it to the TMS suspended page), it also tells Chrome to discard the tab from memory. This achieves maximum memory savings but means Chrome must reload the TMS page itself when you switch back to the tab.

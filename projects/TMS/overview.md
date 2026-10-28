@@ -69,4 +69,8 @@ Both can suspend *and* discard tabs, they just start from a different default:
 - Something wrong: check [Troubleshooting](./troubleshooting/extension-repair-recovery.md) and [Tab Health](./pages/tab-health.md), and report bugs on [GitHub](https://github.com/gioxx/MarvellousSuspender/issues) with a [diagnostic report](./pages/diagnostic-page.md).
 - Want to help: [Contributing](./contributing.md).
 
-TMS is released under the [GNU GPL v2](https://github.com/gioxx/MarvellousSuspender/blob/master/LICENSE). Release notes are published on the [blog](/blog).
+TMS is released under the [GNU GPL v2](https://github.com/gioxx/MarvellousSuspender/blob/master/LICENSE).
+
+:::note[Which version these docs describe]
+This documentation always describes the latest version of TMS. To see what changed in each release, and when, read the [changelog](https://github.com/gioxx/MarvellousSuspender/blob/master/CHANGELOG.md) or the [GitHub releases](https://github.com/gioxx/MarvellousSuspender/releases); release notes are also published on the [blog](/blog).
+:::

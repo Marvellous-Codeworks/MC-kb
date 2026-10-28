@@ -32,7 +32,7 @@ At the top of the popup, TMS shows the current tab's status and, for several sta
 | Paused | You manually paused this tab | **Unpause** |
 | No connectivity | Browser is offline and **Only suspend when connected** is enabled | - |
 | Charging | Device is on power and **Only suspend when on battery** is enabled | - |
-| App window | *Added in 9.0.3.* Tab is open in an [app-mode window](./settings.md#never-suspend-tabs-opened-in-app-windows) and excluded from auto-suspend | - |
+| App window | Tab is open in an [app-mode window](./settings.md#never-suspend-tabs-opened-in-app-windows) and excluded from auto-suspend | - |
 | Tab group | Tab is in a tab group and [Never suspend tabs in a tab group](./settings.md#never-suspend-tabs-in-a-tab-group) is enabled | - |
 | Never-suspended group | Tab is in a group you marked with [Never suspend this group](./settings.md#never-suspend-tabs-in-the-following-tab-groups) | - |
 | Local files cannot be suspended | TMS doesn't have access to local `file://` pages | **Enable** → opens the [local file permissions page](#local-file-permissions) |
@@ -101,8 +101,8 @@ If **Enable context menu** is on in [Settings → General](./settings.md#enable-
 |---|---|
 | **Open link in a suspended tab** | Right-click a hyperlink on any page to open it directly in a new, already-suspended tab, without ever loading it live |
 | **Toggle pause suspension** | Equivalent to the popup's Pause/Unpause action, available as a direct one-click toggle |
-| **Suspend all tabs in this group** | *Added in 9.0.3.* Suspends every tab sharing the right-clicked tab's group. Available both in the page context menu and by right-clicking a tab in the tab strip; no-op on an ungrouped tab |
-| **Unsuspend all tabs in this group** | *Added in 9.0.3.* Unsuspends every tab sharing the right-clicked tab's group. Same availability and no-op behavior as above |
+| **Suspend all tabs in this group** | Suspends every tab sharing the right-clicked tab's group. Available both in the page context menu and by right-clicking a tab in the tab strip; no-op on an ungrouped tab |
+| **Unsuspend all tabs in this group** | Unsuspends every tab sharing the right-clicked tab's group. Same availability and no-op behavior as above |
 | **Suspend all tabs not in a group** | Suspends every tab in the window that isn't in a tab group. Your protections (never-suspend list, pinned, audio, app windows, unsaved forms) still apply |
 | **Unsuspend all tabs not in a group** | Unsuspends every tab in the window that isn't in a tab group |
 | **Never suspend this group** / **Allow suspending this group** | Adds the right-clicked tab's group to, or removes it from, the [never-suspended tab groups](./settings.md#never-suspend-tabs-in-the-following-tab-groups). Named groups only |
