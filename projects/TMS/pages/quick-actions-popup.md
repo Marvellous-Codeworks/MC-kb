@@ -32,10 +32,12 @@ At the top of the popup, TMS shows the current tab's status and, for several sta
 | Paused | You manually paused this tab | **Unpause** |
 | No connectivity | Browser is offline and **Only suspend when connected** is enabled | - |
 | Charging | Device is on power and **Only suspend when on battery** is enabled | - |
-| App window | *Added in 9.0.3.* Tab is open in an [app-mode window](./settings.md#dont-suspend-tabs-opened-in-app-windows) and excluded from auto-suspend | - |
+| App window | *Added in 9.0.3.* Tab is open in an [app-mode window](./settings.md#never-suspend-tabs-opened-in-app-windows) and excluded from auto-suspend | - |
 | Tab group | Tab is in a tab group and [Never suspend tabs in a tab group](./settings.md#never-suspend-tabs-in-a-tab-group) is enabled | - |
 | Never-suspended group | Tab is in a group you marked with [Never suspend this group](./settings.md#never-suspend-tabs-in-the-following-tab-groups) | - |
-| Local file blocked | TMS lacks permission to read this local file | **Grant permission** → opens the [file permissions prompt](#local-file-permissions) |
+| Local files cannot be suspended | TMS doesn't have access to local `file://` pages | **Enable** → opens the [local file permissions page](#local-file-permissions) |
+
+When the current tab won't be suspended automatically (paused, allowed, pinned and so on), the toolbar icon itself shows a small orange pause badge in its top-right corner, so you can tell without opening the popup. The badge also appears on pages that can't be suspended at all, such as the browser's own pages or a tab that is already suspended. With the [classic artwork](./settings.md#use-the-classic-the-great-suspender-artwork) the paused icon is the original grey one instead.
 
 If a scheduled Google Drive backup recently failed, a red banner appears above the menu, click it to jump straight to [Backup & Sync](./backup-sync.md) and reconnect.
 
@@ -107,10 +109,10 @@ If **Enable context menu** is on in [Settings → General](./settings.md#enable-
 
 ![Right-click context menu on a tab, showing the TMS submenu](./img/quick-actions-popup/05-context-menu.webp)
 
-The context menu is unavailable in Incognito windows regardless of the setting.
+The context menu is unavailable in Incognito windows regardless of the setting. Items in the tab strip menu (right-clicking a tab itself, rather than the page) need a browser that supports them; on Chrome 147 and older only the page menu is available.
 
 ---
 
 ## Local file permissions
 
-Some TMS actions need to read a local `file://` URL (e.g. resuming a suspended tab that pointed at a local file). If Chrome hasn't granted the extension access to local files, the popup shows a **Local file blocked** status with a **Grant permission** link that opens TMS's own permissions page, which in turn links to `chrome://extensions/` → TMS → **Details**, where you can enable **Allow access to file URLs**. See [System & recovery pages](./system-pages.md#local-file-permissions-page) for details.
+To suspend pages opened from local `file://` URLs, TMS needs access to them. Without it, the popup shows **Local files cannot be suspended.** with an **Enable** link that opens TMS's own permissions page, see [System & recovery pages](./system-pages.md#local-file-permissions-page) for how to grant it.

@@ -59,40 +59,44 @@ Sync has a storage size limit. If your never-suspend list is very large, sync ma
 
 ## Suspend
 
-### Suspend automatically after
+:::note[What overrides the "Never suspend…" options]
+Each **Never suspend…** option has a help icon that says what can still override it. These options protect a tab from automatic suspension and from the regular bulk suspend actions. You can still suspend a tab yourself, or with a **Force suspend** action, and a tab whose URL is on the [always suspend list](#always-suspend-list) is suspended anyway. The one exception is [Never suspend active tab in each window](#never-suspend-active-tab-in-each-window): the always suspend list does not override it for automatic and bulk suspension.
+:::
+
+### Automatically suspend tabs after
 How long a tab must be inactive before TMS suspends it. Options range from 20 seconds to 2 weeks. Set to **Never** to disable automatic suspension.
 
 ### Suspend tabs on battery power after
 *Added in 9.0.3.* Defaults to **Same as when plugged in** (no override). Lets you suspend tabs more aggressively while running on battery than your normal AC timeout, without changing that AC timeout. Only takes effect while the device is actually unplugged; ignored while charging.
 
-### Don't suspend pinned tabs
+### Never suspend pinned tabs
 Pinned tabs are excluded from automatic suspension.
 
-### Don't suspend tabs opened in app windows
+### Never suspend tabs opened in app windows
 *Added in 9.0.3.* Enabled by default. Covers both a page opened via Chrome's **Create Shortcut → Open as window** (or the browser menu's **Install page as App**) and an installed PWA (**Install `<site>`** from the address bar), each opening in its own dedicated window rather than a normal tab. Deliberately does not extend to ordinary popup windows a site opens itself. A manual "suspend this tab now" still works regardless, only automatic suspension respects this setting.
 
 ### Never suspend tabs in a tab group
 Disabled by default. Keeps every tab that belongs to a tab group from being suspended automatically or by the bulk suspend actions; **Suspend all tabs in this group** does nothing while this is on. A tab you drag out of its group becomes eligible again and its inactivity timer starts over. To protect only some groups, use the [tab group list](#never-suspend-tabs-in-the-following-tab-groups) instead.
 
-### Don't suspend tabs with unsaved form data
+### Never suspend tabs that contain unsaved form inputs
 TMS detects whether a tab contains an active form with unsaved input and skips it. Useful for forms that don't auto-save.
 
-### Don't suspend tabs playing audio
+### Never suspend tabs that are playing audio
 Tabs that are currently playing audio (music, video, calls) are excluded.
 
-### Don't suspend the active tab in each window
+### Never suspend active tab in each window
 The currently focused tab in every open window is never suspended automatically.
 
-### Only suspend when connected to the internet
+### Never suspend tabs when offline
 TMS will not suspend tabs when the browser detects no network connection.
 
-### Only suspend when on battery power
+### Never suspend tabs when connected to power source
 Suspension only happens when the device is running on battery, not when plugged in.
 
-### Claim suspended tabs by default
+### Claim tabs suspended by other extensions
 When TMS is updated or reloaded, it automatically takes ownership of any already-suspended tabs it finds. Disable this if you manage multiple suspender extensions and want explicit control.
 
-### Suspend in place of discard (low memory)
+### Instantly suspend when system memory gets very low
 When Chrome is about to discard a tab due to memory pressure, TMS intercepts the action and suspends the tab instead (preserving the URL on a TMS page). Discarded tabs are harder to recover than suspended ones.
 
 ### Never-suspend list
@@ -104,7 +108,7 @@ A list of URL patterns that TMS will never suspend automatically, labeled on the
 Use the test link below the text area to check whether a given URL would be matched, and **Wake matching tabs now** to immediately unsuspend any currently-suspended tab in the window that matches an entry you just added.
 
 ### Always suspend list
-*Added in 9.0.2.* A second list, right next to the allowlist, labeled "Always suspend tabs with URLs from the following list". Tabs matching it always suspend after the normal timeout, bypassing the pinned/audible/unsaved-form-input protections that would otherwise keep them open indefinitely, useful for something like a background Twitch or YouTube tab left playing audio that you still want suspended on schedule. Manual per-tab pauses and global protections (offline, charging, "never suspend") are still respected, this only overrides the passive automatic ones.
+*Added in 9.0.2.* A second list, right next to the allowlist, labeled "Always suspend tabs with URLs from the following list". Tabs matching it always suspend after the normal timeout, bypassing the **Never suspend…** options (pinned, audio, unsaved forms, app windows, tab groups) that would otherwise keep them open indefinitely, except the [active tab one](#suspend), useful for something like a background Twitch or YouTube tab left playing audio that you still want suspended on schedule. Manual per-tab pauses and global protections (offline, charging, "never suspend") are still respected, this only overrides the passive automatic ones.
 
 Same matching rules as the allowlist above (plain text or `/regex/`). Comes with its own **Suspend matching tabs now** button, mirroring the allowlist's wake button, to immediately suspend any open tab that matches an entry you just added instead of waiting for the normal timeout.
 
@@ -123,10 +127,19 @@ The tab groups you have marked with **Never suspend this group** from the [right
 ### Append original URL to suspended tab title
 Enabled by default. Appends the original page URL to the browser tab's underlying `document.title` (not the visible text on the suspended page itself) so that Chrome's **Search Tabs** feature (`Ctrl+Shift+A`) can find a suspended tab by typing its hostname, not just its page title.
 
-### Unsuspend automatically when tab is focused
+### Preserve YouTube playback position when suspending
+Saves your current playback timestamp before suspending a YouTube tab and resumes from there on unsuspend, instead of restarting the video from the beginning.
+
+### Always reopen suspended tabs scrolled to the top
+*Added in 9.0.3.* Disabled by default. Skips restoring the saved scroll position on unsuspend, the tab always reopens at the top of the page instead. Applies to both automatic and manual suspension, and overrides any `#section` link anchor in the URL.
+
+### Automatically unsuspend tab when it is viewed
 When you switch to a suspended tab, TMS immediately starts loading it without requiring you to click. Convenient if you switch tabs frequently and want seamless restoration.
 
-### Discard tab after suspending
+### Reload also unsuspends tabs in the background (not just the active tab)
+*Added in 9.0.3.* Disabled by default. Normally, reloading a suspended tab only counts as an explicit "unsuspend" request when that tab is the one currently focused. Enable this to also recognize a reload on a suspended tab you're not currently looking at (e.g. via a multi-tab selection, or right-click → Reload on an inactive tab) as an unsuspend request.
+
+### Apply your browser's built-in memory-saving when suspending
 After TMS suspends a tab (converting it to the TMS suspended page), it also tells Chrome to discard the tab from memory. This achieves maximum memory savings but means Chrome must reload the TMS page itself when you switch back to the tab.
 
 ### Screen capturing
@@ -174,12 +187,3 @@ From 1 to 8, default **3**. A higher number fills in titles and icons sooner. Th
 :::warning
 Raising this above 3 can overload the browser when it restores many tabs and bring back the freezes and crashes at startup that the default prevents. Change it at your own risk.
 :::
-
-### Preserve YouTube playback position when suspending
-Saves your current playback timestamp before suspending a YouTube tab and resumes from there on unsuspend, instead of restarting the video from the beginning.
-
-### Always reopen suspended tabs scrolled to the top
-*Added in 9.0.3.* Disabled by default. Skips restoring the saved scroll position on unsuspend, the tab always reopens at the top of the page instead. Applies to both automatic and manual suspension, and overrides any `#section` link anchor in the URL.
-
-### Reload also unsuspends tabs in the background
-*Added in 9.0.3.* Disabled by default. Normally, reloading a suspended tab only counts as an explicit "unsuspend" request when that tab is the one currently focused. Enable this to also recognize a reload on a suspended tab you're not currently looking at (e.g. via a multi-tab selection, or right-click → Reload on an inactive tab) as an unsuspend request.

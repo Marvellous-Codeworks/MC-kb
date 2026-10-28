@@ -85,7 +85,10 @@ Used exclusively by the optional [Google Drive backup destination](./pages/backu
 
 #### File URLs access
 
-*Added in 9.0.2.* Declared as an optional host permission (`file:///*`) so Chrome's **"Allow access to file URLs"** toggle appears on TMS's entry in `chrome://extensions` (it was previously missing entirely, since the manifest never declared this access). No access to local files is granted until you flip that toggle yourself, TMS never requests it automatically. Needed only if you want TMS to suspend/manage tabs opened from `file://` URLs.
+Declared as an optional host permission (`file:///*`), needed only if you want TMS to suspend tabs opened from `file://` URLs. It takes two steps, and neither happens at install or update time:
+
+1. Chrome's **Allow access to file URLs** toggle on TMS's entry in `chrome://extensions`, which only you can turn on.
+2. The `file:///*` permission itself, which TMS asks for when you click **Open extension settings** on its [local file permissions page](./pages/system-pages.md#local-file-permissions-page). The browser only grants it once the toggle is on.
 
 #### All sites access for recent screenshots
 

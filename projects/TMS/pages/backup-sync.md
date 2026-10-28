@@ -91,6 +91,9 @@ If you use TMS on more than one machine with the same Google account, each devic
 #### Disconnecting
 The **Disconnect** button revokes the OAuth token (`chrome.identity.removeCachedAuthToken` + a call to Google's token-revocation endpoint). Existing backup files on Drive are **not** deleted, only the connection from this browser is removed.
 
+#### If a Drive upload fails
+If a scheduled Drive backup fails because of a temporary network or server error, TMS tries again a few minutes later, a few times, instead of waiting for the next scheduled backup.
+
 #### If Drive authentication fails
 If a scheduled Drive backup fails because the connection expired or was revoked elsewhere, TMS shows a small red badge on the toolbar icon and a banner in the popup. Clicking the banner opens this page so you can reconnect.
 

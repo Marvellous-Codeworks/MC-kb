@@ -57,21 +57,32 @@ This was a bug in 8.1.0 and 8.1.1, fixed in [8.1.1](/blog/tms-release-8-1-1) and
 
 Several settings can prevent a tab from being suspended automatically:
 
-- The tab is **pinned** and "Don't suspend pinned tabs" is enabled
+- The tab is **pinned** and "Never suspend pinned tabs" is enabled
 - The tab is **playing audio**
 - The tab is the **active (focused) tab** in its window
 - The tab contains **unsaved form data**
+- The tab is in a **tab group** and "Never suspend tabs in a tab group" is enabled, or its group is on the [never-suspended tab groups](./pages/settings.md#never-suspend-tabs-in-the-following-tab-groups) list
 - The tab's URL matches an entry in your **never-suspend list**
-- The "Suspend automatically after" timer is set to **Never**
-- The device is connected to power and "Only suspend on battery" is enabled
-- The device is offline and "Only suspend when connected" is enabled
+- The "Automatically suspend tabs after" timer is set to **Never**
+- The device is connected to power and "Never suspend tabs when connected to power source" is enabled
+- The device is offline and "Never suspend tabs when offline" is enabled
+
+The toolbar popup tells you which one applies to the current tab, see [Toolbar popup → Status line](./pages/quick-actions-popup.md#status-line).
 
 ### A tab I was working on got suspended unexpectedly. How do I prevent this?
 
 The fastest options:
 - **Pin the tab**: pinned tabs are excluded from auto-suspension by default.
-- **Right-click the tab → TMS → Pause**: pauses auto-suspension for that tab until the next reload.
-- **Add the URL to the never-suspend list** in Settings → Suspend → Never suspend.
+- **Right-click the page → The Marvellous Suspender → Pause/Unpause suspension of this tab**: pauses auto-suspension for that tab until the next reload.
+- **Add the URL to the never-suspend list** in [Settings → Suspend](./pages/settings.md#never-suspend-list).
+
+None of these is absolute: a tab you suspend yourself, or with a "Force suspend" action, is still suspended, and so is a URL on the always suspend list. See [what overrides the "Never suspend…" options](./pages/settings.md#suspend).
+
+### My browser froze or TMS crashed after a restart with many suspended tabs. What can I do?
+
+TMS checks restored suspended tabs a few at a time when the browser starts, the tab you are looking at first, and leaves tabs the browser keeps asleep untouched. That keeps a restart with many suspended tabs from overloading the browser. Titles and favicons can take a moment longer to fill in afterwards: that is expected.
+
+If startup still struggles, check that [Suspended tabs checked at a time when the browser starts](./pages/settings.md#suspended-tabs-checked-at-a-time-when-the-browser-starts) is at the default of 3 or lower. If it keeps happening, report it on [GitHub](https://github.com/gioxx/MarvellousSuspender/issues) with a [diagnostic report](./pages/diagnostic-page.md).
 
 ### I lost tabs after a browser restart. Can I recover them?
 
