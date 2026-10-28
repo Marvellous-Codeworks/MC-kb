@@ -29,6 +29,10 @@ These are declared as regular permissions and are granted automatically when TMS
 
 Grants access to the list of open tabs and their properties (URL, title, active state, pinned state, group membership). This is the core permission that makes suspension possible. Without it, TMS cannot read or manipulate tabs.
 
+#### Active tab
+
+`activeTab` gives TMS temporary access to the tab you are looking at, only at the moment you invoke the extension on it: from the popup, a keyboard shortcut or the right-click menu. TMS uses it to take a real browser screenshot of that tab for its [suspended-page preview](./pages/settings.md#capture-method). It adds no warning at install time.
+
 #### Storage and unlimited storage
 
 `storage` + `unlimitedStorage` are used to persist your settings, the never-suspend list, favicon cache, and session data. `unlimitedStorage` removes the default 5 MB cap so that large sessions with many tabs can be saved reliably.
@@ -82,6 +86,10 @@ Used exclusively by the optional [Google Drive backup destination](./pages/backu
 #### File URLs access
 
 *Added in 9.0.2.* Declared as an optional host permission (`file:///*`) so Chrome's **"Allow access to file URLs"** toggle appears on TMS's entry in `chrome://extensions` (it was previously missing entirely, since the manifest never declared this access). No access to local files is granted until you flip that toggle yourself, TMS never requests it automatically. Needed only if you want TMS to suspend/manage tabs opened from `file://` URLs.
+
+#### All sites access for recent screenshots
+
+Declared as an optional host permission (`<all_urls>`). Requested only when you turn on [Keep a recent screenshot of tabs as I use them](./pages/settings.md#keep-a-recent-screenshot-of-tabs-as-i-use-them): the browser lets an extension screenshot a tab you haven't invoked it on only if it has access to all sites. TMS uses it for nothing but those screenshots, which stay in your browser profile. Turning the option off gives the permission back.
 
 #### Google API OAuth scope: drive.appdata
 

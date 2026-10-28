@@ -31,7 +31,7 @@ Tabs that are still in use are left alone: the active tab, pinned tabs, tabs pla
 
 | Area | What you get | Read more |
 |---|---|---|
-| Suspension rules | Timeout, separate battery timeout, pinned/audio/form/active-tab exceptions, never-suspend and always-suspend lists, online/battery-only modes | [Settings](./pages/settings.md) |
+| Suspension rules | Timeout, separate battery timeout, pinned/audio/form/active-tab/tab-group exceptions, never-suspend and always-suspend lists, never-suspended tab groups, online/battery-only modes | [Settings](./pages/settings.md) |
 | Suspended page | Title, favicon, optional screenshot (visible area or full page), original URL in the title, YouTube position kept | [Settings → Suspended Tabs](./pages/settings.md#suspended-tabs) |
 | Sessions | Current session, automatic restore points at every browser start, saved sessions, import/export | [Session management](./pages/session-management.md) |
 | Migration | Convert suspended tabs from The Great Suspender and other suspenders in place | [Session management → Migrate](./pages/session-management.md#migrate-from-another-suspender) |
