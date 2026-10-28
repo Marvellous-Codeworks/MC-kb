@@ -112,7 +112,7 @@ Only to remove suspended-tab URLs (`chrome-extension://…`) from your history w
 
 ### Why does TMS ask for the `downloads` and `identity` permissions?
 
-Both are for the optional [Backup & Sync](./pages/backup-sync.md) feature: `downloads` lets TMS save local backup files to your Downloads folder, and `identity` lets TMS authenticate with Google Drive if you choose that as your backup destination. Both are requested on demand: Chrome only asks for `downloads` when you turn on automatic backup, and only asks for `identity` when you click **Connect** to link a Google account. If you never use either feature, TMS never requests them. See [Permissions → Optional permissions](./permissions.md#what-changed-in-9x).
+Both are for the optional [Backup & Sync](./pages/backup-sync.md) feature: `downloads` lets TMS save local backup files to your Downloads folder, and `identity` lets TMS authenticate with Google Drive if you choose that as your backup destination. Both are requested on demand: Chrome only asks for `downloads` when you turn on automatic backup, and only asks for `identity` when you click **Connect** to link a Google account. If you never use either feature, TMS never requests them. See [Permissions → Optional permissions](./permissions.md#optional-permissions-requested-on-demand).
 
 ---
 

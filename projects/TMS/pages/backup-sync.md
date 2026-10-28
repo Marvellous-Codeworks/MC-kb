@@ -29,7 +29,7 @@ On each run, TMS backs up your **current session**: every open window, its tabs 
 
 *This page shows a note reminding you that backup is off, with an option to snooze the reminder for 10 days or dismiss it permanently, see [Backup activation nudge](#backup-activation-nudge) below.*
 
-Toggle **Automatically back up your session**. Doing so triggers Chrome's permission prompt for `downloads` right at that moment, not before, see [Permissions](../permissions.md#what-changed-in-9x) for why. If you decline the prompt, the toggle reverts and nothing is enabled. Once enabled (and the permission granted), four settings become available:
+Toggle **Automatically back up your session**. Doing so triggers Chrome's permission prompt for `downloads` right at that moment, not before, see [Permissions](../permissions.md#optional-permissions-requested-on-demand) for why. If you decline the prompt, the toggle reverts and nothing is enabled. Once enabled (and the permission granted), four settings become available:
 
 | Setting | Description |
 |---|---|
@@ -79,7 +79,7 @@ Click **Connect Google Account**. This first triggers Chrome's permission prompt
 
 ![Google's consent screen showing the narrow drive.appdata scope requested](./img/backup-sync/08-google-oauth-consent.webp)
 
-TMS requests only the narrow `drive.appdata` scope, see [Permissions](../permissions.md#what-changed-in-9x) for what that does and does not allow. Once connected you'll see the connected account and the destination folder shown on the page:
+TMS requests only the narrow `drive.appdata` scope, see [Permissions](../permissions.md#optional-permissions-requested-on-demand) for what that does and does not allow. Once connected you'll see the connected account and the destination folder shown on the page:
 
 ![Backup page with Google Drive connected, showing account and folder](./img/backup-sync/02-drive-connected.webp)
 
@@ -155,6 +155,6 @@ The date of the last Drive settings backup is shown next to the section title on
 ## Related
 
 - [Session management](./session-management.md): TMS's always-on local session history, independent of this page
-- [Permissions](../permissions.md#what-changed-in-9x): exactly what the `downloads` and `identity` permissions and the `drive.appdata` OAuth scope allow
+- [Permissions](../permissions.md#optional-permissions-requested-on-demand): exactly what the `downloads` and `identity` permissions and the `drive.appdata` OAuth scope allow
 - [Diagnostic page](./diagnostic-page.md): shows this device's backup ID and name for troubleshooting
 - [Chrome/Edge extension corruption & repair](../troubleshooting/extension-repair-recovery.md): recovering sessions from raw browser data when no backup exists and the browser resets TMS's local storage

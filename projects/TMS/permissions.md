@@ -67,7 +67,10 @@ Allows TMS to run scripts in the context of web pages. Used to:
 
 `http://*/*` and `https://*/*` are required by the `scripting` permission, Chrome enforces that host permissions must be declared for any page where content scripts will run.
 
-### Optional permissions (requested on demand) {#what-changed-in-9x}
+{/* Kept for the 2026-08 blog posts that link to this anchor. */}
+<a id="what-changed-in-9x"></a>
+
+### Optional permissions (requested on demand)
 
 These are declared as optional (`optional_permissions` or `optional_host_permissions`) and are **not** requested at install or update time. Chrome only prompts for them the moment you actually turn on the related feature, and if you never use that feature, TMS never asks for them.
 
