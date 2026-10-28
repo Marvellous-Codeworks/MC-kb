@@ -49,7 +49,7 @@ Once restoration finishes, a success screen confirms all tabs were restored:
 
 ![Recovery success screen: "Marvellous success! All your tabs have been restored."](./img/system-pages/02b-recovery-success.webp)
 
-If [screen capture](./settings.md#screen-capture-on-suspended-tab-page) is enabled, a notice on this screen offers a quick link to disable it, screenshots are the most expensive part of a suspend/restore cycle on very large sessions, so switching it off here can speed up recovery on future restarts.
+If [screen capture](./settings.md#screen-capturing) is enabled, a notice on this screen offers a quick link to disable it, screenshots are the most expensive part of a suspend/restore cycle on very large sessions, so switching it off here can speed up recovery on future restarts.
 
 ## Restoring-window screen
 
@@ -61,6 +61,6 @@ If [screen capture](./settings.md#screen-capture-on-suspended-tab-page) is enabl
 
 ## Local file permissions page
 
-`permissions.html` is what opens when TMS needs to read a `file://` URL but Chrome hasn't granted it access, reached via the popup's **Grant permission** link (see [Toolbar popup → Local file permissions](./quick-actions-popup.md#local-file-permissions)). It offers:
-- **Export current session**: a safety-net backup before you change extension permissions
-- **Set file permissions**: opens `chrome://extensions/?id=<TMS's ID>`, where you can toggle **Allow access to file URLs** yourself (Chrome does not allow extensions to grant this permission programmatically).
+`permissions.html` is what opens when TMS needs access to a local `file://` page but doesn't have it, reached via the popup's **Enable** link (see [Toolbar popup → Local file permissions](./quick-actions-popup.md#local-file-permissions)). It offers:
+- **Save backup**: a safety-net export of your current session before you change extension permissions
+- **Open extension settings**: asks the browser for access to local files. This only works once **Allow access to file URLs** is on for TMS, which the browser doesn't let an extension switch on by itself: if it is off, the button opens TMS's entry in `chrome://extensions` so you can turn it on. When you come back, the page tells you to click the button again to finish granting access.

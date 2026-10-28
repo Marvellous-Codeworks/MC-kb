@@ -43,11 +43,7 @@ From the [Chrome Web Store](https://go.gioxx.org/tgs). If you prefer to load it 
 
 ### What version of Chrome do I need?
 
-TMS requires **Chrome 110 or later** (this has not changed since 8.x). The extension uses Manifest V3, which is not available in older Chrome versions.
-
-### TMS showed a "new version available" banner even though I already updated. What gives?
-
-This was a bug in 8.1.0 and 8.1.1, fixed in [8.1.1](/blog/tms-release-8-1-1) and fully resolved in [8.1.2](/blog/tms-release-8-1-2). Update to the latest version from the Chrome Web Store.
+TMS requires **Chrome 110 or later**. The extension uses Manifest V3, which is not available in older Chrome versions.
 
 ---
 
@@ -57,21 +53,32 @@ This was a bug in 8.1.0 and 8.1.1, fixed in [8.1.1](/blog/tms-release-8-1-1) and
 
 Several settings can prevent a tab from being suspended automatically:
 
-- The tab is **pinned** and "Don't suspend pinned tabs" is enabled
+- The tab is **pinned** and "Never suspend pinned tabs" is enabled
 - The tab is **playing audio**
 - The tab is the **active (focused) tab** in its window
 - The tab contains **unsaved form data**
+- The tab is in a **tab group** and "Never suspend tabs in a tab group" is enabled, or its group is on the [never-suspended tab groups](./pages/settings.md#never-suspend-tabs-in-the-following-tab-groups) list
 - The tab's URL matches an entry in your **never-suspend list**
-- The "Suspend automatically after" timer is set to **Never**
-- The device is connected to power and "Only suspend on battery" is enabled
-- The device is offline and "Only suspend when connected" is enabled
+- The "Automatically suspend tabs after" timer is set to **Never**
+- The device is connected to power and "Never suspend tabs when connected to power source" is enabled
+- The device is offline and "Never suspend tabs when offline" is enabled
+
+The toolbar popup tells you which one applies to the current tab, see [Toolbar popup → Status line](./pages/quick-actions-popup.md#status-line).
 
 ### A tab I was working on got suspended unexpectedly. How do I prevent this?
 
 The fastest options:
 - **Pin the tab**: pinned tabs are excluded from auto-suspension by default.
-- **Right-click the tab → TMS → Pause**: pauses auto-suspension for that tab until the next reload.
-- **Add the URL to the never-suspend list** in Settings → Suspend → Never suspend.
+- **Right-click the page → The Marvellous Suspender → Pause/Unpause suspension of this tab**: pauses auto-suspension for that tab until the next reload.
+- **Add the URL to the never-suspend list** in [Settings → Suspend](./pages/settings.md#never-suspend-list).
+
+None of these is absolute: a tab you suspend yourself, or with a "Force suspend" action, is still suspended, and so is a URL on the always suspend list. See [what overrides the "Never suspend…" options](./pages/settings.md#suspend).
+
+### My browser froze or TMS crashed after a restart with many suspended tabs. What can I do?
+
+TMS checks restored suspended tabs a few at a time when the browser starts, the tab you are looking at first, and leaves tabs the browser keeps asleep untouched. That keeps a restart with many suspended tabs from overloading the browser. Titles and favicons can take a moment longer to fill in afterwards: that is expected.
+
+If startup still struggles, check that [Suspended tabs checked at a time when the browser starts](./pages/settings.md#suspended-tabs-checked-at-a-time-when-the-browser-starts) is at the default of 3 or lower. If it keeps happening, report it on [GitHub](https://github.com/gioxx/MarvellousSuspender/issues) with a [diagnostic report](./pages/diagnostic-page.md).
 
 ### I lost tabs after a browser restart. Can I recover them?
 
@@ -105,11 +112,7 @@ Only to remove suspended-tab URLs (`chrome-extension://…`) from your history w
 
 ### Why does TMS ask for the `downloads` and `identity` permissions?
 
-Both were added in TMS 9 for the optional [Backup & Sync](./pages/backup-sync.md) feature: `downloads` lets TMS save local backup files to your Downloads folder, and `identity` lets TMS authenticate with Google Drive if you choose that as your backup destination. Since **9.0.1**, both are requested on demand, Chrome only asks for `downloads` when you actually toggle on automatic backup, and only asks for `identity` when you click **Connect** to link a Google account, instead of being requested upfront at install/update time. If you never use either feature, TMS never requests them. See [Permissions → What changed in 9.x](./permissions.md#what-changed-in-9x).
-
-### I enabled automatic backup under TMS 9.0.0. Do I need to redo anything after updating to 9.0.1?
-
-No. Chrome preserves permissions you already granted even when a later update moves them from required to optional in the manifest, which is what 9.0.1 does for `downloads` and `identity`. You won't see a new permission prompt and your backup settings keep working exactly as before.
+Both are for the optional [Backup & Sync](./pages/backup-sync.md) feature: `downloads` lets TMS save local backup files to your Downloads folder, and `identity` lets TMS authenticate with Google Drive if you choose that as your backup destination. Both are requested on demand: Chrome only asks for `downloads` when you turn on automatic backup, and only asks for `identity` when you click **Connect** to link a Google account. If you never use either feature, TMS never requests them. See [Permissions → Optional permissions](./permissions.md#optional-permissions-requested-on-demand).
 
 ---
 
