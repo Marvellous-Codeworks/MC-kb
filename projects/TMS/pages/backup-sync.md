@@ -23,13 +23,13 @@ This page covers three independent features: **automatic session backup**, **res
 ### What gets backed up
 On each run, TMS backs up your **current session**: every open window, its tabs (original URLs, not the internal suspended-page URL) and Chrome Tab Group assignments, the same data you'd get from an [Export](./session-management.md#export) in Session Management, just automated and written to a file.
 
-### Enable automatic backup
+### Automatically back up your session
 
 ![Backup page with automatic backup disabled, the default state](./img/backup-sync/00-disabled.webp)
 
 *Since 9.0.1, this page shows a note reminding you that backup is off, with an option to snooze the reminder for 10 days or dismiss it permanently, see [Backup activation nudge](#backup-activation-nudge) below.*
 
-Toggle **Enable automatic backup**. Since **9.0.1**, doing so triggers Chrome's permission prompt for `downloads` right at that moment, not before, see [Permissions](../permissions.md#what-changed-in-9x) for why. If you decline the prompt, the toggle reverts and nothing is enabled. Once enabled (and the permission granted), four settings become available:
+Toggle **Automatically back up your session**. Since **9.0.1**, doing so triggers Chrome's permission prompt for `downloads` right at that moment, not before, see [Permissions](../permissions.md#what-changed-in-9x) for why. If you decline the prompt, the toggle reverts and nothing is enabled. Once enabled (and the permission granted), four settings become available:
 
 | Setting | Description |
 |---|---|
@@ -58,7 +58,7 @@ If a backup produces an empty result (no open windows/tabs to save), TMS silentl
 - A banner in the extension popup, clicking it opens this page.
 - The note shown above, on this page.
 
-Each surface offers **Remind me in 10 days**, which snoozes the reminder (badge, popup banner, and this note all reappear automatically once the snooze expires), or, from this page only, a permanent **I'm not interested, stop reminding me** checkbox. Once you enable automatic backup, or check that box, all three surfaces stay hidden until the corresponding condition changes again. Nothing about this reminder collects data or phones home, it only reads your own local `Enable automatic backup` setting.
+Each surface offers **Remind me in 10 days**, which snoozes the reminder (badge, popup banner, and this note all reappear automatically once the snooze expires), or, from this page only, a permanent **I'm not interested, stop reminding me** checkbox. Once you enable automatic backup, or check that box, all three surfaces stay hidden until the corresponding condition changes again. Nothing about this reminder collects data or phones home, it only reads your own local `Automatically back up your session` setting.
 
 ### Local backups
 Files are written to `Downloads/tms-backups/tms-session-{deviceId}-{timestamp}.json`. The `{deviceId}` is a random 8-character identifier generated once per browser installation and stored locally, it exists purely so that two browsers writing to the same Downloads folder (e.g. Chrome and Brave on the same machine) never overwrite each other's files. Rotation keeps only the newest **Max backups per device** files for *this* installation.

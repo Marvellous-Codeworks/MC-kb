@@ -45,10 +45,6 @@ From the [Chrome Web Store](https://go.gioxx.org/tgs). If you prefer to load it 
 
 TMS requires **Chrome 110 or later** (this has not changed since 8.x). The extension uses Manifest V3, which is not available in older Chrome versions.
 
-### TMS showed a "new version available" banner even though I already updated. What gives?
-
-This was a bug in 8.1.0 and 8.1.1, fixed in [8.1.1](/blog/tms-release-8-1-1) and fully resolved in [8.1.2](/blog/tms-release-8-1-2). Update to the latest version from the Chrome Web Store.
-
 ---
 
 ## Using TMS
@@ -117,10 +113,6 @@ Only to remove suspended-tab URLs (`chrome-extension://…`) from your history w
 ### Why does TMS ask for the `downloads` and `identity` permissions?
 
 Both were added in TMS 9 for the optional [Backup & Sync](./pages/backup-sync.md) feature: `downloads` lets TMS save local backup files to your Downloads folder, and `identity` lets TMS authenticate with Google Drive if you choose that as your backup destination. Since **9.0.1**, both are requested on demand, Chrome only asks for `downloads` when you actually toggle on automatic backup, and only asks for `identity` when you click **Connect** to link a Google account, instead of being requested upfront at install/update time. If you never use either feature, TMS never requests them. See [Permissions → What changed in 9.x](./permissions.md#what-changed-in-9x).
-
-### I enabled automatic backup under TMS 9.0.0. Do I need to redo anything after updating to 9.0.1?
-
-No. Chrome preserves permissions you already granted even when a later update moves them from required to optional in the manifest, which is what 9.0.1 does for `downloads` and `identity`. You won't see a new permission prompt and your backup settings keep working exactly as before.
 
 ---
 
