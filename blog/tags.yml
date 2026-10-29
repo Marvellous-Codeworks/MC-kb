@@ -57,3 +57,7 @@ logdrop:
   label: logdrop
   permalink: /logdrop
   description: Updates concerning logdrop, the private diagnostic report drop-off
+security:
+  label: Security
+  permalink: /security
+  description: Security advisories and fixes
