@@ -3,7 +3,7 @@ slug: tms-9-1-0-on-its-way
 title: "The Marvellous Suspender 9.1.0 is on its way - tab groups, real screenshots and a calmer startup"
 description: "9.1.0 is wrapping up and heading to the Chrome Web Store: per-group and grouped-tab protections, native screenshots for tab previews with SnapDOM as the new page renderer, a startup that no longer reloads every suspended tab at once, Ukrainian, and a long list of fixes."
 date: 2026-10-28T12:00:00+01:00
-authors: [gioxx]
+authors: [gioxx, amargiovanni]
 tags: [release, tms]
 ---
 
