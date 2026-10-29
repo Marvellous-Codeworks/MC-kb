@@ -18,3 +18,12 @@ rkodey:
   socials:
     linkedin: robkodey
     github: rkodey
+
+amargiovanni:
+  name: Andrea Margiovanni
+  title: Contributor to The Marvellous Suspender
+  url: https://margiovanni.it
+  image_url: https://github.com/amargiovanni.png
+  page: true
+  socials:
+    github: amargiovanni
