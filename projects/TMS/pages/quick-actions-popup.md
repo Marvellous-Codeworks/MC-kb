@@ -95,12 +95,12 @@ Shown only when [automatic backup](./backup-sync.md#automatic-session-backup) is
 
 ## Right-click context menu
 
-If **Enable context menu** is on in [Settings → General](./settings.md#enable-context-menu), right-clicking any tab (or a link on a page) exposes the same current-tab and bulk actions found in the popup, plus two extras not present in the popup:
+If **Enable context menu** is on in [Settings → General](./settings.md#enable-context-menu), right-clicking any tab (or a link on a page) exposes the same current-tab and bulk actions found in the popup, plus these extras not present in the popup:
 
 | Context menu item | Effect |
 |---|---|
-| **Open link in a suspended tab** | Right-click a hyperlink on any page to open it directly in a new, already-suspended tab, without ever loading it live |
-| **Toggle pause suspension** | Equivalent to the popup's Pause/Unpause action, available as a direct one-click toggle |
+| **Open Link in New Suspended Tab** | Right-click a hyperlink on any page to open it directly in a new, already-suspended tab, without ever loading it live |
+| **Pause/Unpause suspension of this tab** | Equivalent to the popup's Pause/Unpause action, available as a direct one-click toggle |
 | **Suspend all tabs in this group** | Suspends every tab sharing the right-clicked tab's group. Available both in the page context menu and by right-clicking a tab in the tab strip; no-op on an ungrouped tab |
 | **Unsuspend all tabs in this group** | Unsuspends every tab sharing the right-clicked tab's group. Same availability and no-op behavior as above |
 | **Suspend all tabs not in a group** | Suspends every tab in the window that isn't in a tab group. Your protections (never-suspend list, pinned, audio, app windows, unsaved forms) still apply |
