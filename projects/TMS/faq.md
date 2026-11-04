@@ -88,7 +88,7 @@ If you lost tabs that were inside **Chrome Tab Groups** after a Chrome 149 updat
 
 ### Can I import sessions from The Great Suspender?
 
-**Yes.** Open the TMS [Session Management](./pages/session-management.md) page (extension popup → Session Manager icon) and use the **Import** function to load a session file exported from TGS. If you still have suspended TGS tabs open, [Session Management → Migrate](./pages/session-management.md#migrate-from-another-suspender) can convert them to TMS in place, without needing a file at all.
+**Yes.** Open the TMS [Session Management](./pages/session-management.md) page (extension popup → **Sessions**) and use the **Import** function to load a session file exported from TGS. If you still have suspended TGS tabs open, [Session Management → Migrate](./pages/session-management.md#migrate-from-another-suspender) can convert them to TMS in place, without needing a file at all.
 
 ### Some of my suspended tabs show a generic icon instead of the site's real favicon. How do I fix this?
 
