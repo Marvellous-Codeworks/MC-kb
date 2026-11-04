@@ -1,6 +1,6 @@
 ---
 sidebar_position: 3
-title: "Backup & Sync"
+title: "Backup & Restore"
 description: Complete reference for TMS's automatic session backup, multi-device Google Drive sync, restore, and settings backup.
 tags:
   - TMS
@@ -10,9 +10,9 @@ tags:
   - sync
 ---
 
-# Backup & Sync
+# Backup & Restore
 
-Open the Backup page from the extension popup or from **Backup** in the left sidebar (shown on every extension page). Not available in Incognito windows.
+Open the Backup page from **Backup** in the left sidebar (shown on every extension page). Not available in Incognito windows.
 
 This page covers three independent features: **automatic session backup**, **restoring a session from a backup file**, and **backing up/restoring your TMS settings**. All three are optional, TMS works fully without ever touching this page, since it also keeps its own [session history](./session-management.md) locally.
 
@@ -21,7 +21,7 @@ This page covers three independent features: **automatic session backup**, **res
 ## Automatic session backup
 
 ### What gets backed up
-On each run, TMS backs up your **current session**: every open window, its tabs (original URLs, not the internal suspended-page URL) and Chrome Tab Group assignments, the same data you'd get from an [Export](./session-management.md#export) in Session Management, just automated and written to a file.
+On each run, TMS backs up your **current session**: every open window, its tabs (original URLs, not the internal suspended-page URL) and Chrome Tab Group assignments, the same data you'd get from an [Export](./session-management.md#export) in Session management, just automated and written to a file.
 
 ### Automatically back up your session
 
@@ -34,9 +34,9 @@ Toggle **Automatically back up your session**. Doing so triggers Chrome's permis
 | Setting | Description |
 |---|---|
 | **Device name** *(optional)* | A friendly label for this installation, e.g. "MacBook" or "Work PC". Shown as the group heading when restoring backups from a machine with more than one device. If left empty, the device's internal ID is used instead. |
-| **Backup interval** | How often TMS runs a backup: every 15 minutes, 30 minutes, 1, 2, 4, 8 hours, or once a day at a chosen time. |
-| **Backup destination** | **Local** (saved to your Downloads folder) or **Google Drive** (see below). |
-| **Max backups per device** | How many backup files to keep before older ones are automatically deleted. Default 10, configurable from 2 to 50. |
+| **Backup every** | How often TMS runs a backup: 15 or 30 minutes, 1, 2, 4 or 8 hours, or 1 day, at the time you set in **At what time**. |
+| **Backup destination** | **Local (Downloads folder)** or **Google Drive** (see below). |
+| **Max backups to keep** | How many backup files to keep before older ones are automatically deleted. Default 10, configurable from 2 to 50. |
 
 Click **Backup now** at any time to run a backup immediately, independent of the schedule. To prevent accidental spam, the button (and the "Save settings to Drive" button) is disabled for 30 seconds after each run, a countdown in the status bar shows when it re-enables.
 
@@ -58,10 +58,12 @@ If you've never turned on automatic backup, TMS shows a quiet reminder rather th
 - A banner in the extension popup, clicking it opens this page.
 - The note shown above, on this page.
 
-Each surface offers **Remind me in 10 days**, which snoozes the reminder (badge, popup banner, and this note all reappear automatically once the snooze expires), or, from this page only, a permanent **I'm not interested, stop reminding me** checkbox. Once you enable automatic backup, or check that box, all three surfaces stay hidden until the corresponding condition changes again. Nothing about this reminder collects data or phones home, it only reads your own local `Automatically back up your session` setting.
+The popup banner and the note offer **Remind me in 10 days**, which snoozes the reminder (badge, popup banner, and this note all reappear automatically once the snooze expires), and this page also offers a permanent **I'm not interested, stop reminding me** checkbox. Once you enable automatic backup, or check that box, all three surfaces stay hidden until the corresponding condition changes again. Nothing about this reminder collects data or phones home, it only reads your own local `Automatically back up your session` setting.
 
 ### Local backups
-Files are written to `Downloads/tms-backups/tms-session-{deviceId}-{timestamp}.json`. The `{deviceId}` is a random 8-character identifier generated once per browser installation and stored locally, it exists purely so that two browsers writing to the same Downloads folder (e.g. Chrome and Brave on the same machine) never overwrite each other's files. Rotation keeps only the newest **Max backups per device** files for *this* installation.
+Files are written to `Downloads/tms-backups/tms-session-{deviceId}-{timestamp}.json`. The `{deviceId}` is a random 8-character identifier generated once per browser installation and stored locally, it exists purely so that two browsers writing to the same Downloads folder (e.g. Chrome and Brave on the same machine) never overwrite each other's files. Rotation keeps only the newest **Max backups to keep** files for *this* installation.
+
+If automatic backup is on but the Downloads permission isn't granted on this device, the page says so and shows a **Grant permission** button, and the popup shows a banner that opens this page.
 
 #### Save dialog popping up on every backup
 TMS saves local backups via `chrome.downloads.download()` with `saveAs: false`, which normally writes the file silently with no prompt. If Chrome's own setting **"Ask where to save each file before downloading"** (`chrome://settings/downloads`) is turned on, Chrome overrides that and shows its save-location dialog anyway, for every download, TMS included. This is Chrome's behavior, not something an extension can suppress or opt out of.
@@ -106,7 +108,7 @@ To keep the connection alive on these browsers, TMS uses an authorization-code +
 On browser shutdown, TMS writes an emergency local backup first regardless of your chosen destination, a Drive upload isn't reliable in that narrow shutdown window since the service worker can be killed mid-request. If your destination is Drive, that local file is queued and uploaded on the next startup, then automatically removed once the upload succeeds. Seeing a file appear locally even in Drive-only mode is expected behavior, not a bug, this is also explained directly on the page, right below the multi-device rotation note.
 
 ### Switching destination from Drive to Local
-If you switch the destination from **Google Drive** to **Local**, a dialog offers to import your most recent Drive backup directly into [Saved sessions](./session-management.md#saved-sessions), a safety net so you don't lose access to that data just because you stopped using Drive. If Drive was never connected, or has no backups, this dialog is skipped.
+If you switch the destination from **Google Drive** to **Local (Downloads folder)**, a dialog offers to import your most recent Drive backup directly into [Saved sessions](./session-management.md#saved-sessions), a safety net so you don't lose access to that data just because you stopped using Drive. Choose **Save to Sessions** to import it or **Skip** to continue without it. If Drive was never connected, or has no backups, this dialog is skipped.
 
 ---
 
@@ -117,10 +119,10 @@ A separate section below the backup settings, independent of whether automatic b
 ![Restore from backup section, with a local file picker and a Drive backups dropdown](./img/backup-sync/03-restore-section.webp)
 
 ### From a local file
-Click **Restore from file**, pick a `tms-session-*.json` file (from this machine's Downloads or copied from anywhere else), and TMS imports it as a new entry in [Saved sessions](./session-management.md#saved-sessions), auto-named from its timestamp (e.g. "Backup 2026-06-24 09:30"). Open Session Management to actually reopen the tabs.
+Under **Local file**, click **Choose backup file**, pick a `tms-session-*.json` file (from this machine's Downloads or copied from anywhere else), and TMS imports it as a new entry in [Saved sessions](./session-management.md#saved-sessions), named after the file. Open **Sessions** to actually reopen the tabs.
 
 ### From Google Drive
-Shown only when Drive is connected. The dropdown lists every backup found in your Drive `appDataFolder`, grouped by device name (an `optgroup` per device, plus a "Legacy backups" group for files created before the multi-device format existed). Pick one and click **Import**, same outcome as the local flow: it lands in Saved sessions.
+Shown only when Drive is connected. The **Select a Drive backup** dropdown lists every backup found in your Drive `appDataFolder`, grouped by device name (an `optgroup` per device, plus a "Legacy backups" group for files created before the multi-device format existed). Pick one and click **Import selected**, same outcome as the local flow: it lands in Saved sessions.
 
 ### Browsing/downloading raw Drive files
 A collapsible **Drive backup files** panel lists every backup on Drive, grouped by device when more than one machine backs up to the same account, with each file's date and size, numbered sequentially. Each row offers:
@@ -140,8 +142,8 @@ Separate from session backup, this saves your TMS *configuration* (all the toggl
 ![Settings backup section with Local and Google Drive cards, showing the last Drive backup date](./img/backup-sync/05-settings-backup.webp)
 
 ### Local
-- **Export** downloads your current settings as a `.json` file.
-- **Import** loads a previously exported settings file and applies it (after confirmation).
+- **Export settings** downloads your current settings as a `.json` file.
+- **Import settings** loads a previously exported settings file and applies it (after confirmation).
 
 ### Google Drive
 Shown only when Drive is connected.

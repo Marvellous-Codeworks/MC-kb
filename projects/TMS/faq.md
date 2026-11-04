@@ -31,7 +31,7 @@ TMS is completely free, contains no ads, and collects no user data. Everything s
 
 ### What happened to The Great Suspender?
 
-The Great Suspender was removed from the Chrome Web Store in February 2021 after ownership changed hands and malicious code was discovered in a later version. TMS was created from a clean fork of the last trusted TGS release (7.1.5) to continue the project under active, open-source maintenance.
+The Great Suspender was removed from the Chrome Web Store in February 2021 after ownership changed hands and malicious code was discovered in a later version. TMS was created from a clean fork of the TGS 7.1.6 release to continue the project under active, open-source maintenance.
 
 ---
 
@@ -70,9 +70,9 @@ The toolbar popup tells you which one applies to the current tab, see [Toolbar p
 The fastest options:
 - **Pin the tab**: pinned tabs are excluded from auto-suspension by default.
 - **Right-click the page → The Marvellous Suspender → Pause/Unpause suspension of this tab**: pauses auto-suspension for that tab until the next reload.
-- **Add the URL to the never-suspend list** in [Settings → Suspend](./pages/settings.md#never-suspend-list).
+- **Add the URL to the never-suspend list** in [Settings → Automatic tab suspension](./pages/settings.md#never-suspend-tabs-with-urls-from-the-following-list).
 
-None of these is absolute: a tab you suspend yourself, or with a "Force suspend" action, is still suspended, and so is a URL on the always suspend list. See [what overrides the "Never suspend…" options](./pages/settings.md#suspend).
+None of these is absolute: a tab you suspend yourself, or with a "Force suspend" action, is still suspended, and so is a URL on the always suspend list. See [what overrides the "Never suspend…" options](./pages/settings.md#automatic-tab-suspension).
 
 ### My browser froze or TMS crashed after a restart with many suspended tabs. What can I do?
 
@@ -82,21 +82,21 @@ If startup still struggles, check that [Suspended tabs checked at a time when th
 
 ### I lost tabs after a browser restart. Can I recover them?
 
-First check [Session Management → Recent sessions](./pages/session-management.md#recent-sessions), TMS automatically creates a restore point at browser start, so your tabs are very likely already there. If not, see the [guide for recovering lost tabs](./troubleshooting/tgs-recover-lost-tabs.md) (archived from the original TGS project), the recovery steps still apply.
+First check [Session management → Recent sessions](./pages/session-management.md#recent-sessions), TMS automatically creates a restore point at browser start, so your tabs are very likely already there. If not, see the [guide for recovering lost tabs](./troubleshooting/tgs-recover-lost-tabs.md) (archived from the original TGS project), the recovery steps still apply.
 
 If you lost tabs that were inside **Chrome Tab Groups** after a Chrome 149 update, see the [dedicated post on this bug](/blog/tms-tab-groups-chrome-149-bug) and try the one-click repair on the [Tab Health](./pages/tab-health.md#broken-tab-groups-after-restart) page.
 
 ### Can I import sessions from The Great Suspender?
 
-**Yes.** Open the TMS [Session Management](./pages/session-management.md) page (extension popup → **Sessions**) and use the **Import** function to load a session file exported from TGS. If you still have suspended TGS tabs open, [Session Management → Migrate](./pages/session-management.md#migrate-from-another-suspender) can convert them to TMS in place, without needing a file at all.
+**Yes.** Open the TMS [Session management](./pages/session-management.md) page (extension popup → **Sessions**) and use **Import session** to load a session file exported from TGS. If you still have suspended TGS tabs open, [Session management → Migrate](./pages/session-management.md#migrate-from-another-suspender) can convert them to TMS in place, without needing a file at all.
 
 ### Some of my suspended tabs show a generic icon instead of the site's real favicon. How do I fix this?
 
-Open [Tab Health](./pages/tab-health.md), click **Scan tabs**, and use the offered repair action, TMS detects and fixes this automatically. See [Tab Health → Repair actions](./pages/tab-health.md#repair-actions) for what each fix does.
+Open [Tab Health](./pages/tab-health.md), click **Scan Tabs**, and use the offered repair action, TMS detects and fixes this automatically. See [Tab Health → Repair actions](./pages/tab-health.md#repair-actions) for what each fix does.
 
 ### Can TMS back up my tabs automatically, including across multiple computers?
 
-Yes, see [Backup & Sync](./pages/backup-sync.md). Automatic backups can be saved locally or to Google Drive, and if you use TMS on more than one device with the same Google account, each device's backups rotate independently so a small session from a laptop can't push out a large session's backups from your main machine.
+Yes, see [Backup & Restore](./pages/backup-sync.md). Automatic backups can be saved locally or to Google Drive, and if you use TMS on more than one device with the same Google account, each device's backups rotate independently so a small session from a laptop can't push out a large session's backups from your main machine.
 
 ---
 
@@ -112,7 +112,7 @@ Only to remove suspended-tab URLs (`chrome-extension://…`) from your history w
 
 ### Why does TMS ask for the `downloads` and `identity` permissions?
 
-Both are for the optional [Backup & Sync](./pages/backup-sync.md) feature: `downloads` lets TMS save local backup files to your Downloads folder, and `identity` lets TMS authenticate with Google Drive if you choose that as your backup destination. Both are requested on demand: Chrome only asks for `downloads` when you turn on automatic backup, and only asks for `identity` when you click **Connect** to link a Google account. If you never use either feature, TMS never requests them. See [Permissions → Optional permissions](./permissions.md#optional-permissions-requested-on-demand).
+Both are for the optional [Backup & Restore](./pages/backup-sync.md) feature: `downloads` lets TMS save local backup files to your Downloads folder, and `identity` lets TMS authenticate with Google Drive if you choose that as your backup destination. Both are requested on demand: Chrome only asks for `downloads` when you turn on automatic backup, and only asks for `identity` when you click **Connect Google Account** to link a Google account. If you never use either feature, TMS never requests them. See [Permissions → Optional permissions](./permissions.md#optional-permissions-requested-on-demand).
 
 ---
 
@@ -124,7 +124,7 @@ Submit pull requests or bug reports on [GitHub](https://github.com/gioxx/Marvell
 
 ### What should I include in a bug report?
 
-For anything related to broken favicons or Tab Groups, run a scan on [Tab Health](./pages/tab-health.md) and use **Copy report** to paste the results directly into your issue. For anything else, open the [Diagnostic page](./pages/diagnostic-page.md), enable **captureLogs**, reproduce the problem, then use **Copy report** or **Download report**, this bundles your TMS version, browser details and recent logs into one shareable block. This captureLogs report can include tab titles/URLs, so upload it to [logdrop](https://logdrop.marvellouscode.works) instead of pasting it into the issue, only the maintainer can read it, and it expires on its own.
+For anything related to broken favicons or Tab Groups, run a scan on [Tab Health](./pages/tab-health.md) and use **Copy Results** to paste the results directly into your issue. For anything else, open the [Diagnostic page](./pages/diagnostic-page.md), enable **captureLogs**, reproduce the problem, then use **Copy report** or **Download report**, this bundles your TMS version, browser details and recent logs into one shareable block. This captureLogs report can include tab titles/URLs, so upload it to [logdrop](https://logdrop.marvellouscode.works) instead of pasting it into the issue, only the maintainer can read it, and it expires on its own.
 
 ### How can I translate TMS into my language?
 

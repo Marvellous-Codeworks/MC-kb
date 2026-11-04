@@ -29,7 +29,7 @@ If the browser flagged TMS itself as "corrupted" and offered to repair it, and y
 
 The Great Suspender works by redirecting a tab to a new URL in order to "suspend" it. This means that the tab is now controlled by the extension process. When the extension updates or is disabled or uninstalled, this process is killed and all tabs that belong to it are removed from the browser.
 
-The extension *does* come with an inbuilt tab recovery system that will automatically detect and reload lost tabs in the aftermath of an update or extension crash. And in the event of an update, a session restore point is automatically created in the Session History page and can be restored manually.
+The extension *does* come with an inbuilt tab recovery system that will automatically detect and reload lost tabs in the aftermath of an update or extension crash. And in the event of an update, a session restore point is automatically created in the Session management page and can be restored manually.
 
 ---
 
@@ -53,7 +53,7 @@ Unfortunately Chrome does not give the user the ability to manage their own exte
 
 The extension mitigates this by prompting users to export a backup of their tabs before accepting the new update.
 
-As mentioned above, a session restore point will also automatically be created to save a record of your open tabs before the update. You can then recover any lost tabs via this restore point from the **Session History** screen accessible from the extension Options page.
+As mentioned above, a session restore point will also automatically be created to save a record of your open tabs before the update. You can then recover any lost tabs via this restore point from the **Sessions** page accessible from the extension Options page.
 
 ---
 
@@ -69,9 +69,9 @@ Before continuing, check that you have not simply switched Chrome profiles. If y
 
 ### How to recover lost tabs with The Great Suspender
 
-The extension comes with its own tab history management UI. Go to the extension options page (from **Settings** in the popup, or **Options** when right-clicking the extension icon). Then in the settings sidebar click on **Session management**. This will show your most recent tab sessions, click on each session to see the individual windows and tabs it contains.
+The extension comes with its own tab history management UI. Go to the extension options page (from **Settings** in the popup, or **Options** when right-clicking the extension icon). Then in the settings sidebar click on **Sessions**. This will show your most recent tab sessions, click on each session to see the individual windows and tabs it contains.
 
-To reload a session, click the **reload** link. This will reload all windows and tabs in an unsuspended state. If your session contains a very large number of tabs, you might instead want to click **resuspend**, which will be much faster as it reloads the tabs in a suspended state.
+To reload a session, click the **open and load** link. This will reload all windows and tabs in an unsuspended state. If your session contains a very large number of tabs, you might instead want to click **open and suspend**, which will be much faster as it reloads the tabs in a suspended state.
 
 If the missing tabs are not in your recent sessions, follow the guide below for recovering lost tabs without using The Great Suspender.
 

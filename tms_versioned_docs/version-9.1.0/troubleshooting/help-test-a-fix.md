@@ -23,14 +23,14 @@ Testing is entirely optional and always welcome, more real-world runs on a fix b
 
 **It's the same extension ID as the Store version.** A test build replaces your currently installed TMS and shares its local data, it cannot run side by side with the Store version. Loading it is what actually starts the test, there's no separate "try without installing" option.
 
-- If you already have **[Sync settings across devices](../pages/settings.md#sync-settings-across-devices)** and/or **[automatic session backup](../pages/backup-sync.md#automatic-session-backup)** enabled, you're already covered, both survive the switch either way.
-- Otherwise, as a safety net before installing: export your settings (Settings → export) and save your current sessions as JSON (Session Manager → save/export).
+- If you already have **[Sync settings with your browser profile](../pages/settings.md#sync-settings-with-your-browser-profile)** and/or **[automatic session backup](../pages/backup-sync.md#automatic-session-backup)** enabled, you're already covered, both survive the switch either way.
+- Otherwise, as a safety net before installing: export your settings (**Backup** → **Export settings**) and save your current sessions as JSON (**Sessions** → **export**).
 
 ## Installing the test build
 
 1. Download the `.zip` the maintainer linked on the issue and extract it to a folder you will keep: the browser keeps loading the extension from there, so don't delete or move it while testing.
 2. In Chrome (or Brave/Vivaldi/Edge), go to `chrome://extensions/` and enable **Developer mode**.
-3. Click **Load unpacked extension…** and select the folder that contains `manifest.json`. In current test builds that's the extracted folder itself; older ones had it inside a `src` subfolder.
+3. Click **Load unpacked** and select the folder that contains `manifest.json`. In current test builds that's the extracted folder itself; older ones had it inside a `src` subfolder.
 
 This replaces your current installation. See [Install from source](../install-from-source.md) for more detail on this general mechanic if anything looks unfamiliar.
 
@@ -53,10 +53,10 @@ Open the [Diagnostic page](../pages/diagnostic-page.md), enable **captureLogs**,
 Once the fix has shipped for real (or if you'd rather stop testing), remove the local build from `chrome://extensions/` and install the Chrome Web Store version again.
 
 :::warning
-Removing an extension makes its suspended tabs disappear permanently. Right before removing the local build, export your current session again (Session Manager → export) or unsuspend all tabs, so you can bring them back after reinstalling.
+Removing an extension makes its suspended tabs disappear permanently. Right before removing the local build, export your current session again (**Sessions** → **export**) or unsuspend all tabs, so you can bring them back after reinstalling.
 :::
 
 - If you have Drive backup or settings sync enabled, sign back in and your data restores from there.
-- Otherwise, import the session file you exported before installing (Session Manager → import), or restore from a local backup file if [automatic backup](../pages/backup-sync.md#automatic-session-backup) was on.
+- Otherwise, import the session file you exported before installing (**Sessions** → **Import session**), or restore from a local backup file if [automatic backup](../pages/backup-sync.md#automatic-session-backup) was on.
 
 Removing the local build first and installing from the Store after is what keeps you on automatic Store updates going forward, installing over the top the other way around does not.

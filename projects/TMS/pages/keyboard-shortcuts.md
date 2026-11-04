@@ -38,7 +38,7 @@ TMS ships with one pre-assigned shortcut. All other commands have no default key
 | Suspend all tabs in all windows | - | Suspend every tab across every open window. Your protections still apply, including [Never suspend active tab in each window](./settings.md#never-suspend-active-tab-in-each-window) |
 | Force suspend all tabs in all windows | - | Suspend every tab across every open window, active ones included, ignoring your protections |
 | Unsuspend all tabs in all windows | - | Unsuspend all tabs across every open window |
-| Go to session manager | - | Open the Session Management page directly |
+| Go to session manager | - | Open the Session management page directly |
 
 TMS also has its own read-only copy of this list on the **Keyboard shortcuts** page in the sidebar, with a **Change shortcuts** button that jumps straight to `chrome://extensions/shortcuts`. Labels follow your [language setting](./settings.md#language), shown here in Italian:
 
@@ -60,4 +60,4 @@ Chrome limits extension shortcuts to combinations using `Ctrl` (or `Cmd` on Mac)
 
 ## Changing the default shortcut
 
-The `Ctrl+Shift+S` default for "Toggle current tab" can also be reassigned from the same `chrome://extensions/shortcuts` page if it conflicts with another application or extension.
+The `Ctrl+Shift+S` default for "Suspend/Unsuspend active tab" can also be reassigned from the same `chrome://extensions/shortcuts` page if it conflicts with another application or extension.
