@@ -64,8 +64,8 @@ If none of the above apply, the scan reports **All good** and no action button i
 
 Chrome and Brave have had bugs (see [TMS issue #369](https://github.com/gioxx/MarvellousSuspender/issues/369) and the [dedicated blog post](https://kb.marvellouscode.works/blog/tms-tab-groups-chrome-149-bug)) that break grouped, suspended tabs when the browser restarts:
 
-- **Chrome / Edge**: grouped suspended tabs come back marked as `discarded` and can redirect to a blank/new-tab page the first time you click them.
-- **Brave**: Brave doesn't fire the events TMS normally relies on to catch this automatically, and shows the tab as a plain `chrome://newtab/` page with no way to tell which site it used to be.
+- **Chrome / Edge** before Chrome 150: grouped suspended tabs come back marked as `discarded` and can redirect to a blank/new-tab page the first time you click them. Chrome 150 and later fixed this, so there a grouped, discarded suspended tab is normal and Tab Health doesn't flag it.
+- **Brave**: Brave doesn't fire the events TMS normally relies on to catch this automatically, and shows the tab as a plain `chrome://newtab/` page with no way to tell which site it used to be. Tab Health flags a grouped New Tab page only when a saved session shows a suspended tab in that position, so a real New Tab page in a group is left alone.
 
 Tab Health's **Repair grouped tab(s)** action fixes both cases on demand:
 - For the Chrome/Edge case, the broken tab still carries its suspended URL internally, so TMS simply recreates it in place, in the same group.
