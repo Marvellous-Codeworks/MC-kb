@@ -27,7 +27,7 @@ Two of the permissions listed, `downloads` and `identity`, are new in 9.x. Both 
 - **`identity`** is used only if you choose Google Drive as your backup destination. It gets an OAuth token to talk to Drive, TMS never sees your Google password, and the token exchange is handled entirely by Chrome.
 - The Drive backup, if enabled, is scoped to `drive.appdata`, a hidden, app-only folder that isn't visible in your regular Drive and isn't reachable by any other app.
 
-Full breakdown, including exactly what changed since 8.x, is on the [permissions page](/docs/TMS/permissions#what-changed-in-9x).
+Full breakdown, including exactly what changed since 8.x, is on the [permissions page](/docs/TMS/permissions#optional-permissions-requested-on-demand).
 
 **The important part: both permissions sit dormant until you actually turn on automatic backups in Backup & Sync.** If you never enable that feature, TMS requests no Drive authentication and writes nothing to Downloads. We're aware that Chrome asks for the permission up front regardless, at install/update time, not at first use, which is exactly the kind of thing that reads as scarier than it is. We hear that, and we're working on a setting to opt out of backups and their reminders entirely, which should let us drop these permissions for anyone who doesn't want the feature. That's not shipped yet, it's actively in progress, and we'll cover it here once it lands.
 
