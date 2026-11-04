@@ -177,14 +177,18 @@
 
 /* ─── Blog: title sizing (was too large vs. excerpt/body text) ── */
 .blog-post-page article header h1,
-.blog-list-page article header h2 {
+.blog-list-page article header h2,
+.blog-tags-post-list-page article header h2,
+.blog-authors-posts-page article header h2 {
   font-size: 1.75rem;
   line-height: 1.3;
 }
 
 @media (min-width: 997px) {
   .blog-post-page article header h1,
-  .blog-list-page article header h2 {
+  .blog-list-page article header h2,
+  .blog-tags-post-list-page article header h2,
+  .blog-authors-posts-page article header h2 {
     font-size: 1.9rem;
   }
 }

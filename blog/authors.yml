@@ -6,6 +6,7 @@ gioxx:
   page: true
   socials:
     x: gioxx
+    bluesky: gioxx.org
     linkedin: gioxx
     github: gioxx
 
@@ -26,7 +27,7 @@ amargiovanni:
   image_url: https://github.com/amargiovanni.png
   page: true
   socials:
-    linkedin: margio
+    x: xmargio80
     bluesky: andrea.margiovanni.it
-    instagram: amargiovanni
+    linkedin: margio
     github: amargiovanni
