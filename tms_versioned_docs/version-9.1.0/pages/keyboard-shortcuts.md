@@ -23,6 +23,7 @@ TMS ships with one pre-assigned shortcut. All other commands have no default key
 
 | Command | Default key | Description |
 |---|---|---|
+| Activate the extension ( show popup ) | - | Open the toolbar popup |
 | Suspend/Unsuspend active tab | `Ctrl+Shift+S` | Suspend the active tab, or unsuspend it if already suspended |
 | Pause/Unpause suspension of active tab | - | Toggle the "paused" state for the current tab (excluded from auto-suspend until next reload) |
 | Suspend selected tabs | - | Suspend all tabs currently selected in the tab strip |
@@ -40,9 +41,9 @@ TMS ships with one pre-assigned shortcut. All other commands have no default key
 | Unsuspend all tabs in all windows | - | Unsuspend all tabs across every open window |
 | Go to session manager | - | Open the Session management page directly |
 
-TMS also has its own read-only copy of this list on the **Keyboard shortcuts** page in the sidebar, with a **Change shortcuts** button that jumps straight to `chrome://extensions/shortcuts`. Labels follow your [language setting](./settings.md#language), shown here in Italian:
+TMS also has its own read-only copy of this list on the **Keyboard shortcuts** page in the sidebar, with a **Change shortcuts** button that jumps straight to `chrome://extensions/shortcuts`. Labels follow your [language setting](./settings.md#language):
 
-![The Keyboard shortcuts page, shown here with the language set to Italian](./img/keyboard-shortcuts/01-shortcuts-list.webp)
+![The Keyboard shortcuts page](./img/keyboard-shortcuts/01-shortcuts-list.webp)
 
 *Dark theme:*
 
