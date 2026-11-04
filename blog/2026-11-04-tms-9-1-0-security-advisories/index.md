@@ -3,7 +3,7 @@ slug: tms-9-1-0-security-advisories
 title: "Three security fixes in The Marvellous Suspender 9.1.0, and the people who found them"
 description: "9.1.0 closes three security advisories: HTML injection on the History page through a crafted backup file, HTML injection on the suspended page and through locale strings, and other extensions bypassing your suspension protections. What they were, who found them, what changed, and what you should do."
 date: 2026-11-04T09:30:00+01:00
-authors: [gioxx]
+authors: [gioxx, amargiovanni]
 tags: [security, release, tms]
 ---
 
