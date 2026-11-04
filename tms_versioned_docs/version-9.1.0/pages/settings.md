@@ -13,7 +13,7 @@ tags:
 
 Open the TMS settings page from the extension popup or by navigating to `chrome://extensions/` → TMS → **Details** → **Extension options**.
 
-This page (`options.html`) covers general behavior, automatic suspension and the suspended-tab page. Automatic backups and session restore live on their own dedicated pages, see [Backup & Sync](./backup-sync.md) and [Session Management](./session-management.md).
+This page (`options.html`) covers general behavior, automatic suspension and the suspended-tab page. Automatic backups and session restore live on their own dedicated pages, see [Backup & Restore](./backup-sync.md) and [Session management](./session-management.md).
 
 ![Settings page, showing the General, Automatic tab suspension and Suspended tabs sections](./img/settings/01-overview.webp)
 
@@ -26,12 +26,12 @@ This page (`options.html`) covers general behavior, automatic suspension and the
 ## General
 
 ### Language
-Controls the language used throughout the extension UI. Set to **System** (default) to follow your browser's locale, or pick a specific language from the list.
+Controls the language used throughout the extension UI. Leave it on **System default** to follow your browser's locale, or pick a specific language from the list.
 
 TMS is available in Arabic, Chinese (Simplified and Traditional), Czech, English, French, German, Indonesian, Italian, Japanese, Portuguese (Brazil and Portugal), Russian, Sinhala, Slovak, Spanish, Turkish and Ukrainian. Translations are managed and kept up to date via [Crowdin](https://crowdin.com/project/tms); the dropdown in Settings always shows the current list.
 
 ### Theme
-Controls the appearance of the suspended tab page.
+Controls the appearance of the extension's pages, suspended tabs included.
 
 | Value | Behavior |
 |---|---|
@@ -39,28 +39,28 @@ Controls the appearance of the suspended tab page.
 | **Light** | Always uses the light theme |
 | **Dark** | Always uses the dark theme |
 
-### Enable context menu
+### Add The Marvellous Suspender to right-click context menu
 Adds TMS commands to the browser's right-click context menu on tabs. Disabled in Incognito windows.
 
-### Sync settings across devices
+### Sync settings with your browser profile
 Syncs your TMS configuration via your Google account using Chrome's sync storage. Useful if you use Chrome on multiple computers.
 
 :::note
-Sync has a storage size limit. If your never-suspend list is very large, sync may not work reliably. In that case, use [Backup & Sync](./backup-sync.md#settings-backup) instead, it can save your full settings file to a local file or to Google Drive, with no size restriction.
+Sync has a storage size limit. If your never-suspend list is very large, sync may not work reliably. In that case, use [Backup & Restore](./backup-sync.md#settings-backup) instead, it can save your full settings file to a local file or to Google Drive, with no size restriction.
 :::
 
 ### Enable news feed
 Enabled by default. Controls whether TMS periodically checks `marvellouscode.works` for TMS-related posts and shows them on the [News](./news-feed.md) page. Disable this to stop the background request entirely, no fetches happen and the **News** entry disappears from the sidebar on every page until you turn it back on.
 
-### Use the classic The Great Suspender artwork
+### Use the classic The Great Suspender artwork instead of the new mascot
 Disabled by default. Swaps TMS's current robot mascot/icon set back to the original The Great Suspender artwork app-wide: toolbar icon, suspended-tab favicon fallback, and every extension page's images and favicon. Illustrations with no legacy equivalent keep using the new artwork.
 
 ---
 
-## Suspend
+## Automatic tab suspension
 
 :::note[What overrides the "Never suspend…" options]
-Each **Never suspend…** option has a help icon that says what can still override it. These options protect a tab from automatic suspension and from the regular bulk suspend actions. You can still suspend a tab yourself, or with a **Force suspend** action, and a tab whose URL is on the [always suspend list](#always-suspend-list) is suspended anyway. The one exception is [Never suspend active tab in each window](#never-suspend-active-tab-in-each-window): the always suspend list does not override it for automatic and bulk suspension.
+Each **Never suspend…** option has a help icon that says what can still override it. These options protect a tab from automatic suspension and from the regular bulk suspend actions. You can still suspend a tab yourself, or with a **Force suspend** action, and a tab whose URL is on the [always suspend list](#always-suspend-tabs-with-urls-from-the-following-list) is suspended anyway. The one exception is [Never suspend active tab in each window](#never-suspend-active-tab-in-each-window): the always suspend list does not override it for automatic and bulk suspension.
 :::
 
 ### Automatically suspend tabs after
@@ -73,7 +73,7 @@ Defaults to **Same as when plugged in** (no override). Lets you suspend tabs mor
 Pinned tabs are excluded from automatic suspension.
 
 ### Never suspend tabs opened in app windows
-Enabled by default. Covers both a page opened via Chrome's **Create Shortcut → Open as window** (or the browser menu's **Install page as App**) and an installed PWA (**Install `<site>`** from the address bar), each opening in its own dedicated window rather than a normal tab. Deliberately does not extend to ordinary popup windows a site opens itself. A manual "suspend this tab now" still works regardless, only automatic suspension respects this setting.
+Enabled by default. Covers both a page opened via Chrome's **Create Shortcut → Open as window** (or the browser menu's **Install page as App**) and an installed PWA (**Install `<site>`** from the address bar), each opening in its own dedicated window rather than a normal tab. Deliberately does not extend to ordinary popup windows a site opens itself. A manual **Suspend this tab now** still works regardless, only automatic suspension respects this setting.
 
 ### Never suspend tabs in a tab group
 Disabled by default. Keeps every tab that belongs to a tab group from being suspended automatically or by the bulk suspend actions; **Suspend all tabs in this group** does nothing while this is on. A tab you drag out of its group becomes eligible again and its inactivity timer starts over. To protect only some groups, use the [tab group list](#never-suspend-tabs-in-the-following-tab-groups) instead.
@@ -99,18 +99,18 @@ When TMS is updated or reloaded, it automatically takes ownership of any already
 ### Instantly suspend when system memory gets very low
 When Chrome is about to discard a tab due to memory pressure, TMS intercepts the action and suspends the tab instead (preserving the URL on a TMS page). Discarded tabs are harder to recover than suspended ones.
 
-### Never-suspend list
-A list of URL patterns that TMS will never suspend automatically, labeled on the page as "Never suspend tabs with URLs from the following list". Referred to as the **allowlist** throughout the UI. One pattern per line. Supports:
+### Never suspend tabs with URLs from the following list
+The never-suspend list: URL patterns that TMS will never suspend automatically, called the **allowlist** elsewhere in the UI. One pattern per line. Supports:
 - Full URLs: `https://mail.google.com`
 - Domain patterns: `google.com` (matches all pages on that domain)
 - Regular expressions: `/^https:.*google\.com/`
 
-Use the test link below the text area to check whether a given URL would be matched, and **Wake matching tabs now** to immediately unsuspend any currently-suspended tab in the window that matches an entry you just added.
+Use **Test list** to see which open tabs match the list, and **Wake matching tabs now** to immediately unsuspend any currently-suspended tab in the window that matches an entry you just added.
 
-### Always suspend list
-A second list, right next to the allowlist, labeled "Always suspend tabs with URLs from the following list". Tabs matching it always suspend after the normal timeout, bypassing the **Never suspend…** options (pinned, audio, unsaved forms, app windows, tab groups) that would otherwise keep them open indefinitely, except the [active tab one](#suspend), useful for something like a background Twitch or YouTube tab left playing audio that you still want suspended on schedule. Manual per-tab pauses and global protections (offline, charging, "never suspend") are still respected, this only overrides the passive automatic ones.
+### Always suspend tabs with URLs from the following list
+The always suspend list, right next to the allowlist. Tabs matching it always suspend after the normal timeout, bypassing the **Never suspend…** options (pinned, audio, unsaved forms, app windows, tab groups) that would otherwise keep them open indefinitely, except the [active tab one](#automatic-tab-suspension), useful for something like a background Twitch or YouTube tab left playing audio that you still want suspended on schedule. Manual per-tab pauses and global protections (offline, charging, "never suspend") are still respected, this only overrides the passive automatic ones.
 
-Same matching rules as the allowlist above (plain text or `/regex/`). Comes with its own **Suspend matching tabs now** button, mirroring the allowlist's wake button, to immediately suspend any open tab that matches an entry you just added instead of waiting for the normal timeout.
+Same matching rules as the allowlist above (plain text or `/regex/`). Comes with its own **Test list** and **Suspend matching tabs now** buttons: the second one immediately suspends any open tab that matches an entry you just added instead of waiting for the normal timeout.
 
 ### Never suspend tabs in the following tab groups
 The tab groups you have marked with **Never suspend this group** from the [right-click menu](./quick-actions-popup.md#right-click-context-menu) or its [keyboard shortcut](./keyboard-shortcuts.md). Tabs in these groups are never suspended automatically and are skipped by the bulk suspend actions, **Suspend all tabs in this group** included. Suspending a tab yourself still works, and a URL on the always suspend list is still suspended.
@@ -122,7 +122,7 @@ The tab groups you have marked with **Never suspend this group** from the [right
 
 ---
 
-## Suspended Tabs
+## Suspended tabs
 
 ### Append original URL to suspended tab title
 Enabled by default. Appends the original page URL to the browser tab's underlying `document.title` (not the visible text on the suspended page itself) so that Chrome's **Search Tabs** feature (`Ctrl+Shift+A`) can find a suspended tab by typing its hostname, not just its page title.
@@ -174,7 +174,7 @@ Disabled by default. About a second after you switch to a tab, or after it finis
 
 - **Permission**: the browser only lets an extension take these screenshots if it has access to all sites, so turning this on asks for that permission, see [Permissions](../permissions.md#all-sites-access-for-recent-screenshots). Turning it off deletes the saved screenshots and gives the permission back; turning it on again asks again. On a synced device where the permission was never granted, the option has no effect.
 - **What is kept**: only the latest screenshot of each open tab, stored in your browser profile. It is deleted when the tab closes, navigates to another page or is suspended.
-- **Never captured**: Incognito tabs and sites on your [never-suspend list](#never-suspend-list).
+- **Never captured**: Incognito tabs and sites on your [never-suspend list](#never-suspend-tabs-with-urls-from-the-following-list).
 
 ### Enable high quality screen capture mode
 Disabled by default. With this off, previews are captured at a lower quality and a full-page capture is limited to 5000 px in height. Turning it on gives better previews and allows the page renderer more time, at the cost of more CPU and memory.

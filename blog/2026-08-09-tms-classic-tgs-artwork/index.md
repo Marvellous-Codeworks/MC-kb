@@ -21,4 +21,4 @@ It is applied consistently, not just in one corner of the UI: the toolbar icon, 
 
 Off by default, on-demand, reversible any time. No data migration, no restart required.
 
-Full reference in the [Settings docs](/docs/TMS/pages/settings#use-the-classic-the-great-suspender-artwork).
+Full reference in the [Settings docs](/docs/TMS/pages/settings#use-the-classic-the-great-suspender-artwork-instead-of-the-new-mascot).

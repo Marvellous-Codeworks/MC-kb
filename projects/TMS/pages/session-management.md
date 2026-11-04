@@ -1,7 +1,7 @@
 ---
 sidebar_position: 2
 title: "Session management"
-description: Complete reference for the Session Management page - current session, recovery history, saved sessions, import/export and migration from other suspenders.
+description: Complete reference for the Session management page - current session, recovery history, saved sessions, import/export and migration from other suspenders.
 tags:
   - TMS
   - The Marvellous Suspender
@@ -11,18 +11,18 @@ tags:
 
 # Session management
 
-Open the Session Management page from the extension popup (**Sessions**) or from **Sessions** in the left sidebar (shown on every extension page). Not available in Incognito windows.
+Open the Session management page from the extension popup (**Sessions**) or from **Sessions** in the left sidebar (shown on every extension page). Not available in Incognito windows.
 
 The page is organized into four sections, each reachable from the in-page navigation at the top: **Current session**, **Recent sessions**, **Saved sessions**, and **Migrate**.
 
-![Session Management page showing all four sections: Current session, Recent sessions, Saved sessions, and Tab migration](./img/session-management/01-overview.webp)
+![Session management page showing all four sections: Current session, Recent sessions, Saved sessions, and Tab migration](./img/session-management/01-overview.webp)
 
 *Dark theme:*
 
-![Session Management page in dark theme](./img/session-management/01-overview-dark.webp)
+![Session management page in dark theme](./img/session-management/01-overview-dark.webp)
 
 :::note
-This page is TMS's built-in, always-on session history, it works even if you never touch the automatic [Backup & Sync](./backup-sync.md) feature. Think of Session Management as "what TMS already remembers about your tabs" and Backup & Sync as "an extra copy saved outside the browser."
+This page is TMS's built-in, always-on session history, it works even if you never touch the automatic [Backup & Restore](./backup-sync.md) feature. Think of Session management as "what TMS already remembers about your tabs" and Backup & Restore as "an extra copy saved outside the browser."
 :::
 
 ---
@@ -49,16 +49,16 @@ Each session/window has an action row:
 
 | Action | Effect |
 |---|---|
-| **Reload** | Re-opens every tab in the (session or window) in its normal, unsuspended state |
-| **Resuspend** | Re-opens every tab already suspended, much faster than a full reload if the session has many tabs |
-| **Export** | Downloads the session (or a single window) as a `tms-session-YYYY-MM-DD.json` file |
-| **Save** | Prompts for a name and copies the session into **Saved sessions** |
-| **Delete** (session only) | Removes the whole session record from history, after a confirmation prompt |
+| **open and suspend** | Re-opens every tab in the session or window already suspended, much faster than **open and load** if there are many tabs |
+| **open and load** | Re-opens every tab in the session or window in its normal, unsuspended state |
+| **export** | Downloads the session (or a single window) as a `tms-session-YYYY-MM-DD.json` file |
+| **save** | Prompts for a name and copies the session (or a single window) into **Saved sessions** |
+| **delete** (session only) | Removes the whole session record from history, after a confirmation prompt |
 
-Within an expanded session you can also remove individual tabs from the record with the tab-level **remove** link, this only edits the history entry, it does not close the real browser tab.
+Within an expanded session you can also remove individual tabs from the record with the ❌ shown when you hover a tab, this only edits the history entry, it does not close the real browser tab.
 
 :::tip
-Reload/Resuspend/Export/Save are only available on windows other than the one you are currently viewing the Session Management page from, this prevents you from resuspending the tab you're currently reading.
+Not every action applies everywhere. The running session offers only **export** and **save**, and the ❌ is not available on its tabs. Recent sessions offer all five actions. Saved sessions offer all of them except **save**.
 :::
 
 ---
@@ -70,7 +70,7 @@ Automatic restore points that TMS creates on its own, most recent first. Use the
 - Removing/reinstalling the extension without unsuspending tabs first
 - An accidental "close window"
 
-Each entry behaves exactly like a current session (expand, Reload, Resuspend, Export, Save, Delete), the only difference is *how* it was created.
+Expand an entry to see its windows and tabs, and use **open and suspend**, **open and load**, **export**, **save** or **delete** on it.
 
 See also: [Recovering lost tabs](../troubleshooting/tgs-recover-lost-tabs.md) for a deeper recovery walkthrough, including how to search `chrome://history` if a tab isn't in any recorded session.
 
@@ -83,10 +83,10 @@ Sessions you have explicitly saved by name, kept until you delete them. Use this
 ### Import a session file
 Click **Import session** to load a `.json` file previously exported from TMS (or from The Great Suspender). You will be prompted for a name; if a saved session with that name already exists, TMS asks whether to overwrite it. TMS also accepts a legacy plain-text format, one URL per line, blank lines separating windows.
 
-Files produced by the [Backup & Sync](./backup-sync.md) restore flow are also imported here automatically and show up as regular saved sessions.
+Files produced by the [Backup & Restore](./backup-sync.md) restore flow are also imported here automatically and show up as regular saved sessions.
 
 ### Export
-Same per-session/per-window export as in Current and Recent sessions, producing a `tms-session-YYYY-MM-DD.json` file you can back up or move to another machine via **Import**.
+Same per-session/per-window export as in Current and Recent sessions, producing a `tms-session-YYYY-MM-DD.json` file you can back up or move to another machine via **Import session**.
 
 ---
 

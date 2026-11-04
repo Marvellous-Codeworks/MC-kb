@@ -11,7 +11,7 @@ tags:
 
 # Toolbar popup & quick actions
 
-Click the TMS icon in the browser toolbar to open the popup. It's the fastest way to act on the current tab, on selected tabs, or on all tabs, without opening a full extension page. The same actions (plus a couple of extras) are also available from the right-click context menu on any tab, if [enabled in Settings](./settings.md#enable-context-menu).
+Click the TMS icon in the browser toolbar to open the popup. It's the fastest way to act on the current tab, on selected tabs, or on all tabs, without opening a full extension page. The same actions (plus a couple of extras) are also available from the right-click context menu on any tab, if [enabled in Settings](./settings.md#add-the-marvellous-suspender-to-right-click-context-menu).
 
 ---
 
@@ -24,7 +24,7 @@ At the top of the popup, TMS shows the current tab's status and, for several sta
 | Tab will suspend automatically. | Tab will be suspended automatically per your timer | **Not now** - excludes this tab from auto-suspend until it's next reloaded |
 | Tab suspended | Tab is already suspended | - |
 | Automatic tab suspension disabled. | Auto-suspend is disabled ([Automatically suspend tabs after](./settings.md#automatically-suspend-tabs-after) = Never) | - |
-| Site allowed. | Tab's URL matches an entry in your [never-suspend list](./settings.md#never-suspend-list) | **Remove from allowlist** |
+| Site allowed. | Tab's URL matches an entry in your [never-suspend list](./settings.md#never-suspend-tabs-with-urls-from-the-following-list) | **Remove from allowlist** |
 | Tab cannot be suspended | An internal/unsuspendable page (e.g. `chrome://`, the Chrome Web Store) | - |
 | Tab is playing audio. | Tab is playing audio and is excluded from auto-suspend | - |
 | Tab is receiving form input. | TMS detected an active, unsaved form and is excluding the tab | **Unpause** |
@@ -37,9 +37,9 @@ At the top of the popup, TMS shows the current tab's status and, for several sta
 | Tab is in a group that is never suspended | Tab is in a group you marked with [Never suspend this group](./settings.md#never-suspend-tabs-in-the-following-tab-groups) | - |
 | Local files cannot be suspended. | TMS doesn't have access to local `file://` pages | **Enable** → opens the [local file permissions page](#local-file-permissions) |
 
-When the current tab won't be suspended automatically (paused, allowed, pinned and so on), the toolbar icon itself shows a small orange pause badge in its top-right corner, so you can tell without opening the popup. The badge also appears on pages that can't be suspended at all, such as the browser's own pages or a tab that is already suspended. With the [classic artwork](./settings.md#use-the-classic-the-great-suspender-artwork) the paused icon is the original grey one instead.
+When the current tab won't be suspended automatically (paused, allowed, pinned and so on), the toolbar icon itself shows a small orange pause badge in its top-right corner, so you can tell without opening the popup. The badge also appears on pages that can't be suspended at all, such as the browser's own pages or a tab that is already suspended. With the [classic artwork](./settings.md#use-the-classic-the-great-suspender-artwork-instead-of-the-new-mascot) the paused icon is the original grey one instead.
 
-If a scheduled Google Drive backup recently failed, a red banner appears above the menu, click it to jump straight to [Backup & Sync](./backup-sync.md) and reconnect.
+If a scheduled Google Drive backup recently failed, a red banner appears above the menu, click it to jump straight to [Backup & Restore](./backup-sync.md) and reconnect.
 
 Example of the **Tab cannot be suspended** status, shown here on an internal extension page (dark theme):
 
@@ -53,7 +53,7 @@ Example of the **Tab cannot be suspended** status, shown here on an internal ext
 |---|---|
 | **Unsuspend this tab** | Reloads the current tab in its normal state (shown only if suspended) |
 | **Suspend this tab now** | Suspends the current tab immediately, bypassing the inactivity timer |
-| **Never suspend this URL** | Adds the exact URL to the [never-suspend list](./settings.md#never-suspend-list) |
+| **Never suspend this URL** | Adds the exact URL to the [never-suspend list](./settings.md#never-suspend-tabs-with-urls-from-the-following-list) |
 | **Never suspend this domain** | Adds the domain (matches all pages on it) to the never-suspend list |
 
 ![Popup open on an already-suspended tab, with real browser chrome visible](./img/quick-actions-popup/02-popup-suspended.webp)
@@ -88,14 +88,14 @@ Shown only when [automatic backup](./backup-sync.md#automatic-session-backup) is
 
 | Menu item | Effect |
 |---|---|
-| **Sessions** | Opens [Session Management](./session-management.md) in a new tab |
+| **Sessions** | Opens [Session management](./session-management.md) in a new tab |
 | **Settings** | Opens [Settings](./settings.md) in a new tab |
 
 ---
 
 ## Right-click context menu
 
-If **Enable context menu** is on in [Settings → General](./settings.md#enable-context-menu), right-clicking any tab (or a link on a page) exposes the same current-tab and bulk actions found in the popup, plus these extras not present in the popup:
+If **Add The Marvellous Suspender to right-click context menu** is on in [Settings → General](./settings.md#add-the-marvellous-suspender-to-right-click-context-menu), right-clicking any tab (or a link on a page) exposes the same current-tab and bulk actions found in the popup, plus these extras not present in the popup:
 
 | Context menu item | Effect |
 |---|---|

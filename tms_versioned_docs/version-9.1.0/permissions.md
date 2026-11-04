@@ -61,7 +61,7 @@ Allows TMS to run scripts in the context of web pages. Used to:
 
 #### Offscreen
 
-`navigator.getBattery()` isn't available inside a Manifest V3 service worker, which has no `window`/DOM. `offscreen` lets TMS create a hidden, DOM-capable offscreen document purely to read the device's charging state, which it reports back to the service worker for the "never suspend while charging" and battery-specific-timeout options. The document renders nothing, is created only once per browser session (self-healing if it ever goes missing), and is never used for anything else.
+`navigator.getBattery()` isn't available inside a Manifest V3 service worker, which has no `window`/DOM. `offscreen` lets TMS create a hidden, DOM-capable offscreen document purely to read the device's charging state, which it reports back to the service worker for the "Never suspend tabs when connected to power source" and "Suspend tabs on battery power after" options. The document renders nothing, is created only once per browser session (self-healing if it ever goes missing), and is never used for anything else.
 
 #### Host permissions
 
@@ -76,7 +76,7 @@ These are declared as optional (`optional_permissions` or `optional_host_permiss
 
 #### Downloads
 
-Used by the [Backup & Sync](./pages/backup-sync.md) feature to save session backup files (`tms-session-*.json`) to a `tms-backups/` subfolder inside your Downloads folder when the backup destination is set to **Local**, and to track/rotate those files so old backups are cleaned up automatically. TMS never reads the contents of your Downloads folder beyond the files it wrote itself. Chrome only asks you to grant this the moment you toggle **Automatically back up your session** on, not at install or update time. If you never enable local backup, TMS never requests it.
+Used by the [Backup & Restore](./pages/backup-sync.md) feature to save session backup files (`tms-session-*.json`) to a `tms-backups/` subfolder inside your Downloads folder when the backup destination is set to **Local**, and to track/rotate those files so old backups are cleaned up automatically. TMS never reads the contents of your Downloads folder beyond the files it wrote itself. Chrome only asks you to grant this the moment you toggle **Automatically back up your session** on, not at install or update time. If you never enable local backup, TMS never requests it.
 
 #### Identity
 
@@ -103,6 +103,6 @@ Declared in `manifest.json` under `oauth2.scopes`, this is not a Chrome permissi
 
 TMS does not collect, transmit, or sell any user data. All storage (settings, session data, favicon cache) is local to your browser profile. The optional Settings Sync feature uses Chrome's built-in sync mechanism and is subject to Google's privacy policy, nothing passes through Marvellous Codeworks servers.
 
-The optional [Google Drive backup destination](./pages/backup-sync.md#google-drive) uploads your session backups directly from your browser to the hidden `appDataFolder` in your own Google Drive, using the narrow `drive.appdata` OAuth scope. Backup files never pass through any Marvellous Codeworks server, the only two parties involved are your browser and Google's Drive API. You can revoke access at any time from the **Backup & Sync** page or from your [Google Account permissions](https://myaccount.google.com/permissions).
+The optional [Google Drive backup destination](./pages/backup-sync.md#google-drive) uploads your session backups directly from your browser to the hidden `appDataFolder` in your own Google Drive, using the narrow `drive.appdata` OAuth scope. Backup files never pass through any Marvellous Codeworks server, the only two parties involved are your browser and Google's Drive API. You can revoke access at any time from the **Backup & Restore** page or from your [Google Account permissions](https://myaccount.google.com/permissions).
 
 The source code is [publicly available on GitHub](https://github.com/gioxx/MarvellousSuspender) for independent review.

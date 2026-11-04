@@ -19,10 +19,10 @@ If you're here because a maintainer attached a test build to a GitHub issue and 
 
 ## Option A: Load a release archive
 
-1. Download the **[latest release](https://github.com/gioxx/MarvellousSuspender/releases)** and unarchive it to a folder of your choice.
+1. Download the `tms-<version>.zip` file from the **[latest release](https://github.com/gioxx/MarvellousSuspender/releases)** and unarchive it to a folder of your choice.
 2. In Chrome, navigate to `chrome://extensions/` and enable **Developer mode** (toggle in the top-right corner).
-3. Click **Load unpacked extension…**.
-4. Browse to the `src` directory inside the unarchived folder and confirm.
+3. Click **Load unpacked**.
+4. Select the unarchived folder, the one containing `manifest.json`, and confirm.
 
 The TMS welcome page will open to confirm successful installation.
 
@@ -61,6 +61,6 @@ You will find:
 
 **From `.crx`**: drag the file into `chrome://extensions/`.
 
-**If Chrome blocks the `.crx`**: extract the `.zip` from `build/zip/`, open `chrome://extensions/`, click **Load unpacked extension…**, and browse to the extracted folder.
+**If Chrome blocks the `.crx`**: extract the `.zip` from `build/zip/`, open `chrome://extensions/`, click **Load unpacked**, and browse to the extracted folder.
 
 > Chrome may show **"This extension is not listed in the Chrome Web Store"** for sideloaded builds. This is expected behavior for locally loaded extensions.
