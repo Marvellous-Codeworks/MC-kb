@@ -60,7 +60,7 @@ const config = {
             xslt: true,
           },
           blogTitle: 'Blog - Marvellous Codeworks',
-          blogDescription: 'Updates about The Marvellous Suspender project',
+          blogDescription: 'Updates about Marvellous Codeworks products',
           blogSidebarCount: 'ALL',
           blogSidebarTitle: 'All posts',
           // Useful options to enforce blogging best practices
