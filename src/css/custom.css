@@ -193,6 +193,23 @@
   }
 }
 
+/* ─── Blog: authors list, slightly smaller than the theme default ── */
+.blog-authors-list-page main h1 {
+  font-size: 2.25rem;
+}
+
+.blog-authors-list-page .avatar .avatar__photo {
+  --ifm-avatar-photo-size: 4rem;
+}
+
+.blog-authors-list-page .avatar__name h2 {
+  font-size: 1.2rem;
+}
+
+.blog-authors-list-page .avatar__intro small {
+  font-size: 0.9rem;
+}
+
 /* ─── Download page: store cards ─────────────────────────── */
 .store-download-page {
   border: 1px solid #d9e4f0;
