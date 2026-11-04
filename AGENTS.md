@@ -74,7 +74,7 @@ A change is done only when all of these are true and the PR says so:
 - **Nothing about an undisclosed vulnerability** before the advisory is public, not
   even that it exists.
 - **Screenshots** are taken in English from a clean profile, unless the page says
-  otherwise, and show no real tabs, accounts or addresses.
+  otherwise, and show no real tabs, accounts or addresses. `CONTRIBUTING.md` says how.
 - **Admonitions with a title use the bracket form:** `:::tip[Title]`.
 - **Commits:** `type(scope): imperative subject` or `type: imperative subject`, subject
   at most 72 characters, English. Types in use: `feat`, `fix`, `docs`, `blog`, `style`,

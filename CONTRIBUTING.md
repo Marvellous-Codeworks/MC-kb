@@ -62,6 +62,43 @@ in the pull request.
 Only The Marvellous Suspender is covered so far. For the other products, check names by
 hand until they are added to `PRODUCTS` in the script.
 
+## Taking screenshots
+
+Use the [Chrome DevTools MCP server](https://github.com/ChromeDevTools/chrome-devtools-mcp)
+from a coding agent: it opens a separate browser, with an empty profile and in English,
+and can install a release package. Your own Chrome and its data stay out of it.
+
+Branded Chrome ignores unpacked extensions, so point the server at
+[Chrome for Testing](https://googlechromelabs.github.io/chrome-for-testing/). Use
+forward slashes in the path, even on Windows:
+
+```bash
+claude mcp add tms-screens -- npx chrome-devtools-mcp@1.11.0 --categoryExtensions=true --isolated --chromeArg=--lang=en --executablePath=<path to Chrome for Testing>/chrome.exe
+```
+
+Restart the session so the agent sees the new tools, then:
+
+1. Download `tms-<version>.zip` from the release and unzip it. The agent installs that
+   folder with `install_extension`.
+2. Pages of the extension, such as Settings or About: the agent opens them and saves them
+   with `take_screenshot`.
+3. Anything with the browser around it, such as the popup, the toolbar icon or a
+   right-click menu: the MCP server can't capture these. The agent prepares the page and
+   starts a timed capture of that area of the screen, and you open the popup or the menu
+   by hand. Bring the browser to the front and leave it open until the capture is done.
+4. Check every image before it goes in: right version, English labels, `example.com` as
+   the only site, no real tabs or accounts.
+
+The toolbar icon changes when you switch tabs, not when a tab navigates. To show the
+paused badge on a page, open another tab and close it again before you capture.
+
+Save images as `.webp` under the same names, then promote the docs to stable. When
+you are done, remove the server:
+
+```bash
+claude mcp remove tms-screens -s local
+```
+
 ## Publishing a release of the docs
 
 After a product release is live, promote Next to stable:
