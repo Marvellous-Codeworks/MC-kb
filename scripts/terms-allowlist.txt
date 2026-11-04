@@ -1,0 +1,72 @@
+# Names in the TMS docs that are not UI strings on purpose: browser labels,
+# emphasis, examples and doc-only headings.
+110
+A tab goes idle
+Add the URL to the never-suspend list
+Ask where to save each file before downloading
+Brave
+Broken
+Chrome / Edge
+Chrome 110 or later
+Chrome Tab Groups
+Chrome Web Store
+Chrome and Edge
+Create Shortcut
+Details
+Developer mode
+Discards
+Extension options
+Google Chrome 110 or later
+Install page as App
+It gets suspended
+It's the same extension ID as the Store version
+Load unpacked
+MacBook
+Microsoft Edge
+Never captured
+Never suspend…
+Only named groups can be added
+Open as window
+Options
+Pin the tab
+Recovery sessions
+Renames are followed
+Research, Project X
+Right-click the page
+Suspend mode
+Suspends
+The Great-er Tab Discarder
+This extension is not listed in the Chrome Web Store
+This site cannot be reached
+Update page
+Updated page
+Vivaldi
+Weekend reading
+What is kept
+Work PC
+Yes
+You bring it back when you need it
+active (focused) tab
+an extra copy saved outside the browser
+automatic session backup
+backing up/restoring your TMS settings
+close window
+confirmed working end-to-end on Edge
+independently
+never-suspend list
+not recommended for normal use
+nothing to lose
+open in Drive
+poll
+previous versions
+recent sessions
+removed
+restoring a session from a backup file
+saved sessions
+soft limit of 1024 open file descriptors per process
+still seems to be installed and running
+try without installing
+unsaved form data
+what TMS already remembers about your tabs
+what-changed-in-9x
+who made this

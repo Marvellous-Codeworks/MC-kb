@@ -1,0 +1,29 @@
+name: Check UI terms
+
+on:
+  pull_request:
+    paths:
+      - 'projects/TMS/**'
+      - 'scripts/**'
+      - '.github/workflows/check-terms.yml'
+
+permissions:
+  contents: read
+
+jobs:
+  tms:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v7
+      - uses: actions/setup-node@v7
+        with:
+          node-version: '22'
+      - run: node --test scripts/check-terms.test.mjs
+      - id: release
+        run: echo "tag=v$(node -p "require('./tms_versions.json')[0]")" >> "$GITHUB_OUTPUT"
+      - uses: actions/checkout@v7
+        with:
+          repository: gioxx/MarvellousSuspender
+          ref: ${{ steps.release.outputs.tag }}
+          path: product
+      - run: node scripts/check-terms.mjs TMS --source product

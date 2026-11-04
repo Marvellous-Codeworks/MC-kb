@@ -42,6 +42,10 @@ The script removes the previous stable snapshot and creates the new one from `pr
 
 Links between projects live in different docs instances, so use absolute routes (`/docs/TMS/overview`) instead of relative `.md` paths. Links inside the same project stay relative.
 
+## Contributing
+
+Read [`AGENTS.md`](AGENTS.md) for the rules, starting with the terminology rule, and [`CONTRIBUTING.md`](CONTRIBUTING.md) for the process.
+
 ## Local development
 
 Requires Node.js 22 (the version used by the deploy workflow).
