@@ -21,27 +21,27 @@ At the top of the popup, TMS shows the current tab's status and, for several sta
 
 | Status shown | Meaning | Inline action |
 |---|---|---|
-| Normal / Active | Tab will be suspended automatically per your timer | **Pause** - excludes this tab from auto-suspend until it's next reloaded |
-| Suspended | Tab is already suspended | - |
-| Never | Auto-suspend is disabled (**Suspend automatically after** = Never) | - |
-| Whitelisted | Tab's URL matches an entry in your [never-suspend list](./settings.md#never-suspend-list) | **Remove from whitelist** |
-| Special | An internal/unsuspendable page (e.g. `chrome://`, the Chrome Web Store) | - |
-| Audible | Tab is playing audio and is excluded from auto-suspend | - |
-| Unsaved form data | TMS detected an active, unsaved form and is excluding the tab | **Unpause** |
-| Pinned | Tab is pinned and excluded from auto-suspend | - |
-| Paused | You manually paused this tab | **Unpause** |
-| No connectivity | Browser is offline and **Only suspend when connected** is enabled | - |
-| Charging | Device is on power and **Only suspend when on battery** is enabled | - |
-| App window | Tab is open in an [app-mode window](./settings.md#never-suspend-tabs-opened-in-app-windows) and excluded from auto-suspend | - |
-| Tab group | Tab is in a tab group and [Never suspend tabs in a tab group](./settings.md#never-suspend-tabs-in-a-tab-group) is enabled | - |
-| Never-suspended group | Tab is in a group you marked with [Never suspend this group](./settings.md#never-suspend-tabs-in-the-following-tab-groups) | - |
-| Local files cannot be suspended | TMS doesn't have access to local `file://` pages | **Enable** → opens the [local file permissions page](#local-file-permissions) |
+| Tab will suspend automatically. | Tab will be suspended automatically per your timer | **Not now** - excludes this tab from auto-suspend until it's next reloaded |
+| Tab suspended | Tab is already suspended | - |
+| Automatic tab suspension disabled. | Auto-suspend is disabled ([Automatically suspend tabs after](./settings.md#automatically-suspend-tabs-after) = Never) | - |
+| Site allowed. | Tab's URL matches an entry in your [never-suspend list](./settings.md#never-suspend-list) | **Remove from allowlist** |
+| Tab cannot be suspended | An internal/unsuspendable page (e.g. `chrome://`, the Chrome Web Store) | - |
+| Tab is playing audio. | Tab is playing audio and is excluded from auto-suspend | - |
+| Tab is receiving form input. | TMS detected an active, unsaved form and is excluding the tab | **Unpause** |
+| Tab has been pinned | Tab is pinned and excluded from auto-suspend | - |
+| Tab suspension paused. | You manually paused this tab | **Unpause** |
+| No network connection | Browser is offline and [Never suspend tabs when offline](./settings.md#never-suspend-tabs-when-offline) is enabled | - |
+| Connected to power source | Device is on power and [Never suspend tabs when connected to power source](./settings.md#never-suspend-tabs-when-connected-to-power-source) is enabled | - |
+| Tab is open in an app window | Tab is open in an [app-mode window](./settings.md#never-suspend-tabs-opened-in-app-windows) and excluded from auto-suspend | - |
+| Tab is in a tab group | Tab is in a tab group and [Never suspend tabs in a tab group](./settings.md#never-suspend-tabs-in-a-tab-group) is enabled | - |
+| Tab is in a group that is never suspended | Tab is in a group you marked with [Never suspend this group](./settings.md#never-suspend-tabs-in-the-following-tab-groups) | - |
+| Local files cannot be suspended. | TMS doesn't have access to local `file://` pages | **Enable** → opens the [local file permissions page](#local-file-permissions) |
 
 When the current tab won't be suspended automatically (paused, allowed, pinned and so on), the toolbar icon itself shows a small orange pause badge in its top-right corner, so you can tell without opening the popup. The badge also appears on pages that can't be suspended at all, such as the browser's own pages or a tab that is already suspended. With the [classic artwork](./settings.md#use-the-classic-the-great-suspender-artwork) the paused icon is the original grey one instead.
 
 If a scheduled Google Drive backup recently failed, a red banner appears above the menu, click it to jump straight to [Backup & Sync](./backup-sync.md) and reconnect.
 
-Example of the **Special** status, shown here on an internal extension page (dark theme):
+Example of the **Tab cannot be suspended** status, shown here on an internal extension page (dark theme):
 
 ![Popup on a special/internal tab, showing "Tab cannot be suspended"](./img/quick-actions-popup/03-popup-special-dark.webp)
 
@@ -51,9 +51,9 @@ Example of the **Special** status, shown here on an internal extension page (dar
 
 | Menu item | Effect |
 |---|---|
-| **Unsuspend tab** | Reloads the current tab in its normal state (shown only if suspended) |
-| **Suspend tab** | Suspends the current tab immediately, bypassing the inactivity timer |
-| **Never suspend this page** | Adds the exact URL to the [never-suspend list](./settings.md#never-suspend-list) |
+| **Unsuspend this tab** | Reloads the current tab in its normal state (shown only if suspended) |
+| **Suspend this tab now** | Suspends the current tab immediately, bypassing the inactivity timer |
+| **Never suspend this URL** | Adds the exact URL to the [never-suspend list](./settings.md#never-suspend-list) |
 | **Never suspend this domain** | Adds the domain (matches all pages on it) to the never-suspend list |
 
 ![Popup open on an already-suspended tab, with real browser chrome visible](./img/quick-actions-popup/02-popup-suspended.webp)
@@ -71,9 +71,9 @@ Shown only when more than one tab is highlighted in the tab strip (`Shift`/`Ctrl
 
 | Menu item | Effect |
 |---|---|
-| **Suspend other tabs** | Suspends every tab in the current window except the active one (a "soft" suspend, see [keyboard shortcuts](./keyboard-shortcuts.md) for the "force" variant, which also suspends the active tab) |
+| **Suspend all other tabs** | Suspends every tab in the current window except the active one (your protections still apply, see [keyboard shortcuts](./keyboard-shortcuts.md) for the "force" variant, which ignores them) |
 | **Unsuspend all tabs** | Unsuspends every tab in the current window |
-| **Unsuspend whitelisted tabs** | Unsuspends only the tabs in the current window that match an entry in your never-suspend list, useful right after editing that list |
+| **Wake matching tabs now** | Unsuspends only the tabs in the current window that match an entry in your never-suspend list, useful right after editing that list |
 
 ## Backup
 
@@ -81,14 +81,14 @@ Shown only when [automatic backup](./backup-sync.md#automatic-session-backup) is
 
 | Label | Effect |
 |---|---|
-| **Back up now (local)** | Immediately runs a local session backup |
-| **Back up now (Drive)** | Immediately runs a Google Drive session backup |
+| **Backup session now (Local)** | Immediately runs a local session backup |
+| **Backup session now (Cloud)** | Immediately runs a Google Drive session backup |
 
 ## Navigation
 
 | Menu item | Effect |
 |---|---|
-| **Session Manager** | Opens [Session Management](./session-management.md) in a new tab |
+| **Sessions** | Opens [Session Management](./session-management.md) in a new tab |
 | **Settings** | Opens [Settings](./settings.md) in a new tab |
 
 ---

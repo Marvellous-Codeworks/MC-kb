@@ -11,7 +11,7 @@ tags:
 
 # Session management
 
-Open the Session Management page from the extension popup (**Session Manager**) or from **Session Management** in the left sidebar (shown on every extension page). Not available in Incognito windows.
+Open the Session Management page from the extension popup (**Sessions**) or from **Sessions** in the left sidebar (shown on every extension page). Not available in Incognito windows.
 
 The page is organized into four sections, each reachable from the in-page navigation at the top: **Current session**, **Recent sessions**, **Saved sessions**, and **Migrate**.
 
