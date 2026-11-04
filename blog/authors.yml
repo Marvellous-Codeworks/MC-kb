@@ -1,6 +1,7 @@
 gioxx:
   name: Giovanni Solone
-  title: Co-founder of Marvellous Codeworks. Rescued The Great Suspender, built The Marvellous Suspender
+  title: Co-founder of Marvellous Codeworks
+  description: Co-founder of Marvellous Codeworks and lead maintainer of The Marvellous Suspender. Rescued The Great Suspender and built The Marvellous Suspender from the clean TGS 7.1.6 code.
   url: https://gioxx.org
   image_url: https://github.com/gioxx.png
   page: true
@@ -12,7 +13,8 @@ gioxx:
 
 rkodey:
   name: Rob Kodey
-  title: Co-founder of Marvellous Codeworks. Rescued The Great Discarder, built The Great-er Tab Discarder
+  title: Co-founder of Marvellous Codeworks
+  description: Co-founder of Marvellous Codeworks and maintainer of The Marvellous Suspender. Rescued The Great Discarder and built The Great-er Tab Discarder.
   url: https://kodey.com
   image_url: https://github.com/rkodey.png
   page: true
@@ -23,6 +25,7 @@ rkodey:
 amargiovanni:
   name: Andrea Margiovanni
   title: Maintainer of The Marvellous Suspender
+  description: Maintainer of The Marvellous Suspender. Added the project's test harness, its end-to-end tests in CI and its contributor guidelines, and reported and fixed security issues for the 9.1.0 release.
   url: https://margiovanni.it
   image_url: https://github.com/amargiovanni.png
   page: true
