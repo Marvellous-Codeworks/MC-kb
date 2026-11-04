@@ -82,7 +82,7 @@ If you installed TMS from source or from a test build, you can [update it yourse
 
 ## The documentation becomes stable
 
-The documentation for 9.1.0 is already written, and today it lives under the **Next** version of the docs: [docs/TMS/next](/docs/TMS/next/overview). As soon as 9.1.0 is live on the Chrome Web Store, Next becomes the stable documentation: it will be what you get from the Docs menu and the TMS links on this site, and the 9.0.3 docs will stay available from the version selector.
+The documentation for 9.1.0 is already written, and today it lives under the **Next** version of the docs: [docs/TMS/next](/docs/TMS/next/overview). As soon as 9.1.0 is live on the Chrome Web Store, Next becomes the stable documentation: it will be what you get from the Docs menu and the TMS links on this site, and it will replace the 9.0.3 docs, since we only keep the stable version and Next online.
 
 I'll post again when it is live on the Store.
 

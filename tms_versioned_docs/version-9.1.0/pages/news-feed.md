@@ -48,7 +48,7 @@ No fetch happens more often than the cache allows, there is no way to "poll" the
 
 ## Disabling the news feed
 
-*Added in 9.0.1.* If you'd rather not have TMS make this background request at all, turn off **Enable news feed** in [Settings → General](./settings.md#enable-news-feed). Enabled by default. Disabling it immediately clears the scheduled refresh alarm, stops all fetches, and hides the **News** entry from the left sidebar on every page. Re-enabling it restores the sidebar entry and resumes fetching on the normal schedule, the feed picks up new articles on the next check since disabling doesn't affect what counts as "unread."
+If you'd rather not have TMS make this background request at all, turn off **Enable news feed** in [Settings → General](./settings.md#enable-news-feed). Enabled by default. Disabling it immediately clears the scheduled refresh alarm, stops all fetches, and hides the **News** entry from the left sidebar on every page. Re-enabling it restores the sidebar entry and resumes fetching on the normal schedule, the feed picks up new articles on the next check since disabling doesn't affect what counts as "unread."
 
 ---
 

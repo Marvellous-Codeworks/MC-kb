@@ -23,13 +23,13 @@ This page covers three independent features: **automatic session backup**, **res
 ### What gets backed up
 On each run, TMS backs up your **current session**: every open window, its tabs (original URLs, not the internal suspended-page URL) and Chrome Tab Group assignments, the same data you'd get from an [Export](./session-management.md#export) in Session Management, just automated and written to a file.
 
-### Enable automatic backup
+### Automatically back up your session
 
 ![Backup page with automatic backup disabled, the default state](./img/backup-sync/00-disabled.webp)
 
-*Since 9.0.1, this page shows a note reminding you that backup is off, with an option to snooze the reminder for 10 days or dismiss it permanently, see [Backup activation nudge](#backup-activation-nudge) below.*
+*This page shows a note reminding you that backup is off, with an option to snooze the reminder for 10 days or dismiss it permanently, see [Backup activation nudge](#backup-activation-nudge) below.*
 
-Toggle **Enable automatic backup**. Since **9.0.1**, doing so triggers Chrome's permission prompt for `downloads` right at that moment, not before, see [Permissions](../permissions.md#what-changed-in-9x) for why. If you decline the prompt, the toggle reverts and nothing is enabled. Once enabled (and the permission granted), four settings become available:
+Toggle **Automatically back up your session**. Doing so triggers Chrome's permission prompt for `downloads` right at that moment, not before, see [Permissions](../permissions.md#optional-permissions-requested-on-demand) for why. If you decline the prompt, the toggle reverts and nothing is enabled. Once enabled (and the permission granted), four settings become available:
 
 | Setting | Description |
 |---|---|
@@ -52,13 +52,13 @@ If a backup produces an empty result (no open windows/tabs to save), TMS silentl
 
 ### Backup activation nudge
 
-*Added in 9.0.1.* If you've never turned on automatic backup, TMS shows a quiet reminder rather than nagging you with repeated pop-ups:
+If you've never turned on automatic backup, TMS shows a quiet reminder rather than nagging you with repeated pop-ups:
 
 - A small amber badge on the toolbar icon.
 - A banner in the extension popup, clicking it opens this page.
 - The note shown above, on this page.
 
-Each surface offers **Remind me in 10 days**, which snoozes the reminder (badge, popup banner, and this note all reappear automatically once the snooze expires), or, from this page only, a permanent **I'm not interested, stop reminding me** checkbox. Once you enable automatic backup, or check that box, all three surfaces stay hidden until the corresponding condition changes again. Nothing about this reminder collects data or phones home, it only reads your own local `Enable automatic backup` setting.
+Each surface offers **Remind me in 10 days**, which snoozes the reminder (badge, popup banner, and this note all reappear automatically once the snooze expires), or, from this page only, a permanent **I'm not interested, stop reminding me** checkbox. Once you enable automatic backup, or check that box, all three surfaces stay hidden until the corresponding condition changes again. Nothing about this reminder collects data or phones home, it only reads your own local `Automatically back up your session` setting.
 
 ### Local backups
 Files are written to `Downloads/tms-backups/tms-session-{deviceId}-{timestamp}.json`. The `{deviceId}` is a random 8-character identifier generated once per browser installation and stored locally, it exists purely so that two browsers writing to the same Downloads folder (e.g. Chrome and Brave on the same machine) never overwrite each other's files. Rotation keeps only the newest **Max backups per device** files for *this* installation.
@@ -73,13 +73,13 @@ Switching **Backup destination** to Google Drive before connecting an account sh
 
 ![Backup destination set to Google Drive, not yet connected](./img/backup-sync/01b-drive-not-connected.webp)
 
-Click **Connect**. Since **9.0.1**, this first triggers Chrome's permission prompt for `identity`, requested at this point rather than upfront, before continuing into the standard Google OAuth consent flow: choose the account, then confirm access:
+Click **Connect Google Account**. This first triggers Chrome's permission prompt for `identity`, requested at this point rather than upfront, before continuing into the standard Google OAuth consent flow: choose the account, then confirm access:
 
 ![Google's "Choose an account" screen for the TMS Drive connection](./img/backup-sync/07-google-oauth-account-chooser.webp)
 
 ![Google's consent screen showing the narrow drive.appdata scope requested](./img/backup-sync/08-google-oauth-consent.webp)
 
-TMS requests only the narrow `drive.appdata` scope, see [Permissions](../permissions.md#what-changed-in-9x) for what that does and does not allow. Once connected you'll see the connected account and the destination folder shown on the page:
+TMS requests only the narrow `drive.appdata` scope, see [Permissions](../permissions.md#optional-permissions-requested-on-demand) for what that does and does not allow. Once connected you'll see the connected account and the destination folder shown on the page:
 
 ![Backup page with Google Drive connected, showing account and folder](./img/backup-sync/02-drive-connected.webp)
 
@@ -91,16 +91,19 @@ If you use TMS on more than one machine with the same Google account, each devic
 #### Disconnecting
 The **Disconnect** button revokes the OAuth token (`chrome.identity.removeCachedAuthToken` + a call to Google's token-revocation endpoint). Existing backup files on Drive are **not** deleted, only the connection from this browser is removed.
 
+#### If a Drive upload fails
+If a scheduled Drive backup fails because of a temporary network or server error, TMS tries again a few minutes later, a few times, instead of waiting for the next scheduled backup.
+
 #### If Drive authentication fails
 If a scheduled Drive backup fails because the connection expired or was revoked elsewhere, TMS shows a small red badge on the toolbar icon and a banner in the popup. Clicking the banner opens this page so you can reconnect.
 
 #### Connecting on Brave or Vivaldi
-*Fixed in 9.0.2, reworked in 9.0.3.* Chrome's `chrome.identity.getAuthToken()` doesn't work on either browser: Brave attaches a custom URI scheme Google's backend rejects outright (a raw `Error 400: invalid_request` page), and Vivaldi disables Google sign-in entirely, so the connect flow used to hang with no feedback. TMS falls back to `chrome.identity.launchWebAuthFlow()` on these browsers, racing the original method against a timeout so a Vivaldi-style hang surfaces as a failure instead of hanging forever, and remembers which method worked per install so later connections skip straight to it. Once connected, this page shows a quiet second line under the "TMS Backups" folder name naming which OAuth method is active for the install, mainly useful for support.
+Chrome's `chrome.identity.getAuthToken()` doesn't work on either browser: Brave attaches a custom URI scheme Google's backend rejects outright (a raw `Error 400: invalid_request` page), and Vivaldi disables Google sign-in entirely, so the standard connect flow would hang with no feedback. TMS falls back to `chrome.identity.launchWebAuthFlow()` on these browsers, racing the original method against a timeout so a Vivaldi-style hang surfaces as a failure instead of hanging forever, and remembers which method worked per install so later connections skip straight to it. Once connected, this page shows a quiet second line under the "TMS Backups" folder name naming which OAuth method is active for the install, mainly useful for support.
 
-9.0.2's version of this fallback used a short-lived (~1 hour) access token that needed the browser's help to silently renew, which Brave/Vivaldi don't support reliably, causing accounts to flip back to "disconnected" after just a backup or two. 9.0.3 replaces that with an authorization-code + PKCE exchange that mints a long-lived refresh token instead, renewed with a direct request that doesn't depend on the browser at all. That request is proxied through **`tms-oauth-proxy`**, a small Cloudflare Worker that holds the OAuth client's secret server-side so it never ships inside the extension package. The worker only ever sees the token-exchange request itself (authorization code or refresh token, nothing else), never your Drive data or the resulting access token, which stay entirely in your own browser's storage. See the [9.0.3 write-up](/blog/tms903-drive-pkce-refresh-token) for the full story.
+To keep the connection alive on these browsers, TMS uses an authorization-code + PKCE exchange that mints a long-lived refresh token, renewed with a direct request that doesn't depend on the browser at all. That request is proxied through **`tms-oauth-proxy`**, a small Cloudflare Worker that holds the OAuth client's secret server-side so it never ships inside the extension package. The worker only ever sees the token-exchange request itself (authorization code or refresh token, nothing else), never your Drive data or the resulting access token, which stay entirely in your own browser's storage. See the [blog write-up](/blog/tms903-drive-pkce-refresh-token) for the full story.
 
 #### Why a local file can still appear with Drive selected
-On browser shutdown, TMS writes an emergency local backup first regardless of your chosen destination, a Drive upload isn't reliable in that narrow shutdown window since the service worker can be killed mid-request. If your destination is Drive, that local file is queued and uploaded on the next startup, then automatically removed once the upload succeeds. Seeing a file appear locally even in Drive-only mode is expected behavior, not a bug, this is now explained directly on the page too, right below the multi-device rotation note.
+On browser shutdown, TMS writes an emergency local backup first regardless of your chosen destination, a Drive upload isn't reliable in that narrow shutdown window since the service worker can be killed mid-request. If your destination is Drive, that local file is queued and uploaded on the next startup, then automatically removed once the upload succeeds. Seeing a file appear locally even in Drive-only mode is expected behavior, not a bug, this is also explained directly on the page, right below the multi-device rotation note.
 
 ### Switching destination from Drive to Local
 If you switch the destination from **Google Drive** to **Local**, a dialog offers to import your most recent Drive backup directly into [Saved sessions](./session-management.md#saved-sessions), a safety net so you don't lose access to that data just because you stopped using Drive. If Drive was never connected, or has no backups, this dialog is skipped.
@@ -124,7 +127,7 @@ A collapsible **Drive backup files** panel lists every backup on Drive, grouped 
 - **Download**: saves the raw `.json` to your local Downloads folder without importing it
 - **Delete**: permanently removes that one backup file from Drive, after a confirmation prompt
 
-*Since 9.0.2*, each device group heading also has a **Delete all** button to remove every backup file for that device in one go, after a confirmation prompt listing the file count, instead of deleting them one by one.
+Each device group heading also has a **Delete all** button to remove every backup file for that device in one go, after a confirmation prompt listing the file count, instead of deleting them one by one.
 
 ![Expanded Drive backup files panel with a numbered row and Download/Delete buttons](./img/backup-sync/04-drive-files-panel.webp)
 
@@ -152,6 +155,6 @@ The date of the last Drive settings backup is shown next to the section title on
 ## Related
 
 - [Session management](./session-management.md): TMS's always-on local session history, independent of this page
-- [Permissions](../permissions.md#what-changed-in-9x): exactly what the `downloads` and `identity` permissions and the `drive.appdata` OAuth scope allow
+- [Permissions](../permissions.md#optional-permissions-requested-on-demand): exactly what the `downloads` and `identity` permissions and the `drive.appdata` OAuth scope allow
 - [Diagnostic page](./diagnostic-page.md): shows this device's backup ID and name for troubleshooting
 - [Chrome/Edge extension corruption & repair](../troubleshooting/extension-repair-recovery.md): recovering sessions from raw browser data when no backup exists and the browser resets TMS's local storage
