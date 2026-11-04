@@ -14,7 +14,7 @@ TMS 9.1.0 is done, and as of today it is in Google's hands: the package has been
 :::tip[TL;DR]
 - **Submitted to Google today.** It arrives as an automatic update once the Store review is done, usually within a few days.
 - **401 commits, 54 pull requests, 44 closed issues** since 9.0.3.
-- **Five people wrote code** for this release, and more than half of the commits that weren't translations came from contributors.
+- **Five people wrote code** for this release, and more than half of the commits that weren't translations came from contributors and maintainers.
 - **From zero to 29 test files**: around 290 unit tests and 19 end-to-end tests now run on every pull request.
 - **18 languages, 446 strings each**, after a full retranslation and a tooltip rewrite that cut 36 strings per language.
 :::
@@ -36,7 +36,7 @@ Counted on the repository, from the 9.0.3 tag to the 9.1.0 release branch:
 
 Of those 401 commits, 184 are translation syncs from [Crowdin](https://crowdin.com/project/tms): every time a volunteer translates or fixes a string, it lands in the repository as a commit. That's a lot of small contributions from people who never open a pull request, and it's why 9.1.0 ships with Ukrainian as a new language and a full retranslation of every other one.
 
-The other 217 are code, tests and documentation. Of those, 117 came from contributors.
+The other 217 are code, tests and documentation. Of those, 117 came from contributors and maintainers.
 
 ## Who wrote it
 
