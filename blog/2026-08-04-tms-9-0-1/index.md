@@ -22,7 +22,7 @@ Starting with 9.0.1:
 
 If you already had backup enabled under 9.0.0, you won't see anything new, Chrome keeps permissions you already granted when a later update moves them from required to optional. No re-prompt, nothing to redo.
 
-Full breakdown on the [permissions page](/docs/TMS/permissions#what-changed-in-9x).
+Full breakdown on the [permissions page](/docs/TMS/permissions#optional-permissions-requested-on-demand).
 
 ## A quieter way to be reminded backup exists
 
