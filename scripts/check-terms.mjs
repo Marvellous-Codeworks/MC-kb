@@ -18,7 +18,7 @@ const squeeze = (text) => text.replace(/\s+/g, ' ').trim();
 // `$count$` placeholders read as N in the docs: "Repair N grouped tab(s)".
 export function buildCorpus(messages, htmlFiles) {
   const strings = Object.values(messages).map((m) =>
-    squeeze(decode(m.message.replace(/<[^>]+>/g, '').replace(/\$\w+\$/g, 'N'))));
+    squeeze(decode(m.message.split(/<[^>]*>/).join('').replace(/\$\w+\$/g, 'N'))));
   for (const html of htmlFiles) {
     for (const [, text] of html.matchAll(/>([^<>{}]+)</g)) strings.push(squeeze(decode(text)));
   }
