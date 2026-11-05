@@ -82,6 +82,15 @@ A change is done only when all of these are true and the PR says so:
   `chore`. No `Co-Authored-By` trailer.
 - **Language:** everything that lands in the repo is English.
 
+## Theme overrides
+
+- Project display names live in `src/data/projects.json`. Add a new project there.
+- The project name in the sidebar and breadcrumbs comes from wrappers in `src/theme/`,
+  which are kept in the repository and survive Docusaurus upgrades. They depend on
+  internal theme components, though, so a release can stop using them without errors.
+  `npm run build` runs `scripts/check-project-name.mjs` and fails if that happens: fix
+  the wrappers, do not remove the check.
+
 ## Working with AI tools
 
 AI assistance is welcome under one condition: the person opening the PR has read every
