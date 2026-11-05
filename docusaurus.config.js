@@ -6,9 +6,9 @@
 
 import {themes as prismThemes} from 'prism-react-renderer';
 import path from 'node:path';
-
-// Folder under projects/ = route segment under /docs; plugin id is the lowercase name.
-const projects = ['TGD', 'TMS', 'logdrop', 'tms-oauth-proxy'];
+// `name` is the folder under projects/ and the route segment under /docs; the plugin id is
+// its lowercase form. `label` is the name shown to readers.
+import projects from './src/data/projects.json';
 
 // This runs in Node.js - Don't use client-side code here (browser APIs, JSX...)
 
@@ -77,7 +77,7 @@ const config = {
 
   plugins: [
     // One versioned instance per project: last version = released, current = next (in preview)
-    ...projects.map((name) => [
+    ...projects.map(({name}) => [
       '@docusaurus/plugin-content-docs',
       {
         id: name.toLowerCase(),
@@ -143,26 +143,11 @@ const config = {
                 to: '/docs/intro',
                 activeBaseRegex: '^/docs/intro',
               },
-              {
-                label: 'The Great-er Tab Discarder',
-                to: '/docs/TGD/overview',
-                activeBaseRegex: '^/docs/TGD/',
-              },
-              {
-                label: 'The Marvellous Suspender',
-                to: '/docs/TMS/overview',
-                activeBaseRegex: '^/docs/TMS/',
-              },
-              {
-                label: 'logdrop',
-                to: '/docs/logdrop/overview',
-                activeBaseRegex: '^/docs/logdrop/',
-              },
-              {
-                label: 'OAuth Proxy for Google',
-                to: '/docs/tms-oauth-proxy/overview',
-                activeBaseRegex: '^/docs/tms-oauth-proxy/',
-              },
+              ...projects.map(({name, label}) => ({
+                label,
+                to: `/docs/${name}/overview`,
+                activeBaseRegex: `^/docs/${name}/`,
+              })),
             ],
           },
           { to: '/blog', label: "What's New", position: 'left' },
@@ -187,7 +172,7 @@ const config = {
             position: 'left',
           },
           // Shown only inside the matching project (see src/theme/NavbarItem/DocsVersionDropdownNavbarItem.js)
-          ...projects.map((name) => ({
+          ...projects.map(({name}) => ({
             type: 'docsVersionDropdown',
             docsPluginId: name.toLowerCase(),
             position: 'right',
