@@ -80,7 +80,7 @@ Used by the [Backup & Restore](./pages/backup-sync.md) feature to save session b
 
 #### Identity
 
-Used exclusively by the optional [Google Drive backup destination](./pages/backup-sync.md#google-drive). It lets TMS obtain an OAuth token via `chrome.identity.getAuthToken()` to authenticate with your Google account. TMS never sees your Google password, the token exchange is handled entirely by Chrome. Chrome only asks you to grant this when you click **Connect** to link a Google account, not at install or update time.
+Used exclusively by the optional [Google Drive backup destination](./pages/backup-sync.md#google-drive). It lets TMS obtain an OAuth token via `chrome.identity.getAuthToken()` to authenticate with your Google account. TMS never sees your Google password, and on Chrome the token exchange is handled entirely by the browser. On browsers where `getAuthToken()` doesn't work, TMS uses [a different flow](./pages/backup-sync.md#connecting-on-brave-or-vivaldi). Chrome only asks you to grant this when you click **Connect** to link a Google account, not at install or update time.
 
 #### File URLs access
 
@@ -103,6 +103,6 @@ Declared in `manifest.json` under `oauth2.scopes`, this is not a Chrome permissi
 
 TMS does not collect, transmit, or sell any user data. All storage (settings, session data, favicon cache) is local to your browser profile. The optional Settings Sync feature uses Chrome's built-in sync mechanism and is subject to Google's privacy policy, nothing passes through Marvellous Codeworks servers.
 
-The optional [Google Drive backup destination](./pages/backup-sync.md#google-drive) uploads your session backups directly from your browser to the hidden `appDataFolder` in your own Google Drive, using the narrow `drive.appdata` OAuth scope. Backup files never pass through any Marvellous Codeworks server, the only two parties involved are your browser and Google's Drive API. You can revoke access at any time from the **Backup & Restore** page or from your [Google Account permissions](https://myaccount.google.com/permissions).
+The optional [Google Drive backup destination](./pages/backup-sync.md#google-drive) uploads your session backups directly from your browser to the hidden `appDataFolder` in your own Google Drive, using the narrow `drive.appdata` OAuth scope. Backup files never pass through any Marvellous Codeworks server, the only two parties involved are your browser and Google's Drive API. On Brave and Vivaldi, the OAuth token exchange alone goes through [OAuth Proxy for Google](/docs/tms-oauth-proxy/overview), a Worker run by Marvellous Codeworks, which doesn't store tokens and never sees your backups. You can revoke access at any time from the **Backup & Restore** page or from your [Google Account permissions](https://myaccount.google.com/permissions).
 
 The source code is [publicly available on GitHub](https://github.com/gioxx/MarvellousSuspender) for independent review.

@@ -23,6 +23,7 @@ commands and messages. A close paraphrase is a mistake, even when it reads bette
   | The Marvellous Suspender | [`gioxx/MarvellousSuspender`](https://github.com/gioxx/MarvellousSuspender) | `src/_locales/en/messages.json`, `src/*.html`, `src/js/` |
   | The Great-er Tab Discarder | [`rkodey/the-great-er-discarder-er`](https://github.com/rkodey/the-great-er-discarder-er) | The repository's UI files |
   | logdrop | [`Marvellous-Codeworks/logdrop`](https://github.com/Marvellous-Codeworks/logdrop) | The repository's UI files |
+  | OAuth Proxy for Google | [`Marvellous-Codeworks/tms-oauth-proxy`](https://github.com/Marvellous-Codeworks/tms-oauth-proxy) | No UI: `worker/index.js`, `wrangler.toml` |
 
 - Docs are written in English, so they quote the English UI.
 - Open the source and copy the string. Do not rely on memory, on an older page, on a
