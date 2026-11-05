@@ -61,3 +61,8 @@ security:
   label: Security
   permalink: /security
   description: Security advisories and fixes
+
+tms-oauth-proxy:
+  label: OAuth Proxy for Google
+  permalink: /tms-oauth-proxy
+  description: Updates concerning OAuth Proxy for Google
