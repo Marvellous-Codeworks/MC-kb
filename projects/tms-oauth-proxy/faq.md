@@ -4,7 +4,7 @@ title: "FAQ"
 description: Frequently Asked Questions about OAuth Proxy for Google.
 tags:
   - FAQ
-  - tms-oauth-proxy
+  - OAuth Proxy for Google
 ---
 
 # Frequently Asked Questions

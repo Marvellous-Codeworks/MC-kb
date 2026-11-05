@@ -3,7 +3,7 @@ sidebar_position: 1
 title: "Overview"
 description: What OAuth Proxy for Google is, why it exists, what passes through it and its security model.
 tags:
-  - tms-oauth-proxy
+  - OAuth Proxy for Google
   - OAuth
   - Cloudflare Workers
 ---

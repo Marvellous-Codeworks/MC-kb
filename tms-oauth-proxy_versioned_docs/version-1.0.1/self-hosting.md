@@ -3,7 +3,7 @@ sidebar_position: 2
 title: "Self-hosting"
 description: Deploy your own OAuth Proxy for Google on Cloudflare Workers - OAuth client, configuration, secret and extension changes.
 tags:
-  - tms-oauth-proxy
+  - OAuth Proxy for Google
   - self-hosting
   - Cloudflare Workers
 ---
