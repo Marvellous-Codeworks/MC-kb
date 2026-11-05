@@ -1,7 +1,7 @@
 ---
 sidebar_position: 3
 title: "FAQ"
-description: Frequently Asked Questions about tms-oauth-proxy.
+description: Frequently Asked Questions about OAuth Proxy.
 tags:
   - FAQ
   - tms-oauth-proxy
@@ -11,7 +11,7 @@ tags:
 
 ### Do I need to install or configure anything to use TMS?
 
-No. tms-oauth-proxy is a server-side component that TMS uses on its own when needed, and there's nothing to set up.
+No. OAuth Proxy is a server-side component that TMS uses on its own when needed, and there's nothing to set up.
 
 ### Does TMS always use it?
 
