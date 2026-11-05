@@ -6,7 +6,7 @@ Official documentation for the Marvellous Codeworks projects, available at **[kb
 
 The site is built with [Docusaurus](https://docusaurus.io/) and covers:
 
-- **Projects**: [The Great-er Tab Discarder](https://kb.marvellouscode.works/docs/TGD/overview), [The Marvellous Suspender](https://kb.marvellouscode.works/docs/TMS/overview) and [logdrop](https://kb.marvellouscode.works/docs/logdrop/overview), each with a stable and a next version of its documentation.
+- **Projects**: [The Great-er Tab Discarder](https://kb.marvellouscode.works/docs/TGD/overview), [The Marvellous Suspender](https://kb.marvellouscode.works/docs/TMS/overview), [logdrop](https://kb.marvellouscode.works/docs/logdrop/overview) and [tms-oauth-proxy](https://kb.marvellouscode.works/docs/tms-oauth-proxy/overview), each with a stable and a next version of its documentation.
 - **Welcome page**: who we are, contributing, license and support.
 - **What's New**: release notes and announcements.
 
@@ -28,7 +28,7 @@ Do not edit `<project>_versioned_docs/` and `<project>_versioned_sidebars/` by h
 
 Each project keeps exactly two versions of its documentation:
 
-- **Stable**: the latest release (Chrome Web Store for the extensions, GitHub release for logdrop), served at `/docs/<Project>/`. It is the default.
+- **Stable**: the latest release (Chrome Web Store for the extensions, GitHub release for logdrop and tms-oauth-proxy), served at `/docs/<Project>/`. It is the default.
 - **Next**: what is coming in the next release, served at `/docs/<Project>/next/` with an "unreleased" banner. Useful for people running test builds or previews.
 
 Older versions are not kept. Write and update the documentation in `projects/<Project>/` (Next). After publishing a release, promote Next to stable:
@@ -72,8 +72,8 @@ Search is provided by Algolia DocSearch, comments on blog posts by [Waline](http
 
 - **Documentation** (the Markdown content and screenshots of `docs/`, `projects/`, `*_versioned_docs/` and `blog/`): [Creative Commons Attribution 4.0 International](LICENSE-docs) (CC BY 4.0). You can reuse and adapt it, also commercially, as long as you credit the source with a link to [kb.marvellouscode.works](https://kb.marvellouscode.works).
 - **Code** (site source and scripts): [MIT](LICENSE).
-- **Code excerpts from the projects** keep the license of the project they come from: [GPL-2.0](https://github.com/gioxx/MarvellousSuspender/blob/master/LICENSE) for The Marvellous Suspender and [The Great-er Tab Discarder](https://github.com/rkodey/the-great-er-discarder-er/blob/main/LICENSE), [AGPL-3.0](https://github.com/Marvellous-Codeworks/logdrop/blob/main/LICENSE) for logdrop. The projects themselves are not covered by this repository's licenses.
-- **Names and logos** (Marvellous Codeworks, TMS, TGD, logdrop, `static/img/MarvellousCodeworks_Logo.png`, the `suspendy-guy` artwork): not covered by either license, all rights reserved. Third-party icons and images keep their own licenses.
+- **Code excerpts from the projects** keep the license of the project they come from: [GPL-2.0](https://github.com/gioxx/MarvellousSuspender/blob/master/LICENSE) for The Marvellous Suspender and [The Great-er Tab Discarder](https://github.com/rkodey/the-great-er-discarder-er/blob/main/LICENSE), [AGPL-3.0](https://github.com/Marvellous-Codeworks/logdrop/blob/main/LICENSE) for logdrop and [tms-oauth-proxy](https://github.com/Marvellous-Codeworks/tms-oauth-proxy/blob/main/LICENSE). The projects themselves are not covered by this repository's licenses.
+- **Names and logos** (Marvellous Codeworks, TMS, TGD, logdrop, tms-oauth-proxy, `static/img/MarvellousCodeworks_Logo.png`, the `suspendy-guy` artwork): not covered by either license, all rights reserved. Third-party icons and images keep their own licenses.
 
 ## Feedback
 

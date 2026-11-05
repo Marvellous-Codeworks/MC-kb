@@ -8,7 +8,7 @@ import {themes as prismThemes} from 'prism-react-renderer';
 import path from 'node:path';
 
 // Folder under projects/ = route segment under /docs; plugin id is the lowercase name.
-const projects = ['TGD', 'TMS', 'logdrop'];
+const projects = ['TGD', 'TMS', 'logdrop', 'tms-oauth-proxy'];
 
 // This runs in Node.js - Don't use client-side code here (browser APIs, JSX...)
 
@@ -157,6 +157,11 @@ const config = {
                 label: 'logdrop',
                 to: '/docs/logdrop/overview',
                 activeBaseRegex: '^/docs/logdrop/',
+              },
+              {
+                label: 'tms-oauth-proxy',
+                to: '/docs/tms-oauth-proxy/overview',
+                activeBaseRegex: '^/docs/tms-oauth-proxy/',
               },
             ],
           },
@@ -315,6 +320,31 @@ const config = {
               {
                 label: 'Open an issue',
                 href: 'https://github.com/Marvellous-Codeworks/logdrop/issues/new',
+              },
+            ],
+          },
+          {
+            title: 'tms-oauth-proxy',
+            items: [
+              {
+                label: 'About tms-oauth-proxy',
+                href: 'https://www.marvellouscode.works/tms-oauth-proxy',
+              },
+              {
+                label: 'Overview',
+                to: '/docs/tms-oauth-proxy/overview',
+              },
+              {
+                label: 'FAQ',
+                to: '/docs/tms-oauth-proxy/faq',
+              },
+              {
+                label: 'Self-hosting',
+                to: '/docs/tms-oauth-proxy/self-hosting',
+              },
+              {
+                label: 'Open an issue',
+                href: 'https://github.com/Marvellous-Codeworks/tms-oauth-proxy/issues/new',
               },
             ],
           },

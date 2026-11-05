@@ -8,7 +8,7 @@ and "Next" (projects/<Project>, previews and upcoming changes). Run this after p
 the previous stable snapshot is removed and projects/<Project> is snapshotted as the new stable version.
 
 .PARAMETER Project
-Project to promote: TGD, TMS or logdrop.
+Project to promote: TGD, TMS, logdrop or tms-oauth-proxy.
 
 .PARAMETER Version
 Version just released (e.g. 9.1.0).
@@ -20,7 +20,7 @@ Version just released (e.g. 9.1.0).
 Giovanni Solone, 2026
 #>
 param(
-    [Parameter(Mandatory)][ValidateSet('TGD', 'TMS', 'logdrop')][string]$Project,
+    [Parameter(Mandatory)][ValidateSet('TGD', 'TMS', 'logdrop', 'tms-oauth-proxy')][string]$Project,
     [Parameter(Mandatory)][ValidatePattern('^\d+\.\d+\.\d+$')][string]$Version
 )
 

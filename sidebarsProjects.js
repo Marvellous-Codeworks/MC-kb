@@ -1,6 +1,6 @@
 // @ts-check
 
-// Shared by every versioned project instance (TGD, TMS, logdrop).
+// Shared by every versioned project instance (TGD, TMS, logdrop, tms-oauth-proxy).
 
 /** @type {import('@docusaurus/plugin-content-docs').SidebarsConfig} */
 const sidebars = {
