@@ -85,7 +85,7 @@ A change is done only when all of these are true and the PR says so:
 ## Theme overrides
 
 - Project display names live in `src/data/projects.json`. Add a new project there.
-- The project name in the sidebar and breadcrumbs comes from wrappers in `src/theme/`,
+- The project name in the sidebar, breadcrumbs and tab title comes from wrappers in `src/theme/`,
   which are kept in the repository and survive Docusaurus upgrades. They depend on
   internal theme components, though, so a release can stop using them without errors.
   `npm run build` runs `scripts/check-project-name.mjs` and fails if that happens: fix
