@@ -4,7 +4,7 @@ title: "OAuth Proxy for Google: the piece behind Drive backups on Brave and Viva
 description: "OAuth Proxy for Google, the small Cloudflare Worker that keeps Drive backups connected on Brave and Vivaldi, is now a Marvellous Codeworks project: AGPL-3.0, version 1.0.0, with its own documentation and page."
 date: 2026-11-05T22:00:00+01:00
 authors: [gioxx]
-tags: [announcement, tms, tms-oauth-proxy]
+tags: [announcement, tms, oauth-proxy-for-google]
 ---
 
 The small Cloudflare Worker that keeps [TMS Drive backups connected on Brave and Vivaldi](/blog/tms903-drive-pkce-refresh-token) now has a name, a license and a home of its own. It's called **OAuth Proxy for Google**, it's at version 1.0.0, and you can use it for your own browser extension.

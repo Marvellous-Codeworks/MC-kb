@@ -3,7 +3,7 @@ sidebar_position: 2
 title: "Self-hosting"
 description: Deploy your own OAuth Proxy for Google on Cloudflare Workers - OAuth client, configuration, secret and extension changes.
 tags:
-  - tms-oauth-proxy
+  - OAuth Proxy for Google
   - self-hosting
   - Cloudflare Workers
 ---
@@ -59,6 +59,14 @@ npm run dev
 If the client secret is rotated in Google Cloud Console, update it with `wrangler secret put GOOGLE_CLIENT_SECRET` and redeploy. No extension release is needed, since the secret never ships in the package.
 
 If `GOOGLE_CLIENT_ID` or `ALLOWED_ORIGIN` change, for example after publishing the extension under a different key, update `wrangler.toml`. They are picked up on the next deploy.
+
+## Logs and monitoring
+
+`wrangler.toml` turns off Workers Logs and traces, because the Worker handles tokens and needs neither. Change it there, not in the Cloudflare dashboard: the next deploy applies the file.
+
+[`health-check.yml`](https://github.com/Marvellous-Codeworks/tms-oauth-proxy/blob/main/.github/workflows/health-check.yml) sends a fake refresh token through the official instance every hour. Google answers `invalid_grant` only after accepting the OAuth client, so that answer proves that the Worker, the origin check, the client secret and Google's token endpoint all work. Any other answer fails the workflow, and GitHub sends a notification.
+
+To use it on your fork, change `WORKER_URL`, `ORIGIN` and the repository check, then enable the workflow: GitHub disables scheduled workflows on forks.
 
 ## Your own obligations
 
