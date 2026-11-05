@@ -1,7 +1,7 @@
 ---
 sidebar_position: 3
 title: "FAQ"
-description: Frequently Asked Questions about OAuth Proxy.
+description: Frequently Asked Questions about OAuth Proxy for Google.
 tags:
   - FAQ
   - tms-oauth-proxy
@@ -11,7 +11,7 @@ tags:
 
 ### Do I need to install or configure anything to use TMS?
 
-No. OAuth Proxy is a server-side component that TMS uses on its own when needed, and there's nothing to set up.
+No. OAuth Proxy for Google is a server-side component that TMS uses on its own when needed, and there's nothing to set up.
 
 ### Does TMS always use it?
 

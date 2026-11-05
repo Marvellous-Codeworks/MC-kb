@@ -1,7 +1,7 @@
 ---
 sidebar_position: 1
 title: "Overview"
-description: What OAuth Proxy is, why it exists, what passes through it and its security model.
+description: What OAuth Proxy for Google is, why it exists, what passes through it and its security model.
 tags:
   - tms-oauth-proxy
   - OAuth
@@ -10,7 +10,7 @@ tags:
 
 # Overview
 
-OAuth Proxy ([`tms-oauth-proxy`](https://github.com/Marvellous-Codeworks/tms-oauth-proxy) on GitHub) is a tiny Cloudflare Worker that brokers Google OAuth token exchanges. It lets a browser extension use an `authorization_code` + PKCE flow, with a long-lived refresh token, without shipping its OAuth client secret inside the extension package.
+OAuth Proxy for Google ([`tms-oauth-proxy`](https://github.com/Marvellous-Codeworks/tms-oauth-proxy) on GitHub) is a tiny Cloudflare Worker that brokers Google OAuth token exchanges. It lets a browser extension use an `authorization_code` + PKCE flow, with a long-lived refresh token, without shipping its OAuth client secret inside the extension package.
 
 It was built for the [Google Drive backup](/docs/TMS/pages/backup-sync#connecting-on-brave-or-vivaldi) of The Marvellous Suspender on Brave and Vivaldi, but the code is generic: nothing in it is TMS-specific beyond its configuration.
 
@@ -103,4 +103,4 @@ A single JavaScript module (`worker/index.js`) with no runtime dependencies, dep
 
 ## License
 
-OAuth Proxy is released under the [AGPL-3.0](https://github.com/Marvellous-Codeworks/tms-oauth-proxy/blob/main/LICENSE). Issues and pull requests are welcome on [GitHub](https://github.com/Marvellous-Codeworks/tms-oauth-proxy).
+OAuth Proxy for Google is released under the [AGPL-3.0](https://github.com/Marvellous-Codeworks/tms-oauth-proxy/blob/main/LICENSE). Issues and pull requests are welcome on [GitHub](https://github.com/Marvellous-Codeworks/tms-oauth-proxy).

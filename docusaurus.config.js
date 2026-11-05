@@ -159,7 +159,7 @@ const config = {
                 activeBaseRegex: '^/docs/logdrop/',
               },
               {
-                label: 'OAuth Proxy',
+                label: 'OAuth Proxy for Google',
                 to: '/docs/tms-oauth-proxy/overview',
                 activeBaseRegex: '^/docs/tms-oauth-proxy/',
               },
@@ -324,10 +324,10 @@ const config = {
             ],
           },
           {
-            title: 'OAuth Proxy',
+            title: 'OAuth Proxy for Google',
             items: [
               {
-                label: 'About OAuth Proxy',
+                label: 'About OAuth Proxy for Google',
                 href: 'https://www.marvellouscode.works/tms-oauth-proxy',
               },
               {

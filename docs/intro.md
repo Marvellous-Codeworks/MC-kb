@@ -57,7 +57,7 @@ import Link from '@docusaurus/Link';
   </div>
   <div className="col col--6 margin-bottom--md">
     <div className="card">
-      <div className="card__header"><h3>OAuth Proxy</h3></div>
+      <div className="card__header"><h3>OAuth Proxy for Google</h3></div>
       <div className="card__body"><p>A tiny Cloudflare Worker that keeps an extension's OAuth client secret out of its package.</p></div>
       <div className="card__footer" style={{display: 'flex', flexWrap: 'wrap', gap: '0.5rem'}}>
         <Link className="button button--primary button--sm" to="/docs/tms-oauth-proxy/overview">Documentation</Link>
@@ -75,7 +75,7 @@ import Link from '@docusaurus/Link';
 
 Even today, despite its best efforts and numerous targeted improvements, Google Chrome is still unable to make efficient use of a PC’s RAM when multiple tabs are open at the same time. The Marvellous Suspender (TMS) and The Great-_er_ Tab Discarder (TGD) address this very issue, attempting to __patch things up__ and thus curb the voracious appetite of Google’s browser.
 
-TMS and TGD remain the two flagship projects, but Marvellous Codeworks has grown beyond them: **[logdrop](https://logdrop.marvellouscode.works)**, a self-hosted, PrivateBin-style drop-off for sharing diagnostic reports and other plain text privately, is one such tool, built to support TMS's own diagnostics but usable on its own (see the [logdrop documentation](/docs/logdrop/overview)). **[OAuth Proxy](https://github.com/Marvellous-Codeworks/tms-oauth-proxy)**, a small Cloudflare Worker that keeps an OAuth client secret out of a browser extension's package, is another: it powers TMS's Google Drive backup on Brave and Vivaldi, and can be forked for any extension with the same problem (see the [OAuth Proxy documentation](/docs/tms-oauth-proxy/overview)).
+TMS and TGD remain the two flagship projects, but Marvellous Codeworks has grown beyond them: **[logdrop](https://logdrop.marvellouscode.works)**, a self-hosted, PrivateBin-style drop-off for sharing diagnostic reports and other plain text privately, is one such tool, built to support TMS's own diagnostics but usable on its own (see the [logdrop documentation](/docs/logdrop/overview)). **[OAuth Proxy for Google](https://github.com/Marvellous-Codeworks/tms-oauth-proxy)**, a small Cloudflare Worker that keeps an OAuth client secret out of a browser extension's package, is another: it powers TMS's Google Drive backup on Brave and Vivaldi, and can be forked for any extension with the same problem (see the [OAuth Proxy for Google documentation](/docs/tms-oauth-proxy/overview)).
 
 As the driving forces behind these projects, [Gioxx](/blog/authors/gioxx) and [Rob](/blog/authors/rkodey) work behind the scenes to keep them moving forward, relying on the cooperation and trust of the users.
 
@@ -87,7 +87,7 @@ All our projects are open to code contributions, including feature requests, bug
 ## License 🤝
 
 Unless otherwise specified, we have adopted (inherited, and are therefore required to maintain) the **GNU General Public License v2.0**.  
-This applies to both The Marvellous Suspender and The Great-_er_ Tab Discarder. The license is also available in both repositories ([TGD](https://github.com/rkodey/the-great-er-discarder-er/blob/main/LICENSE), [TMS](https://github.com/gioxx/MarvellousSuspender/blob/master/LICENSE)). Other tools may use a different license, check the project's own repository, e.g. [logdrop](https://github.com/Marvellous-Codeworks/logdrop) and [OAuth Proxy](https://github.com/Marvellous-Codeworks/tms-oauth-proxy) are AGPL-3.0.
+This applies to both The Marvellous Suspender and The Great-_er_ Tab Discarder. The license is also available in both repositories ([TGD](https://github.com/rkodey/the-great-er-discarder-er/blob/main/LICENSE), [TMS](https://github.com/gioxx/MarvellousSuspender/blob/master/LICENSE)). Other tools may use a different license, check the project's own repository, e.g. [logdrop](https://github.com/Marvellous-Codeworks/logdrop) and [OAuth Proxy for Google](https://github.com/Marvellous-Codeworks/tms-oauth-proxy) are AGPL-3.0.
 
 | Permissions    | Limitations | Conditions |
 | -------------- | ----------- | ---------- |
@@ -98,7 +98,7 @@ This applies to both The Marvellous Suspender and The Great-_er_ Tab Discarder. 
 
 ### This documentation
 
-This knowledge base is licensed separately from the projects it describes. The documentation (text and screenshots) is licensed under [CC BY 4.0](https://creativecommons.org/licenses/by/4.0/): you can reuse and adapt it, also commercially, as long as you credit [kb.marvellouscode.works](https://kb.marvellouscode.works). The code of this site is released under the [MIT license](https://github.com/Marvellous-Codeworks/MC-kb/blob/main/LICENSE). Code excerpts taken from a project's source keep that project's license (GPL-2.0 for TMS and TGD, AGPL-3.0 for logdrop and OAuth Proxy). The Marvellous Codeworks, TMS, TGD, logdrop and OAuth Proxy names and logos are not covered by either license: please do not reuse them.
+This knowledge base is licensed separately from the projects it describes. The documentation (text and screenshots) is licensed under [CC BY 4.0](https://creativecommons.org/licenses/by/4.0/): you can reuse and adapt it, also commercially, as long as you credit [kb.marvellouscode.works](https://kb.marvellouscode.works). The code of this site is released under the [MIT license](https://github.com/Marvellous-Codeworks/MC-kb/blob/main/LICENSE). Code excerpts taken from a project's source keep that project's license (GPL-2.0 for TMS and TGD, AGPL-3.0 for logdrop and OAuth Proxy for Google). The Marvellous Codeworks, TMS, TGD, logdrop and OAuth Proxy for Google names and logos are not covered by either license: please do not reuse them.
 
 ## Something missing? 🕵️‍♀️
 
