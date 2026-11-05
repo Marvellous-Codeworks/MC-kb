@@ -55,7 +55,7 @@ Read this part carefully if you are evaluating the trust involved: the Worker is
 | Google Drive files and backups | No |
 | Your Google password | No |
 
-The Worker has no storage attached and its code doesn't log request or response bodies, so these values exist only in memory for the duration of the request. Cloudflare's own logging can record request metadata, such as timestamps, status codes and IP or location, but not the payload.
+The Worker has no storage attached and its code doesn't log request or response bodies, so these values exist only in memory for the duration of the request. Workers Logs and traces are turned off in `wrangler.toml`. Cloudflare can still process request metadata to run its network, such as timestamps, status codes and IP or location, but not the payload.
 
 ---
 

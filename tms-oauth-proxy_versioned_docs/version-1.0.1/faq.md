@@ -23,7 +23,7 @@ No. Backups travel directly between your browser and Google. The Worker only han
 
 ### Are my tokens stored on the server?
 
-No. The Worker has no storage attached and doesn't log request or response bodies. TMS keeps the refresh token in the browser's local extension storage.
+No. The Worker has no storage attached, doesn't log request or response bodies, and has Workers Logs and traces turned off. TMS keeps the refresh token in the browser's local extension storage.
 
 ### What happens to Drive backups if the Worker is unreachable?
 
